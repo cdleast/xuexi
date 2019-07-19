@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// Father.prototype.lastName = "Deng";
+		// function Father(){}
+		// function Son(){}
+		// // 封装一下
+		// function inherit(Target,Origin){
+		// 	Target.prototype = Origin.prototype;
+		// }
+		// inherit(Son,Father);
+		// var son = new Son();
+
+		Father.prototype.lastName = "Deng";
+		function Father(){}
+		function Son(){}
+
+		function inherit(Target,Origin){
+			function F(){};
+			F.prototype = Origin.prototype;
+			Target.prototype = new F();
+			// 把son的constuctor归位，让son访问的constuctor就是它自己
+			Target.prototype.constuctor = Target;
+			// 下面这行可有可无,如果有一天你想知道它继承至谁，就调用这个方法
+			Target.prototype.uber = Origin.prototype;
+		}
+		
+		inherit(Son,Father);
+		var son = new Son();
+		var father = new Father();
+		// 现在son和father都能访问到lastName
+		// 现在给Son原型上加一个属性
+		Son.prototype.sex = "male";
+		// 此时，son.sex可以获取到值，而father获取不到
+		console.log(son.sex);
+		console.log(father.sex);
+
+
+		// 另一种方法，比较高大上的
+		// function inherit(Target,Origin){
+		// 	function F(){};
+		// 	F.prototype = Origin.prototype;
+		// 	Target.prototype = new F();
+		// 	// 把son的constuctor归位，让son访问的constuctor就是它自己
+		// 	Target.prototype.constuctor = Target;
+		// 	// 下面这行可有可无,如果有一天你想知道它继承至谁，就调用这个方法
+		// 	Target.prototype.uber = Origin.prototype;
+		// }
+
+		// var inherit = (function(){
+		// 	var F = function(){};
+		// 	return function(Target,Origin){
+		// 		F.prototype = Origin.prototype;
+		// 		Target.prototype = new F();
+		// 		// 把son的constuctor归位，让son访问的constuctor就是它自己
+		// 		Target.prototype.constuctor = Target;
+		// 		// 下面这行可有可无,如果有一天你想知道它继承至谁，就调用这个方法
+		// 		Target.prototype.uber = Origin.prototype;
+		// 	}
+		// }());
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

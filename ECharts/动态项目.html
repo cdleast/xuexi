@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 960px;
+            height: 720px;
+            border: 1px solid #ccc;
+            margin: auto;
+        }
+    </style>
+    <!-- 1.引入 echarts.js -->
+    <script src="echarts.min.js"></script>
+    <!-- 引入echarts主题 -->
+    <script src="dark.js"></script>
+</head>
+
+<body>
+    <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+    <div class="container" id="main" style="width: 1200px;height:600px;margin: 0 auto;"></div>
+
+    <script>
+        // 请求数据,重构数据,生成图表
+        getData(function () {
+            // 重构数据
+            let legends = [];
+            let datas = [];
+            for (let item of res) {
+                legends.push(item.name);
+                datas.push({ name: item.name, value: item.total });
+            }
+
+            // 生成图表
+            drawPieCharts(legends, datas);
+        })
+
+        // 通过ajax读取服务端的数据
+        function getData(cb) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '', true);
+            xhr.onreadystatechange = function (e) {
+                if (this.readyState == 4 && this.status == 200) {
+                    let res = JSON.parse(this.responseText);
+
+                    // 回调
+                    cb(res);
+                }
+            }
+            xhr.send(null);
+        }
+
+        // 绘制图表
+        function drawPieCharts(legends, datas) {
+            var container = document.getElementById('main');
+            // 2.基于准备好的dom，初始化echarts实例
+            // container(dom容器),dark(主题)
+            var myChart = echarts.init(container, 'dark');
+
+            // 3.指定图表的配置项和数据
+            var option = {
+                // 标题组件
+                title: {
+                    text: '上半年销售情况图', // 主标题文本
+                    subtext: '饼形图基本使用', // 副标题文本
+                    x: 'center', // 标题位置
+                },
+                // 提示框组件
+                tooltip: {
+                    // 触发类型
+                    trigger: 'item',
+                    // 悬停时显示的格式
+                    formatter: "{a} <br/>{b} : {c}万元({d}%)"
+                },
+                // 图例组件
+                legend: {
+                    orient: 'vertical', // 图例的显示方式,垂直
+                    left: 'left', // 图例位置
+                    // 图例的数据数组-和数据项series里name的要一致
+                    data: legends,
+                },
+                // 数据源相关组件
+                series: [
+                    {
+                        name: '销售额', // 悬停时提示名
+                        type: 'pie', // 类型
+                        radius: '55%', // 饼形图的大小
+                        center: ['50%', '60%'], // 饼形图的位置
+                        data: datas,
+                        itemStyle: {
+                            emphasis: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            };
+
+            // 4.使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+        }
+
+
+    </script>
+</body>
+
+</html>

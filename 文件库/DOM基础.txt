@@ -1,0 +1,93 @@
+一、JS三大核心内容
+    01->DOM   document object model
+
+    02->BOM   browser object model
+    
+    03->ECMAScript 核心
+
+二、DOM相关
+  （1）、DOM操作
+      1.DOM查询操作
+        01->以类名进行查询
+          getElemensByClassName()
+        02->以id名进行查询
+          getElementById()
+        03->以标签名进行查询 d
+          getElementsByTagName()
+        04->HTML5新增DOM查询方法
+          querySelector()
+          querySelectorAll()
+        
+      2.DOM元素查询时需注意的事项
+          01->当个查询方法获取到的是多个元素时，获取到的对象为维数组，而非正整数组
+          02->通过类名或者标签名等同时可以获取多个元素的方法时，若只需获取第一个元素时，需加上索引
+
+      3.修改和获取DOM节点内容
+        01->innerHTML 获取和修改节点内部的文本和标签
+        02->outerHTML 获取节点本身
+        03->innerText 获取节点内的文本节点
+        04->outerText 获取节点内的文本节点,和innerText区别在于赋值时会修改标签本身
+
+      4.创建DOM节点
+        01->document.createElement      创建元素节点
+        02->document.createTextNode     创建文本节点
+        03->document.createAttribute    创建属性节点
+
+      5.节点指针
+        01->firstChild      获取父节点的首个子节点
+        02->lastChild       获取父节点的最后一个子节点
+        03->childNodes      获取父节点的所有子节点
+        04->previousSibling 获取已知节点的前一个兄弟节点
+        05->nextSibling     获取已知节点的后一个兄弟节点
+        05->parentNode      获取已知节点的父节点 
+
+      6.节点的添加、替换、复制和删除操作
+        01->添加节点
+          appendChild(childNode)       末尾添加新的子节点
+          insertBefore(newNode,existNode)      节点前添加子节点
+
+        02->替换替换节点
+          replaceChild(newNode,existNode) 
+        
+        03->复制节点
+          cloneNode(true/false)
+          true    复制当前节点及其所有子节点
+          false   仅复制当前节点   
+
+        04->删除节点
+          removeChild(需要删除的节点)  
+
+      7.DOM属性操作
+        01->getAttribute(arrtName)            获取属性
+        02->setAttribute(attrName,attrValue)  设置属性
+        03->removeAttribute(arrtName)         删除属性
+
+      8.DOM节点的信息
+        01->nodeType    节点类型的常数值
+          元素节点            　　Node.ELEMENT_NODE(1)
+          属性节点            　　Node.ATTRIBUTE_NODE(2)
+          文本节点            　　Node.TEXT_NODE(3)
+          CDATA节点             Node.CDATA_SECTION_NODE(4)
+          实体引用名称节点    　　 Node.ENTRY_REFERENCE_NODE(5)
+          实体名称节点        　　Node.ENTITY_NODE(6)
+          处理指令节点        　　Node.PROCESSING_INSTRUCTION_NODE(7)
+          注释节点            　 Node.COMMENT_NODE(8)
+          文档节点            　 Node.DOCUMENT_NODE(9)
+          文档类型节点        　　Node.DOCUMENT_TYPE_NODE(10)
+          文档片段节点        　　Node.DOCUMENT_FRAGMENT_NODE(11)
+          DTD声明节点            Node.NOTATION_NODE(12)
+        02->nodeName    节点的名称
+        03->nodeValue   当前节点的值，格式为字符串
+
+      9.获取DOM元素的css样式
+        01->获取行间样式
+          dom.style   通过元素的style属性直接获取
+
+        02->获取非行间样式
+          dom.currentStyle.width/height/...             兼容早期IE
+          getComputedStyle(dom,null).width/height/...   兼容非IE
+
+           
+        
+      
+    

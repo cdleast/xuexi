@@ -1,0 +1,38 @@
+// 定义一个变量18像素
+$w: 180px;
+$main-color: #09c;
+$side: top;
+
+.box {
+  width: $w;
+  background-color: $main-color;
+  border-#{$side}: 1px solid #ccc;
+}
+
+.h {
+  $w: 10px; // 定义了一个局部变量$w
+  // sass 支持变量运算。css的value值可以进行计算表达式然后赋值css属性。
+  font-size: 2 * $w;  // 20px
+  height: 4 + $w;     // 14px
+  color: $main-color;
+
+  .m {
+    width: $w; // 10px;
+    .n {
+      height: 2 * $w;
+    }
+  }
+
+  // &符号可以代替父元素。
+  &:hover {
+    background-color: red;
+  }
+  
+  &::before {
+    content: '';
+    display: block;
+    width: $w;
+    color: $main-color;
+  }
+}
+

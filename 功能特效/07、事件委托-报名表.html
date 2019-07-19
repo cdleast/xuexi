@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>事件委托-报名表</title>
+    <script src="./jquery.min.js"></script>
+    <style type="text/css">
+    h1 {
+        color: green;
+        text-align: center;
+        line-height: 100px;
+    }
+
+    .userTab {
+        width: 80%;
+        border-bottom: 1px solid #333;
+        margin: 10px auto;
+    }
+
+    .userTab td {
+        border-top: 1px solid #333;
+        height: 50px;
+    }
+
+    /*.userTab {width: 100%;border-bottom: 1px solid #333;}*/
+    .box {
+        width: 80%;
+        margin: 120px auto;
+        border: 1px solid green;
+        padding: 50px;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>报名表</h1>
+    <table class="userTab" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>电话</td>
+            <td>操作</td>
+        </tr>
+        <tr>
+            <td>Jack</td>
+            <td>18</td>
+            <td>1234567</td>
+            <td><button class="del">删除</button></td>
+        </tr>
+        <tr>
+            <td>Jack</td>
+            <td>18</td>
+            <td>1234567</td>
+            <td><button class="del">删除</button></td>
+        </tr>
+        <tr>
+            <td>Jack</td>
+            <td>18</td>
+            <td>1234567</td>
+            <td><button class="del">删除</button></td>
+        </tr>
+    </table>
+    <div class="box">
+        姓名：<input type="text" class="name">
+        年龄: <input type="number" class="age">
+        电话：<input type="number" class="tel">
+        <button class="addUser">提交</button>
+    </div>
+    <script type="text/javascript">
+    // 添加用户的事件	
+    $('.addUser').click(function() {
+        // 组装 要添加 的 deom 结构
+        var userHtml = '<tr><td>' + $('.name').val() + '</td><td>' + $('.age').val() + '</td><td>' + $('.tel').val() + '</td><td><button class="del">删除</button></td></tr>';
+        $('.userTab').append(userHtml);
+    });
+
+    /*
+    	// 没有做事件委托 是不能够删除 新添加 的用户的
+    	// 删除节点操作
+    	$('.del').on('click',function(){
+    		// $(this).parent().parent().remove();
+    	});
+    */
+
+    // 事件委托
+    $(document).on('click', '.del', function() {
+        $(this).parent().parent().remove();
+    });
+    </script>
+</body>
+
+</html>

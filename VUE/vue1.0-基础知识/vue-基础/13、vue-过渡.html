@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue-过渡</title>
+    <script src="./vue.min.js"></script>
+    <style>
+        /* 默认的样式 */
+        .str{
+            font-size: 100px;
+        }
+        /* 进入前的状态 */
+        .fade-enter{
+            opacity: 0;
+            font-size: 20px;
+        }
+        /* 进入后的状态 */
+        .fade-enter-active{
+            transition: all 3s;
+        }
+        /* 离开前的状态 */
+        .fade-leave-to {
+            opacity: 0;
+            font-size: 20px;
+        }
+        /* 离开后的状态 */
+        .fade-leave-active {
+            transition: all 3s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <button v-on:click="show = !show">
+            Toggle
+        </button>
+        <!-- 过渡的容器 -->
+        <transition name="fade">
+            <p v-if="show" class="str">hello</p>
+        </transition>
+    </div>
+
+    <script>
+        new Vue({
+            // 选择容器
+            el: '#container',
+            // 数据
+            data: {
+                show:true,
+            }
+        })
+    </script>
+</body>
+
+</html>

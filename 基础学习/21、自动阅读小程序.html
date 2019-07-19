@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自动阅读小程序</title>
+	<style>
+		.box1{
+			width: 100px;
+			height: 100px;
+			background: #000;
+			color: #fff;
+			font-size: 40px;
+			text-align: center;
+			line-height: 100px;
+			position: fixed;
+			bottom: 100px;
+			right: 50px;
+			border-radius: 50%;
+		}
+		.box2{
+			width: 100px;
+			height: 100px;
+			background: #000;
+			color: #fff;
+			font-size: 40px;
+			text-align: center;
+			line-height: 100px;
+			position: fixed;
+			bottom: 200px;
+			right: 50px;
+			border-radius: 50%;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	星空，像是儿时的记忆；像是梦乡的远方；像是诗意的未来。谈起星空，总是有种温暖而存，当自己一无所有时，自己却可以依然欣喜，宇宙之大，我们还可以拥有梦想。
+	文字不够！！！！！！！
+	<div class="box1">start</div>
+	<div class="box2">stop</div>
+	<script>
+		var start = document.getElementsByTagName("div")[0];
+		var stop = document.getElementsByTagName("div")[1];
+		var timer = 0;
+		// 解决多次点击开始之后无法关闭的问题，给上个开关，上个锁
+		var key = true;
+		start.onclick = function (){
+			if (key) {
+				timer = setInterval(function (){
+					window.scrollBy(0,10);
+				},100);
+				key = false;
+			}
+		}
+		stop.onclick = function (){
+			clearInterval(timer);
+			key = true;
+		}
+	</script>
+</body>
+</html>

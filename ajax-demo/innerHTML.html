@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>使用innerHTML设置responseText</title>
+    <meta charset="UTF-8">
+
+    <script type="text/javascript">
+    var xmlHttpObject;
+
+    function createXMLHttpRequest() {
+        if (window.ActiveXObject) {
+            xmlHttpObject = new ActiveXObject("Microsoft.XMLHTTP");
+        } else if (window.XMLHttpRequest) {
+            xmlHttpObject = new XMLHttpRequest();
+        }
+    }
+
+    function launchRequest() {
+        createXMLHttpRequest();
+        xmlHttpObject.onreadystatechange = handleStateChange;
+        xmlHttpObject.open("GET", "./innerHTML.xml", true);
+        xmlHttpObject.send(null);
+    }
+
+    function handleStateChange() {
+        if (xmlHttpObject.readyState == 4) {
+            if (xmlHttpObject.status == 200) {
+                document.getElementById("results").innerHTML = xmlHttpObject.responseText;
+            }
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <form action="#">
+        <input type="button" value="搜索今天的会议报告" onclick="launchRequest();" />
+    </form>
+    <div id="results"></div>
+</body>
+
+</html>

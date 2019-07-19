@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    #box {
+        width: 400px;
+        height: 300px;
+        border: 1px solid red;
+    }
+    </style>
+</head>
+
+<body>
+    <button onclick="request()">request</button>
+    <div id="box"></div>x
+    <script type="text/javascript">
+    // 把接收到的数据显示在容器里
+    function showbox(data) {
+        document.getElementById('box').innerHTML = data;
+    }
+
+    function alertTxt(data) {
+        alert(data);
+    }
+
+    // 点击事件
+    function request() {
+        // 创建 script 节点
+        var scriptNode = document.createElement('script');
+
+        // 给 script 写 src 属性	
+        scriptNode.src = 'http://localhost/H5_37/jsonP/04.php?callback=showbox';
+
+        // 把创建的节点放到文档里
+        document.body.appendChild(scriptNode);
+
+    }
+    </script>
+</body>
+
+</html>

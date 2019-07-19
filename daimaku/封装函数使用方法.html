@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封装函数使用方法</title>
+	<script src="tools.js"></script>
+</head>
+<body>
+	<div class="wrapper" style="width:300px;height:300px;background:red;">
+		<div class="content" style="width:200px;height:200px;background:green;">
+			<div class="box" style="width:100px;height:100px;background:orange;"></div>
+		</div>
+	</div>
+	<script>
+		var wrapper = document.getElementsByClassName('wrapper')[0];
+		var content = document.getElementsByClassName('content')[0];
+		var box = document.getElementsByClassName('box')[0];
+
+		// 1、封装函数方法，自动计算滚动条距离
+		console.log(getScrollOffset());
+
+		// 2、.封装函数，自动计算可视窗口尺寸
+		console.log(getViewportOffset());
+		
+		// 3、封装函数，获取元素样式
+		console.log(getStyle(box,"width"));
+
+		// 4、封装兼容性的绑定事件处理函数
+		addEvent(content,'click', function(){
+			console.log(234);
+		});
+
+		// 5、封装取消冒泡函数
+		wrapper.addEventListener('click',function(){
+			console.log('wrapperBubble');
+		},false);
+		content.addEventListener('click',function(){
+			console.log('contentBubble');
+		},false);
+		box.addEventListener('click',function(){
+			console.log('boxBubble');
+		},false);
+		box.addEventListener('click',function(){
+			console.log('box');
+		},true);
+
+		box.addEventListener('click',function(e){
+			this.style.background = '#000';
+			// e.stopPropagation();	//	取消冒泡，禁止事件上传到content,wrapper
+			stopBubble(e);
+		},false);
+
+		// 6、封装阻止默认事件函数
+		// 右键出菜单事件
+		content.oncontextmenu = function(){
+			console.log(123);
+			// return false;
+			cancelHandler(event);
+		}
+
+		// 7、封装一个函数，当需要异步加载script标签时使用
+		loadScript('tools.js',"test");
+
+
+		// 8、封装一个函数在个位数字前面加0
+		console.log(getTwo(8));
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

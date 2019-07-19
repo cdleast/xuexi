@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        padding-top: 75px;
+    }
+
+    .container {
+        position: relative;
+        width: 590px;
+        height: 470px;
+        margin: 0 auto;
+        font-size: 0;
+        overflow: hidden;
+    }
+
+    .swiper {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 470px;
+    }
+
+    .next,
+    .prev {
+        position: absolute;
+        top: 50%;
+        width: 30px;
+        height: 70px;
+        line-height: 70px;
+        background-color: rgba(0, 0, 0, .3);
+        color: #fff;
+        z-index: 9999;
+        font-size: 20px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .prev {
+        left: 0;
+    }
+
+    .next {
+        right: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <span class="next">&gt;</span>
+        <span class="prev">&lt;</span>
+        <div class="swiper">
+            <img src="images/1.jpg" alt="">
+            <img src="images/2.jpg" alt="">
+            <img src="images/3.jpg" alt="">
+            <img src="images/4.jpg" alt="">
+        </div>
+    </div>
+    <script>
+    window.onload = function() {
+        var container = document.querySelector(".container")
+        var swiper = document.querySelector(".swiper")
+        var next = document.querySelector(".next")
+        var prev = document.querySelector(".prev")
+        var pics = swiper.getElementsByTagName("img")
+
+
+        //设定swiper容器宽度
+        swiper.style.width = pics.length * 590 + "px"
+
+        //当前移动到第几张图片
+        var currentIndex = 0
+
+        var timer = null
+
+        autoPlay()
+
+        //鼠标移入，停止定时器
+        container.onmouseover = function() {
+            clearInterval(timer)
+        }
+
+        //鼠标移出，启动定时器
+        container.onmouseout = function() {
+            autoPlay()
+        }
+
+        //启动定时器，自动轮播函数
+        function autoPlay() {
+            timer = setInterval(function() {
+                //如果currentIndex的值大于图片数量的索引值
+                if (currentIndex > pics.length - 1) {
+                    currentIndex = 1
+                    swiper.style.left = 0
+                }
+                // swiper.style.left = -currentIndex * 590 + "px"
+                move(swiper, -currentIndex * 590)
+
+                currentIndex++
+                console.log(currentIndex)
+            }, 1500)
+        }
+        //点击下一张
+        next.onclick = function() {
+            currentIndex++
+            //判断currentIndex是否pics.length-1
+            if (currentIndex > pics.length - 1) {
+                currentIndex = 1
+                swiper.style.left = 0
+            }
+            move(swiper, -currentIndex * 590)
+        }
+        //点击上一张
+        prev.onclick = function() {
+            currentIndex--
+            if (currentIndex < 0) {
+                currentIndex = pics.length - 2 //第一和最后一张时同一张图片
+                swiper.style.left = -(pics.length - 1) * 590 + "px"
+            }
+            move(swiper, -currentIndex * 590)
+        }
+
+        //去除span标签双击选中内容效果
+        prev.onselectstart = next.onselectstart = function() {
+            return false
+        }
+
+
+
+        //获取非行间样式的函数
+        function getStyle(ele, attr) { //block "left"
+            if (ele.currentStyle) {
+                return ele.currentStyle[attr]
+            } else {
+                return getComputedStyle(ele, null)[attr]
+            }
+        }
+
+        //定义一个使swiper运动的函数
+        var timer2 = null
+
+        function move(ele, target) {
+            clearInterval(timer2)
+            timer2 = setInterval(function() {
+                //获取block当前left位置
+                var left = parseInt(getStyle(ele, "left"))
+                var speed = Math.floor((target - left) / 6)
+                left += speed
+                if (left === target) {
+                    ele.style.left = target
+                    clearInterval(timer2)
+                } else {
+                    ele.style.left = left + "px"
+                }
+            }, 30)
+        }
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul,
+    ol {
+        list-style: none;
+    }
+
+    .itemNav {
+        width: 60px;
+        position: fixed;
+        left: 0px;
+        top: 50px;
+        display: none;
+    }
+
+    .itemNav li {
+        width: 50px;
+        height: 50px;
+        font-size: 30px;
+        text-align: center;
+        background: #333;
+        color: #fff;
+        line-height: 50px;
+        margin: 5px;
+        cursor: pointer;
+    }
+
+    .itemNav li.mo {
+        color: red;
+    }
+
+    .container {
+        width: 1200px;
+        margin: 0px auto;
+        font-size: 300px;
+    }
+
+    .item {
+        width: 100%;
+        height: 700px;
+    }
+
+    .item1 {
+        background: red;
+    }
+
+    .item2 {
+        background: pink;
+    }
+
+    .item3 {
+        background: yellow;
+    }
+
+    .item4 {
+        background: green;
+    }
+
+    .item5 {
+        background: #333;
+    }
+
+    .item6 {
+        background: red;
+    }
+
+    .item7 {
+        background: pink;
+    }
+
+    .item8 {
+        background: yellow;
+    }
+    </style>
+</head>
+
+<body>
+    <ul class="itemNav">
+        <li>F1</li>
+        <li>F2</li>
+        <li>F3</li>
+        <li>F4</li>
+        <li>F5</li>
+        <li>F6</li>
+        <li>F7</li>
+        <li>F8</li>
+    </ul>
+    <div class="container">
+        <div class="item item1">F1</div>
+        <div class="item item2">F2</div>
+        <div class="item item3">F3</div>
+        <div class="item item4">F4</div>
+        <div class="item item5">F5</div>
+        <div class="item item6">F6</div>
+        <div class="item item7">F7</div>
+        <div class="item item8">F8</div>
+    </div>
+    <script type="text/javascript">
+    // 申明一个数组来储存所有楼层高度的数据
+    var itemTops = [];
+    // 获取所有楼层的对象 遍历
+    $('.container .item').each(function() {
+        // 把每一层的数据追加到数组
+        itemTops.push($(this).offset().top);
+    })
+
+    // 给楼层的导航按钮绑定事件	
+    $('.itemNav li').on('click', function() {
+        // 取消 监听滚动条事件
+        $(window).off('scroll');
+
+        // 当前需要显示楼层容器的索引号
+        var itemIndex = $(this).index();
+        // 给楼层的导航添加样式
+        $(this).addClass('mo').siblings('li').removeClass('mo');
+        // 获取当前楼层 距离顶部的高度
+        var itemTop = $('.item').eq(itemIndex).offset().top;
+        // 执行动画， 移动到当前的楼层
+        $('html').animate({ scrollTop: itemTop }, 400, function() {
+            $(window).on('scroll', moveScroll);
+        });
+    });
+
+    // 滚动条事件只能用window，调用函数moveScroll添加滚动事件
+    $(window).on('scroll', moveScroll);
+
+    // 监听滚动条变化
+    function moveScroll() {
+        // 楼层导航 大于 700 显示
+        if ($(this).scrollTop() > 700) {
+            $('.itemNav').show();
+        } else {
+            // $('.itemNav').hide();
+        }    
+        
+        // 滚动条 top 的值
+        var scrollTop = $(this).scrollTop();
+        // 检测当前的滚动条的top值，来确定 楼层按钮导航的索引号
+        var index = 0;
+        for (var i = 0; i < itemTops.length; i++) {
+            // 当前楼层距离顶部的top 值
+            var now = itemTops[i];
+            // 下一个楼层距离顶部的 top 值	
+            var next = itemTops[i + 1];
+            
+            if (scrollTop >= now && scrollTop < next) {
+                index = i;
+            } else if (scrollTop >= itemTops[itemTops.length - 1]) {
+                index = itemTops.length - 1;
+            }
+        }
+        //设置楼层的样式
+        $('.itemNav li').eq(index).addClass('mo').siblings('li').removeClass('mo');
+    }
+    </script>
+    <!--
+		ctrl + 光标 多行操作
+		shift + j  合成一行
+		shift + 光标方向键
+
+		ctrl + shift + p   打开控制面板
+
+
+	-->
+</body>
+
+</html>

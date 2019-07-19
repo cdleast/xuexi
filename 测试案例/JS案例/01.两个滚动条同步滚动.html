@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>两个滚动条同步滚动</title>
+    <style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .clearfix::after {
+        display: block;
+        content: "";
+        clear: both;
+    }
+
+    .container {
+        width: 600px;
+        margin: 50px auto;
+        border: 1px solid red;
+        position: relative;
+        height: 250px;
+    }
+
+    li {
+        list-style: none;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+    }
+
+    .left {
+        width: 600px;
+        overflow: auto;
+        position: absolute;
+        top: 0;
+        height: 100%;
+    }
+
+    .left ul {
+        width: 1000px;
+        height: 50px;
+        background: green;
+    }
+
+    .left ul li {
+        float: left;
+    }
+
+    .left::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .right {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        background: yellow;
+        z-index: 999;
+        overflow: auto;
+        height: 100%;
+        padding-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+    .right::-webkit-scrollbar {
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left clearfix">
+        </div>
+        <div class="right">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>0</li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script src="js/zepto.min.js"></script>
+<script>
+var ul = `<ul>
+                <li>0</li>
+                <li>0</li>
+                <li>0</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+            </ul>`;
+for (var i = 0; i < 10; i++) {
+    var left = $('.left').append(ul);
+}
+
+$(".left").scroll(function() {
+    $(".right").scrollTop($(this).scrollTop()); // 纵向滚动条
+    $(".right").scrollLeft($(this).scrollLeft()); // 横向滚动条
+});
+$(".right").scroll(function() {
+    $(".left").scrollTop($(this).scrollTop());
+    $(".left").scrollLeft($(this).scrollLeft());
+});
+</script>
+
+</html>

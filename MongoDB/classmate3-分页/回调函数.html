@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// 简单回调函数
+		// function test(fun){
+		// 	console.log('111');
+		// }
+		// var abc = function(){
+
+		// }
+		// test(abc);
+
+
+		// fun是形参，用来接收匿名函数
+		function test(fun){
+			fun('9527');
+		}
+		test(function(token){
+			console.log(token);
+		});
+
+
+	</script>
+</body>
+</html>

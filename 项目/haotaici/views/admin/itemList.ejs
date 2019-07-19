@@ -1,0 +1,29 @@
+<% include ./header %>
+<h3 class="page-title">栏目列表</h3>
+<table class="table table-bordered">
+    <tr>
+        <td>栏目名称</td>
+        <td>栏目介绍</td>
+        <td>栏目排序</td>
+        <td>栏目操作</td>
+    </tr>
+    <% for(var i = 0;i<itemdata.length;i++){ %>
+    <tr>
+        <td>
+            <%= itemdata[i].name %>
+        </td>
+        <td>
+            <%= itemdata[i].info %>
+        </td>
+        <td>
+            <%= itemdata[i].order %>
+        </td>
+        <td>
+            <a href="/admin/itemEdit/<%= itemdata[i]._id %>">编辑</a>
+            |
+            <a href="/admin/itemDel/<%= itemdata[i]._id %>" onclick="return confirm('您确定要删除吗?')">删除</a>
+        </td>
+    </tr>
+    <% } %>
+</table>
+<% include ./footer %>

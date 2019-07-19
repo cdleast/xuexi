@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>fullpage案例</title>
+  <link rel="stylesheet" href="./lib/fullPage.js-master/dist/jquery.fullpage.min.css">
+
+  <script src="./lib/jquery-1.12.4.min.js"></script>
+  <script src="./lib/fullPage.js-master/dist/jquery.fullpage.min.js"></script>
+</head>
+
+<body>
+  <div id="fullpage">
+    <div class="section">
+      <h3>第一屏</h3>
+    </div>
+    <div class="section">
+      <h3>第二屏</h3>
+    </div>
+    <div class="section">
+      <div class="slide">1</div>
+      <div class="slide">2</div>
+      <div class="slide">3</div>
+      <div class="slide">4</div>
+    </div>
+    <div class="section">
+      <h3>第四屏</h3>
+    </div>
+  </div>
+  <script>
+    $('#fullpage').fullpage({
+      sectionsColor: ['red', 'blue', 'lightgreen', 'teal'],
+      navigation: true,
+      navigationTooltips: ['1', '2', '3', '4'],
+      navigationPosition: 'right',
+      loopBottom: true,
+      loopTop: true,
+      // 当前屏加载完成后执行的当前方法
+      afterLoad: function(anchorLink, index) {
+        // console.log( anchorLink, index);
+      },
+      // 当前屏离开之前先执行lieave事件，然后在进行离屏动画
+      onLeave: function(index, nextIndex, direction) {
+        console.log(index, nextIndex, direction);
+      }
+    });
+
+    console.log('snih')
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>style相关的操作</title>
+    <script src="./vue.min.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <p style="color: green">我们都是大帅哥!!!</p>
+        <!-- 直接绑定颜色 -->
+        <p :style="{color:'red',background:'yellow'}">我们都是大帅哥!!!</p>
+        
+        <!-- style里使用变量 -->
+		<p :style="style1">我们都是大帅哥!!!</p>
+		<!-- style里加载多个变量 -->
+		<p :style="[style1,style2]">我们都是大帅哥!!!</p>
+    </div>
+
+    <script>
+        new Vue({
+            // 选择容器
+            el: '#container',
+            // 数据
+            data: {
+                // message:'hello Vue',
+				style1:{color:'red'},
+				style2:{background:'green'},
+            }
+            
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    [id] {
+      background-color: #c09;
+    }
+
+    /* 属性选择器 */
+    [temp] {
+      color: red;
+    }
+
+    /* 属性包含选择器 */
+    [href*=javas] {
+      color: lawngreen;
+    }
+    /* 以...开头 */
+    [href^=javas] {
+      color: yellow;
+    }
+    /* 以...结尾 */
+    [temp$=ds99] {
+      color: magenta;
+    }
+
+    a:first-child {
+      font-size: 40px;
+    }
+    a:last-child {
+      font-size: 40px;
+    }
+
+    /* n代表第几个孩子，索引从1开始。 */
+    a:nth-child(2) {
+      background-color: maroon;
+    }
+
+    a:nth-child(4) {
+      background-color: maroon;
+      display: inline-block;
+      border: 1px solid #ccc;
+      font-size: 100px;
+    }
+
+    a:nth-child(3n+1) {
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+  <a temp="mds" href="#">你好1</a>
+  <a  temp="mds99" href="#">你好2</a>
+  <a href="javascript:0">你好3</a>
+  <a href="#" id="id1">你好4</a>
+  <a href="#" id="id1">你好4</a>
+  <a href="#" id="id1">你好4</a>
+  <a href="#" id="id1">你好4</a>
+  <a href="#" id="id1">你好4</a>
+  <a href="#" id="id1">你好4</a>
+  <a href="#" id="id1">你好4</a>
+  <a href="#" id="id1">你好4</a>
+  <a href="#" id="id1">你好4</a>
+  <a href="#" id="id1">你好4</a>
+  <a href="#" id="id1">你好4</a>
+  <a href="#" id="id1">你好4</a>
+  <a href="#" id="id1">你好4</a>
+  <a href="#" id="id1">你好4</a>
+  <a href="#" id="id1">你好4</a>
+  <a href="#" id="id1">你好4</a>
+  <a href="#" id="id1">你好4</a>
+  
+</body>
+</html>

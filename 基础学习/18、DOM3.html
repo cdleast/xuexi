@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>键盘控制方块移动</title>
+</head>
+
+<body>
+    <script>
+    // 创建div
+    var div = document.createElement('div');
+    // 把div加入到body中
+    document.body.appendChild(div);
+    div.style.width = "100px";
+    div.style.height = "100px";
+    div.style.backgroundColor = "red";
+    div.style.position = "absolute";
+    div.style.left = '0';
+    div.style.top = '0';
+
+    document.onkeydown = function(e) {
+        // which 指键盘按下哪个键
+        // 37-40 代表上下左右键
+        switch (e.which) {
+            case 38:
+                div.style.top = parseInt(div.style.top) - 30 + "px";
+                break;
+            case 40:
+                div.style.top = parseInt(div.style.top) + 30 + "px";
+                break;
+            case 37:
+                div.style.left = parseInt(div.style.left) - 30 + "px";
+                break;
+            case 39:
+                div.style.left = parseInt(div.style.left) + 30 + "px";
+                break;
+        }
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>显示和隐藏</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <button id="hide">隐藏</button>
+    <button id="show">显示</button>
+    <button id="toggle">toggle</button>
+    <p>测试段落文档！！！！！！</p>
+</body>
+<script>
+$(function() {
+    // 可以使用 hide() 和 show() 方法来隐藏和显示 HTML 元素：
+    // $(selector).show(speed,callback);
+    // 可选的 speed 参数规定隐藏/显示的速度，可以取以下值："slow"、"fast" 或毫秒。
+    $("#hide").click(function() {
+        $("p").hide(500);
+    });
+
+    $("#show").click(function() {
+        $("p").show(500);
+    });
+
+
+    // 可以使用 toggle() 方法来切换 hide() 和 show() 方法。
+    // 显示被隐藏的元素，并隐藏已显示的元素：
+    $("#toggle").click(function() {
+        $("p").toggle(500);
+    });
+
+})
+</script>
+
+</html>

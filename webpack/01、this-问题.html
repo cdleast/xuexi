@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>this</title>
+</head>
+<body>
+    <script>
+        var name = "jack";
+        function test(){
+            this.name = "allen";
+            this.say = function(){
+                console.log(this.name);
+            }
+        }
+        new test().say();
+        // 以上代码输出什么    allen
+
+
+        var name1 = "haoren";
+        function test1(){
+            console.log(this);
+            console.log(this.name1);    // haoren
+        }
+        test1();
+        // 控制台输出什么  this -> window
+
+
+        (function(){
+            console.log(this);  // this -> window
+        })()
+
+
+        // setInterval(function(){
+        //     console.log(this);  // this -> window
+        // })
+
+        // setTimeout(function(){
+        //     console.log(this)   // this - > window
+        // })
+
+        var name2 = "jack";
+        var obj = {
+            name1:"jack",
+            fun:function(){
+                console.log(this.name1);     // this -> obj
+            }
+        }
+        obj.fun();
+    </script>
+</body>
+</html>

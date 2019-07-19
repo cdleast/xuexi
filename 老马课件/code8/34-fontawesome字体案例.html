@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>fontawesome</title>
+  <link rel="stylesheet" href="./lib/font-awesome-4.7.0/css/font-awesome.css">
+  <style>
+    i {
+      color: red;
+      /* font-size: 40px !important; */
+    }
+
+    @font-face {
+      font-family: 'fontaws';
+      src: url('./lib/font-awesome-4.7.0/fonts/fontawesome-webfont.eot');
+      /* IE9 Compat Modes */
+      src: url('./lib/font-awesome-4.7.0/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      url('./lib/font-awesome-4.7.0/fonts/fontawesome-webfont.woff') format('woff'), /* Modern Browsers */
+      url('./lib/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf') format('truetype'), /* Safari, Android, iOS */
+      url('./lib/font-awesome-4.7.0/fonts/fontawesome-webfont.svg#./lib/font-awesome-4.7.0/fonts/fontawesome-webfont') format('svg');
+      /* Legacy iOS */
+    }
+    .box {
+      font-family: fontaws;
+      color: blue;
+      font-size: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    &#xf012;
+    &#xf011;
+    &#xf047;
+  </div>
+  <hr>
+  <i class="fa fa-id-card"></i>
+  <i class="fa fa-s15 fa-2x"></i>
+  <i class="fa fa-s15 fa-3x"></i>
+  <i class="fa fa-s15 fa-4x"></i>
+  <i class="fa fa-s15 fa-5x fa-spin"></i>
+
+
+  <ul class="fa-ul">
+      <li><i class="fa-li fa fa-check-square"></i>西红柿</li>
+      <li><i class="fa-li fa fa-check-square"></i>黄瓜</li>
+      <li><i class="fa-li fa fa-spinner fa-spin"></i>家乐福</li>
+      <li><i class="fa-li fa fa-square"></i>in lists</li>
+    </ul>
+</body>
+</html>

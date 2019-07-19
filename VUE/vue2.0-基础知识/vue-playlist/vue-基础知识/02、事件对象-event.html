@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue 事件</title>
+	<style>
+		#canvas{
+			width: 600px;
+			height: 300px;
+			line-height: 300px;
+			padding: 20px;
+			text-align: center;
+			border: 1px solid #ccc;
+		}
+	</style>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+	<!-- vue-app是根容器 -->
+	<div id="vue-app">
+		<h1>事件对象Events</h1>
+		<!-- 单机事件 -->
+		<button @click="add(1)">涨一岁</button>
+		<button @click.once="add(1)">只涨一岁</button>
+		<button v-on:click="subtract(1)">减一岁</button>
+		<!-- 双击事件 -->
+		<button @dblclick="add(10)">涨十岁</button>
+		<button v-on:dblclick="subtract(10)">减十岁</button>
+		<hr>
+		<p>My age is {{age}}</p>
+
+		<hr>
+		<br>
+		<div id="canvas" v-on:mousemove="updateXY">
+							<!-- vue 事件组织冒泡方法 -->
+			{{x}},{{y}} - <span v-on:mousemove.stop="stopMoving()">Stop Moving</span>
+		</div>
+		<!-- vue阻止默认事件 -->
+		<a v-on:click.prevent="alert()" href="http://www.baidu.com">百度</a>
+	</div>
+
+
+	<script>
+		// 实例化 vue 对象
+		new Vue({
+			// el: element 需要获取的元素，一定是 html 中的根容器元素
+			el: "#vue-app",
+			// data: 用于数据的存储
+			data:{
+				age:30,
+				x:0,
+				y:0
+			},
+			// 方法函数都要写在 methods 里面
+			methods:{
+				add:function(inc){
+					this.age += inc;
+				},
+				subtract:function(dec){
+					this.age -= dec;
+				},
+				updateXY:function(event){
+					// console.log(event);
+					this.x = event.offsetX;
+					this.y = event.offsetY;
+				},
+				stopMoving:function(event){
+					// js阻止事件冒泡
+					// event.stopPropagation();
+				},
+				alert:function(event){
+					alert('hello world');
+					// js阻止默认事件
+					event.preventDefault();
+				}
+			}
+		});
+	</script>
+</body>
+</html>

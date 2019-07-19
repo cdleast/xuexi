@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>瀑布流</title>
+    <script src="jquery.min.js"></script>
+    <script src="../daimaku/tools.js"></script>
+    <style>
+    * {
+        margin: 0px;
+        padding: 0;
+    }
+
+    ul,
+    ol {
+        list-style: none;
+    }
+
+    ul {
+        position: relative;
+        margin: 15px auto;
+    }
+
+    ul li {
+        width: 300px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        position: absolute;
+        transition: all 0.5s;
+    }
+
+    ul li img {
+        width: 300px;
+        display: block;
+    }
+
+    ul li p {
+        text-align: center;
+        line-height: 40px;
+        color: green;
+        font-family: '楷体';
+        font-size: 25px;
+    }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><img src="./images/01.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/02.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/03.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/04.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/05.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/06.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/07.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/08.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/09.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/10.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/11.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/12.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/13.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/14.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/15.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/16.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/17.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/18.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/19.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/20.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/21.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/22.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/23.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/24.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/25.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/26.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/27.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/28.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/29.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/30.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/31.jpg" alt=""><p>超级明星</p></li>
+        <li><img src="./images/32.jpg" alt=""><p>超级明星</p></li>
+    </ul>
+</body>
+<script>
+    // 设置容器的间距
+    var margin = 15;
+
+    // 开始瀑布流布局
+    run();
+
+    // 当窗口发生改变时，触发函数
+    window.onresize = function(){
+        // 当窗口大小发生改变后要重新布局
+        run();
+    }
+
+
+    // 监听滚动条
+    window.onscroll = function(){
+        // 页面窗口高度 + 滚动的高度 = 文档文本高度
+        // 当滚动条下面的高度小于 500 时，就去请求数据
+        if (getViewportOffset().y + getScrollOffset().y > document.documentElement.scrollHeight - 500) {
+            // 获取数据
+            getData();
+        }
+    }
+
+    // 获取数据
+    function getData(){
+        
+    }
+
+    // ajax获取数据
+    
+
+
+
+
+
+
+
+
+
+
+
+    // 瀑布流的布局
+    function run(){
+        // 1、先排第一排的图片，计算每个图片所占的宽度
+        var liWidth = document.querySelectorAll('li')[0].offsetWidth + margin;
+
+        // 2、一排需要显示多少张图片，计算浏览器的宽度除以图片的宽度(强制转换成整数)
+        // 计算浏览器的宽度(使用封装兼容函数)
+        var browserWidth = getViewportOffset().w;
+        // 浏览器宽度除以图片宽度，计算可以展示几张图片
+        var num = parseInt(browserWidth / liWidth);
+
+        // 获取ul
+        var ulNum = document.querySelector('ul');
+
+        // 获取所有的li
+        var liNum = document.querySelectorAll('li');
+
+        // 声明一个变量，来记录所有列的高度
+        var liH = [];
+
+        // 3、循环设置容器的位置
+        for(var i = 0;i < liNum.length;i ++){
+            // 计算第一排(数量小于num，就是第一排)
+            if (i < num) {
+                // 设置容器(图片的位置)
+                liNum[i].style.top = 0 + 'px';
+                liNum[i].style.left = liWidth * i + 'px';
+
+                // 计算当前最高的高度
+                liH[i] = liNum[i].offsetHeight;
+            }else {
+                // 找到 liH 数组里最小的值
+                var minH = Math.min.apply(null,liH);
+                // 找到 liH 数组里最大的值
+                var manH = Math.max.apply(null,liH);
+
+                // 获取最小值对应的索引号
+                var index = liH.indexOf(minH);
+
+                // 重新计算高度
+                liH[index] += liNum[i].offsetHeight + margin;
+
+                // 把图片放到指定最小值的位置
+                liNum[i].style.top = minH + margin + 'px';
+                liNum[i].style.left = index * liWidth + 'px';
+            }
+        }
+
+        // 让ul居中
+        ulNum.style.width = num * liWidth - margin + 'px';
+        ulNum.style.height = manH + 'px';
+    }
+
+
+</script>
+</html>

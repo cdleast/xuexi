@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #text{
+            width: calc(100% - 40px);
+            margin: 20px;
+            color: red;
+            font-size: 24px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="text"></div>
+    <div style="display:none" id="word">
+        系统正在升级中，预计本次升级需要2小时，请稍后使用。
+    </div>
+</body>
+<script language="javascript">
+    var index = 0;
+    var word = document.getElementById("word").innerHTML;
+
+    function type() {
+        document.getElementById("text").innerText = word.substring(0, index++);
+    }
+    setInterval(type, 20);
+</script>
+
+</html>

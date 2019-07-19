@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function Car(color){
+			this.color = color;
+			this.name = "BMW";
+			this.height = "1400";
+			this.lang = "4900";
+			this.weight = 1000;
+			this.health = 100;
+			this.run = function(){
+				this.health --;
+			}
+		}
+		
+		var car = new Car("red");
+		var car1 = new Car("green");
+
+		function Student(name,age,sex){
+			this.name = name;
+			this.age = age;
+			this.sex = sex;
+			this.grade = 2017;
+		}
+
+		var student = new Student("zhangsan","18","nan");
+
+
+
+
+	</script>
+</body>
+</html>

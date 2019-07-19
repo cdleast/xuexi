@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+// 扩展		
+/*		
+			console.log(3);
+			if(3>0){
+				
+				console.log(2);
+				if(2>0){
+				
+
+					console.log(1);
+					if(1>0){
+					
+						console.log(0);
+						if(0>0){
+							// test(0-1);
+						}
+						console.log(0);
+					}
+					console.log(1);
+
+				}
+				console.log(2);
+
+
+			}
+			console.log(3);
+		
+
+		test(3);
+*/
+
+
+/*
+
+console.log(num);
+if(num>0){
+test(num-1);
+}
+console.log(num);
+
+*/
+
+
+	function test(num){
+		console.log(num);
+		if(num>0){
+			test(num-1);
+		}
+		console.log(num);
+	}
+
+	test(3);
+
+
+	</script>	
+</body>
+</html>

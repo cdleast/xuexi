@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    // 函数预编译过程 this - > window 
+    // 全局作用域里 this - > window 
+    // call / apply 可以改变函数运行时this指向 
+    // obj.func(); func() 里面的this指向obj也就是谁调用它， this就指向谁
+
+    var name = "222";
+    var a = {
+        name: "111",
+        say: function() {
+            console.log(this.name);
+        }
+    }
+    var fun = a.say;
+
+    fun(); // 222 因为a.say调用赋值给了fun(),所有这走的是全局this -> window 
+    a.say(); // 111 因为是a调用函数say，所有这得函数this -> a 
+
+    var b = {
+        name: "333",
+        say: function(fun) {
+            fun();
+        }
+    }
+    b.say(a.say); // 222
+    // 222 因为b.say()调用的时候把a.say当做参数传了进入，也就是说把function (){console.log(this.name);}放到了b.say()里面,
+    // 而b.say()调用此时的this应该指向b，但是b.say()里面是用fun()来执行，而不是this.fun()，所有fun()执行走的是预编译的过程，
+    // 从而指向this -> window 而this - > window 的name = "222"，所有结果是222
+
+    b.say = a.say;
+    b.say(); // 333
+    // 因为把a.say替换了原来的b.say，所有现在的b.say是say : function(){console.log(this.name);}，然后直接用b.say()调用，
+    // 遵循谁调用它，this就指向谁的规则，所以此时的this.name = "333"
+
+    </script>
+</body>
+
+</html>

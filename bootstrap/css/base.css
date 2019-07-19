@@ -1,0 +1,49 @@
+/*顶部导航*/ 
+#topNav{
+    width: 100%;
+    background: #222222;
+}
+
+#topNav .navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 0px;
+    border: none;
+}
+
+/* 首页栏目版块 */
+.item-wrap{
+    margin-top: 10px;
+}
+.items{
+    width: 100%;
+    border: 1px solid #DDDDDD;
+    margin-top: 20px;
+}
+
+.items img{
+    width: 97%;
+    display: block;
+    margin: 5px auto;
+}
+
+.items h4{
+    color:blue;
+    font-size:20px;
+    text-align: center; 
+    line-height: 30px;
+}
+
+.items .title{
+    padding: 5px;
+    color:#333;
+    font-size:16px;
+    text-align: center; 
+}
+
+.items .info{
+    padding: 5px;
+    colo:#ccc;
+    font-size:14px;
+    text-align: center; 
+}

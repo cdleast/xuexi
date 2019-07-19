@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-for 循环</title>
+	<style>
+		
+	</style>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="vue-app">
+		<h1> v-for 循环</h1>
+		<!-- 数组遍历 -->
+		<ul>
+			<li v-for="characters in characters">
+				{{characters}}
+			</li>
+		</ul>
+		<hr>
+		<ul>
+			<!-- user 是循环的值，index 是下标 -->
+			<li v-for="(user,index) in users">
+				{{index+1}} - {{user.name}} - {{user.age}}
+			</li>
+		</ul>
+		<hr>
+		<!-- 也可用别的标签渲染 但是会生成多个div，浪费-->
+		<!-- <div v-for="(user,index) in users">
+			{{index+1}} - {{user.name}} - {{user.age}}
+		</div> -->
+
+		<!-- 直接使用 template 不会生成多余的标签 -->
+		<template v-for="(user,index) in users">
+			<h3>{{index+1}} - {{user.name}}</h3>
+			<p>Age - {{user.age}}</p>
+		</template>
+
+		<hr>
+
+		<template v-for="(user,index) in users">
+			<!-- user是拿到users数组里的对象，对当前的单个对象进行遍历，拿到key值和val值 -->
+			<div v-for="(val,key) in user">
+				<p>{{key}} - {{val}}</p>
+			</div>
+		</template>
+	</div>
+
+	<script>
+		// 实例化 vue 对象
+		new Vue({
+			// el: element 需要获取的元素，一定是 html 中的根容器元素
+			el:"#vue-app",
+			// data: 用于数据的存储
+			data:{
+				characters:["Mario","Luffy","Yoshi"],
+				users:[
+					{name:"Henry",age:30},
+					{name:"Bucky",age:25},
+					{name:"Emily",age:20},
+				]
+			},
+			// 方法函数都要写在 methods 里面
+			methods:{
+
+			},
+			// 计算属性，优化性能，当性能比较大，耗时，的时候使用，比如搜索
+			computed:{
+
+			}
+		})
+	</script>
+</body>
+</html>

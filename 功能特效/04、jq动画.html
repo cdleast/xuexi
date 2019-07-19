@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件委托</title>
+	<script src="./jquery.min.js"></script>
+	<style type="text/css">
+		
+		.wrap{width:500px;height:300px;border:1px solid red;}
+		.box{width: 50px;height: 50px;background: red;margin: 10px;float: left;}
+	</style>
+</head>
+<body>
+	<button>btn</button>
+	<div class="wrap">
+		<div class="box"></div>
+	</div>
+
+	<script type="text/javascript">
+
+		// 给页面每一个 .box 绑定事件
+		// $('.box').click(function(){
+		// 	$(this).css('background','yellow');
+		// });
+
+		/*		
+			$('.box').bind('click',function(){
+				$(this).css('background','yellow');
+			});
+
+
+			$('.box').on('click',function(){
+				$(this).css('background','yellow');
+			});
+
+		*/
+			
+		/*		
+			// 用 live 绑定的事件就是事件委派
+			$('.box').live('click',function(){
+				$(this).css('background','yellow');
+			});
+
+
+		*/
+		// on 做事件委托 （建议用它取代 live）
+		$('.wrap').on('click','.box',function(){
+			$(this).css('background','yellow');
+		})
+
+
+		// 把 .box 的事件源委托给 document
+/*		$(document).on('click','.box',function(){
+			$(this).css('background','yellow');
+		})
+*/
+
+		// 点击按钮添加一个box容器
+		$('button').click(function(){
+			$('<div class="box"></div>').appendTo('.wrap');
+		});	
+
+
+	</script>
+	
+</body>
+</html>

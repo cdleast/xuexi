@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>多个实例</title>
+    <script src="./vue.min.js"></script>
+</head>
+<body>
+    <div id="container1">
+        {{message}}
+        <!-- {{str}} -->
+        <!-- 如果在视图里输出变量 那么这个变量在 vue 实例里的 data 属性里必须有 -->
+    </div>
+    <div id="container2">
+        {{message}}
+        {{str}}
+    </div>
+
+    <script>
+        // 第一个 vue 实例
+        new Vue({
+            // 选择容器
+            el:'#container1',
+            // 数据
+            data:{
+                message:'hellow jack'
+            }
+        })
+
+        // 第二个 vue 实例
+        new Vue({
+            el:'#container2',
+            // 数据
+            data:{
+                message:'hellow word',
+                str:'testStr'
+            }
+        })
+    </script>
+</body>
+</html>

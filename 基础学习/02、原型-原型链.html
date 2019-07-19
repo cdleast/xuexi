@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+		// 原型链
+		Grand.prototype.lastName = "Deng";
+		function Grand(){
+
+		}
+		var grand = new Grand();
+
+		Father.prototype = grand;
+		function Father(){
+			this.name = "xuming";
+		}
+		var father = new Father();
+
+		Son.prototype = father;
+		function Son(){
+			this.hobbit = "smoke";
+		}
+		var son = new Son();
+
+	</script>
+
+
+
+</body>
+</html>

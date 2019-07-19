@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>计算属性</title>
+    <script src="./vue.min.js"></script>
+</head>
+<body>
+    <div id="container">
+        单价：<input type="text" v-model="pic">
+        数量：<input type="text" v-model="num">
+        <br>
+        小计：{{pic*num}}
+        <br>
+        通过计算属性得到总价：{{res}}
+    </div>
+    <script>
+        // 实例化 vue 对象
+        new Vue({
+            // 选择容器
+            el:'#container',
+            // 数据
+            data:{
+                pic:0,
+                num:0
+            },
+            // 计算属性
+            computed:{
+                res:function(){
+                    return this.pic * this.num;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

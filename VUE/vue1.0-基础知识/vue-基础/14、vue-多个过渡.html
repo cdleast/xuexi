@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue-多个过渡</title>
+    <script src="./vue.min.js"></script>
+    <style>
+        /* 默认的样式 */
+        .str {
+            font-size: 100px;
+        }
+
+        /* fade-容器进入前的状态 */
+        .fade-enter {
+            opacity: 0;
+            font-size: 20px;
+        }
+
+        /* fade-容器进入后的状态 */
+        .fade-enter-active {
+            transition: all 3s;
+        }
+
+        /* fade-容器离开前的状态 */
+        /* .fade-leave-to {
+            opacity: 0;
+            font-size: 20px;
+        } */
+
+        /* fade-容器离开后的状态 */
+        .fade-leave-active {
+            opacity: 0;
+            font-size: 20px;
+            transition: all 3s;
+        }
+
+        .box {
+            width: 800px;
+            height: 100px;
+            background: red;
+        }
+
+        /* dong-容器进入前的状态 */
+        .dong-enter {
+            width: 100px;
+        }
+
+        /* dong-容器进入后的状态 */
+        .dong-enter-active {
+            transition: all 3s;
+        }
+
+        /* dong-容器离开前的状态 */
+        /* .dong-leave-to {
+            width: 100px;
+        } */
+
+        /* fade-容器离开后的状态 */
+        .dong-leave-active {
+            width: 0;
+            transition: all 3s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <button v-on:click="show = !show">
+            第一个容器
+        </button>
+        <button v-on:click="isShow = !isShow">
+            第二个容器
+        </button>
+        <hr>
+        <!-- 过渡的容器 -->
+        <transition name="fade">
+            <p v-if="show" class="str">hello</p>
+        </transition>
+
+        <!-- 多个动画 -->
+        <transition name="dong">
+            <p v-if="isShow" class="box"></p>
+        </transition>
+    </div>
+
+    <script>
+        new Vue({
+            // 选择容器
+            el: '#container',
+            // 数据
+            data: {
+                show: false,
+                isShow: false
+            }
+        })
+    </script>
+</body>
+
+</html>

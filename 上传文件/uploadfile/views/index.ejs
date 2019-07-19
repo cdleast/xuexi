@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+	<h1>文件上传测试</h1>
+	<!-- 如果表单里有文件需要上传，必须使用post方法，enctype的值必须是multipart/form-data在使用包含文件上传控件的表单时，必须使用该值。 -->
+	<form action="/uploadfile" method="post" enctype="multipart/form-data">
+		头像：<input type="file" name="myfile"><br><br>
+		昵称：<input type="text" name="username"><br><br>
+
+		<input type="submit">
+	</form>
+  </body>
+</html>

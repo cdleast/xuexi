@@ -1,0 +1,11 @@
+// 把 px 转化 成 rem;
+@function rem($px){
+    @return $px/75px * 1rem;
+}
+
+.box{
+	width: rem(750px);
+	height: rem(100px);
+	background: red;
+	width: 8.333rem;
+}

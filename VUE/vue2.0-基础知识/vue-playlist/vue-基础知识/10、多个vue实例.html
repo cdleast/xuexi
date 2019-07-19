@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多个 vue 实例</title>
+	<style>
+		
+	</style>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+	<h1>多个 vue 实例</h1>
+
+	<div id="vue-app-one">
+		<h2>{{title}}</h2>
+		<p>{{greet}}</p>
+	</div>
+
+	<div id="vue-app-two">
+		<h2>{{title}}</h2>
+		<p>{{greet}}</p>
+		<button v-on:click="changeTitle">changeTitle</button>
+	</div>
+
+	<script>
+		// 实例化 vue 对象
+		var one = new Vue({
+			// el: element 需要获取的元素，一定是 html 中的根容器元素
+			el:'#vue-app-one',
+			// data: 用于数据的存储
+			data:{
+				title:"app one 的内容"
+			},
+			// 方法函数都要写在 methods 里面
+			methods:{
+
+			},
+			// 计算属性，优化性能，当性能比较大，耗时，的时候使用，比如搜索
+			computed:{
+				greet:function(){
+					return "hello app one"
+				}
+			}
+		})
+
+		// 实例化 vue 对象
+		var two = new Vue({
+			// el: element 需要获取的元素，一定是 html 中的根容器元素
+			el:'#vue-app-two',
+			// data: 用于数据的存储
+			data:{
+				title:"app two 的内容"
+			},
+			// 方法函数都要写在 methods 里面
+			methods:{
+				// 第二个实例改变第一个实例的title
+				changeTitle:function(){
+					one.title = "已经改名了";
+				}
+			},
+			// 计算属性，优化性能，当性能比较大，耗时，的时候使用，比如搜索
+			computed:{
+				greet:function(){
+					return "hello app two"
+				}
+			}
+		})
+		two.title = 'app tow 的 title 也发生了变化';
+
+
+
+
+	</script>
+</body>
+</html>

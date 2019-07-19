@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>旋转显示案例</title>
+  <style>
+    html, body, div, pre {
+      padding: 0;
+      margin: 0;
+    }
+
+    .box-wrap {
+      width: 450px;
+      height: 300px;
+      margin: 100px auto;
+      position: relative;
+      perspective: 1000px;
+    }
+
+    .box-wrap .front, .box-wrap .back {
+      border: 1px solid #ccc;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      left: 0; 
+      top: 0;
+      opacity: .8;
+      transition: all 1s ease;
+      backface-visibility: hidden;
+    }
+    .box-wrap .front {
+      text-align: center;
+      background-color: rebeccapurple;
+    }
+    .box-wrap .front img {
+      width: 200px;
+      height: 200px;
+      border: 2px solid #cccc;
+      border-radius: 50%;
+    }
+
+    .box-wrap .back {
+      background-color: green;
+      transform: rotateY(-180deg);
+    }
+
+    .box-wrap:hover .front {
+      transform: rotateY(180deg);
+    }
+
+    .box-wrap:hover .back {
+      transform: none;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="box-wrap">
+    <div class="front">
+      <img src="../img/a.jpg" alt="">
+      <h3>老马在线吗？</h3>
+    </div>
+    <div class="back">
+      <h3>联系老马</h3>
+      <pre>
+          对应视频地址1：https://chuanke.baidu.com/s5508922.html
+          对应视频地址2：https://qtxh.ke.qq.com/
+          老马qq： 515154084
+          老马微信：请扫码
+      </pre>
+    </div>
+  </div>
+</body>
+</html>

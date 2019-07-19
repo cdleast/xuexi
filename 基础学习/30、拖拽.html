@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽</title>
+</head>
+<body>
+	<div style="width: 100px;height: 100px;background: red;position: absolute;top: 0;left: 0;"></div>
+	<script>
+		var div = document.getElementsByTagName('div')[0];
+		var disX,disY;
+		// 鼠标按下时触发的事件
+		div.onmousedown = function(e){
+			disX = e.pageX - parseInt(div.style.left);
+			disY = e.pageY - parseInt(div.style.top);
+
+			// 鼠标移动时触发的事件
+			document.onmousemove = function(e){
+				var event = e || window.event;
+				console.log(e.pageX + " " + e.pageY);
+				div.style.left = e.pageX - disX + "px";
+				div.style.top = e.pageY - disY + "px";
+			}
+
+			// 鼠标抬起时触发的事件
+			document.onmouseup = function(){
+				div.onmousemove = null;
+			}
+		}
+	</script>
+	<script>
+		// 鼠标不按下不触发点击事件
+		var firstTime = 0;
+		var lastTime = 0;
+		var key = false;
+		document.onmousedown = function(){
+			firstTime = new Date().getTime();
+		}
+
+		document.onmouseup = function(){
+			lastTime = new Date().getTime();
+			if (lastTime -firstTime < 300) {
+				key = true;
+			}
+		}
+
+		document.onclick = function(){
+			if (key) {
+				console.log('click');
+				key = false;
+			}
+		}
+	</script>
+</body>
+</html>

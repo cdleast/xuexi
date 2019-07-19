@@ -1,0 +1,105 @@
+一、什么是json
+    （1）JSON(JavaScript Object Notation, JS 对象标记) 是一种轻量级的数据交换格式
+
+    （2）json对象  var student = {"name":"Jack","age":22}
+
+    （3）json字符串  var student = '{"name":"Jack","age":22}'
+            格式：属性名称必须用双引号包裹
+
+二、对象和json字符串之间转换
+    （1）对象转json字符串
+            JSON.stringify()
+
+    (2)json字符串和对象转换
+            01-->JSON.parse()
+
+
+            02-->eval('('+jsonStr+')')   //jsonStr是一段json字符串
+
+
+三、ajax请求
+    （1）什么是ajax?
+        Asynchronous Javascript And XML”（异步 JavaScript 和 XML），是指一种创建交互式网页应用的网页开发技术
+
+        ajax的特点
+            01->Ajax 是一种在无需重新加载整个网页的情况下，能够更新部分网页的技术。
+
+
+    (2)发送一个ajax请求的过程   
+        01-> 创建ajax对象
+            new XMLHttpRequest()
+
+            new ActiveXObject("Microsoft.XMLHTTP")  兼容IE
+
+        02->配置请求信息
+            open(method,url,async)
+             method  String          请求方式 get/post
+                
+            url     String          请求数据的服务器地址 
+
+            async   Boolen          是否是以异步的方式发送请求
+
+        03.发送请求
+            send(arg)
+            
+            001->如果method为get，arg为null或者false
+
+            002->如果method为post，arg为需要发送到服务器的数据
+
+
+
+四.创建nodejs服务器
+    （1）安装express
+        npm install express-generator -g
+
+    (2)进入一个目录下并且在该目录下进入到cmd窗口
+        express --view=ejs demo
+
+    (3)进入到demo目录
+        cd demo
+    (4)安装模块 
+        npm install     (此过程可能会因网速问题出现失败，获取花费时间很长)
+
+    (5)将发送ajax的页面粘贴至demo下的public目录
+
+    （6）启动服务器
+        npm start
+
+    (7)通过浏览器访问页面
+        localhost:3000/get-ajax.html
+
+    (8)修改demo下的routes文件夹下的index.js文件
+
+    （9）修改服务器代码之后，需要重新执行（6）
+
+
+
+
+
+
+
+
+
+
+        json格式
+        product =[{name:,price:,num,amount:....},
+                    {name:,price:,num,amount:....}] 
+
+
+        xml格式
+        <all id="all">
+            <product class="prod">
+                <name></name>
+                <price></price>
+                <num></num>
+            </product>
+            <product>
+                <name></name>
+                <price></price>
+                <num></num>
+            </product>
+         </all>
+
+         document.getEle
+
+

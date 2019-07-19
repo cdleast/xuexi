@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://cdn.bootcss.com/skeleton/2.0.4/skeleton.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Fetch Api sandbox</h1>
+        <button id="button1">请求本地文本数据</button>
+        <button id="button2">请求本地json数据</button>
+        <button id="button3">请求网络接口</button>
+        <br><br>
+        <div id="output"></div>
+    </div>
+</body>
+
+<script>
+    // 获取按钮
+    document.getElementById('button1').addEventListener('click', getText);
+    document.getElementById('button2').addEventListener('click', getJson);
+    document.getElementById('button3').addEventListener('click', getExternal);
+
+    // 获取本地纯文本数据
+    function getText() {
+        fetch('test.txt')
+            .then((response) => {
+                return response.text();
+            })
+            .then((data) => {
+                document.getElementById('output').innerHTML = data;
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }
+
+    // 获取本地json数据
+    function getJson() {
+        fetch('posts.json')
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                let output = '';
+                data.forEach((post) => {
+                    output += `<li>${post.title}</li>`;
+                })
+                document.getElementById('output').innerHTML = output;
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }
+
+
+    // 请求网络api https://api.github.com/users
+    function getExternal() {
+        fetch('https://api.github.com/users')
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                let output = '';
+                data.forEach((user) => {
+                    output += `<li>${user.login}</li>`;
+                })
+                document.getElementById('output').innerHTML = output;
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }
+
+</script>
+
+
+</html>

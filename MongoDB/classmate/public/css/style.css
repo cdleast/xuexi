@@ -1,0 +1,13 @@
+ul,ol{
+	list-style: none;
+}
+
+.addUser-form ul li{
+	margin-top: 20px;
+}
+
+.userpic{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>飞翔的火箭</title>
+  <style>
+    html, body, div {
+      padding: 0;
+      margin: 0;
+    }
+
+    .rocket {
+      width: 100px;
+      height: 100px;
+      background: url(../img/rocket.jpg) no-repeat;
+      background-size: cover;
+      position: absolute;
+      top: 70%;
+
+      /* css3写 过渡的时候，过渡的属性尽量直接写全，少些all */
+      transition: transform 1s ease;
+      /* 元素旋转之后，坐标系跟着进行旋转 */
+      transform: rotate(60deg);
+    }
+
+    .rocket-fly {
+      transform: rotate(60deg) translate(0, -1300px);
+    }
+  </style>
+    
+</head>
+<body>
+  
+  <div class="rocket"></div>
+  <script>
+    window.onload = function() {
+      document.querySelector('.rocket').addEventListener('click', function(e) {
+        this.className += ' rocket-fly';
+      });
+    }
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>汽车之家顶部</title>
+  <style>
+    html, body, div, ul, li {
+      padding: 0;
+      margin: 0;
+    }
+
+    ul { list-style: none; }
+    a {
+      color: #030303;
+      text-decoration: none;
+    }
+
+    .top-wrap {
+      display: flex;
+      font-size: 14px;
+    }
+
+    .top-wrap .top-l, .top-wrap .top-r {
+      flex: 0 0 60px;
+      border: 1px solid #ccc;
+      height: 30px;
+      line-height: 30px;
+      box-sizing: border-box;
+    }    
+
+    .top-wrap .top-m {
+      flex: 1;
+      height: 30px;
+      text-align: center;
+    }
+    .top-wrap .top-m input {
+      height: 28px;
+      line-height: 28px;
+      border: 1px solid #ccc;
+      border-radius: 15px; 
+      width: 90%;
+    }
+
+    .top-nav-wrap .top-nav {
+      display: flex;
+      justify-content: space-around;
+    }
+    .top-nav-wrap .top-nav-wrap .top-nav-item {
+      flex: 1;
+    }
+
+    .car-list {
+      display: flex;
+      justify-content: space-around;
+      align-content: space-around;
+      flex-flow: row wrap;
+      height: 180px;
+      border: 1px solid #ccc;
+    }
+    .car-list .car-item {
+      flex: 1 0 20%;
+    }
+
+    .car-list .car-item a {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      text-align: center;
+    }
+    div.img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: aqua;
+      margin: 0 auto;
+    }
+  </style>
+  
+</head>
+<body>
+  <div class="top-wrap">
+    <div class="top-l">汽车之家</div>
+    <div class="top-m"><input type="text" class="search-txt"></div>
+    <div class="top-r">用户</div>
+  </div>
+  <div class="top-nav-wrap">
+    <ul class="top-nav">
+      <li class="top-nav-item"><a href="#">链接1</a></li>
+      <li class="top-nav-item"><a href="#">链接2</a></li>
+      <li class="top-nav-item"><a href="#">链接3</a></li>
+      <li class="top-nav-item"><a href="#">链接4</a></li>
+      <!-- <li class="top-nav-item"><a href="#">链接5</a></li> -->
+    </ul>
+  </div>
+  <div class="car-list-wrap">
+    <ul class="car-list">
+      <li class="car-item">
+        <a href="3">
+          <div class="img"></div>
+          <span class="car-name">福特</span>
+        </a>
+      </li>
+      <li class="car-item">
+        <a href="3">
+          <div class="img"></div>
+          <span class="car-name">福特</span>
+        </a>
+      </li>
+      <li class="car-item">
+        <a href="3">
+          <div class="img"></div>
+          <span class="car-name">福特</span>
+        </a>
+      </li>
+      <li class="car-item">
+        <a href="3">
+          <div class="img"></div>
+          <span class="car-name">福特</span>
+        </a>
+      </li>
+      <li class="car-item">
+        <a href="3">
+          <div class="img"></div>
+          <span class="car-name">福特</span>
+        </a>
+      </li>
+      <li class="car-item">
+        <a href="3">
+          <div class="img"></div>
+          <span class="car-name">福特</span>
+        </a>
+      </li>
+      <li class="car-item">
+        <a href="3">
+          <div class="img"></div>
+          <span class="car-name">福特</span>
+        </a>
+      </li>
+      <li class="car-item">
+        <a href="3">
+          <div class="img"></div>
+          <span class="car-name">福特</span>
+        </a>
+      </li>
+      <li class="car-item">
+        <a href="3">
+          <div class="img"></div>
+          <span class="car-name">福特</span>
+        </a>
+      </li>
+      <li class="car-item"></li>
+
+      <!-- <li class="car-item">
+        <a href="3">
+          <div class="img"></div>
+          <span class="car-name">福特</span>
+        </a>
+      </li> -->
+    </ul>
+  </div>
+</body>
+</html>

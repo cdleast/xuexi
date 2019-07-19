@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue 双向数据绑定 v-model</title>
+	<style>
+		
+	</style>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+	<!-- vue-app是根容器 -->
+	<div id="vue-app">
+		<h1>双向数据绑定 / input / select / textarea</h1>
+		<hr>
+		<label>姓名:</label>
+		<!-- vue2.0可以标记input 使用 ref -->
+		<input ref="name" type="text" v-model="name" v-on:keyup="logName">
+		<span>{{ name }}</span>
+
+		<label>年龄:</label>
+		<!-- vue2.0可以标记input 使用 ref -->
+		<input ref="age" type="text" v-model="age" v-on:keyup="logAge">
+		<span>{{ age }}</span>
+	</div>
+
+	<script>
+		// 实例化 vue 对象
+		new Vue({
+			// el: element 需要获取的元素，一定是 html 中的根容器元素
+			el:"#vue-app",
+			// data: 用于数据的存储
+			data:{
+				name:'',
+				age:''
+			},
+			// 方法函数都要写在 methods 里面
+			methods:{
+				logName:function(){
+									// 拿到input的标记的name
+					// this.name = this.$refs.name.value;
+				},
+				logAge:function(){
+									// age
+					// this.age = this.$refs.age.value;
+				}
+			}
+		})
+	</script>
+</body>
+</html>

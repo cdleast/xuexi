@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>bootstrap字體</title>
+  <link rel="stylesheet" href="./lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  <style>
+
+    @font-face {
+      font-family: 'glyphicon';
+      src: url('./lib/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.eot');
+      /* IE9 Compat Modes */
+      src: url('./lib/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      url('./lib/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.woff') format('woff'), /* Modern Browsers */
+      url('./lib/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+      url('./lib/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.svg#./lib/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular') format('svg');
+      /* Legacy iOS */
+    }
+    .box {
+      font-size: 40px;
+      color: #090;
+      text-shadow: 3px 3px 5px #0f0;
+      font-family: 'glyphicon', sans-serif;
+    }
+  </style>
+  <link rel="stylesheet" href="./lib/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.eot">
+</head>
+
+<body>
+  <div class="box">
+    是是是； 四帶石鱸家
+    <!-- 第一種：使用boostrap的樣式類 -->
+    <i class="glyphicon glyphicon-envelope"></i>
+    <i class="glyphicon glyphicon-heart"></i>
+    <!-- 第二種：之家寫unicode字符 -->
+    <sapn>&#xe014;</sapn>
+    <sapn>&#xe045;</sapn>
+  </div>
+</body>
+
+</html>

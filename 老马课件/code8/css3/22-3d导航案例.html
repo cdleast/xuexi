@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3D导航案例</title>
+  <style>
+    html, body, div, ul, li {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul { list-style: none; }
+    
+    .nav .nav-item {
+      float: left;
+      width: 150px;
+      height: 30px;
+      /* border: 1px solid #ccc; */
+      text-align: center;
+      line-height: 30px;
+      position: relative;
+
+      /* 要有3d的效果：需要设置以下两个属性 */
+      perspective: 1000px;
+      transform-style: preserve-3d;
+
+      transition: transform 0.6s ease;
+    }
+    .nav .nav-item:hover {
+      transform: rotateX(-90deg);
+    }
+    /* 约定： a标签是立方体的前面。  */
+    /* div是立方体的上面 */
+
+    .nav .nav-item a, .nav .nav-item .des {
+      width: 150px;
+      height: 30px;
+      opacity: .7;
+      color: #fff;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .nav .nav-item a {
+      display: block;
+      background-color: darkcyan;
+      text-decoration: none;
+      transform: translateZ(15px)
+    }
+    .nav .nav-item .des {
+      background-color: blue;
+      transform: rotateX(90deg) translateZ(15px);
+    }
+  </style>
+
+</head>
+<body>
+  <ul class="nav">
+    <li class="nav-item">
+      <a href="javascript:">item1</a>
+      <div class="des">item==1</div>
+    </li>
+    <li class="nav-item">
+      <a href="javascript:">item2</a>
+      <div class="des">item==2</div>
+    </li>
+    <li class="nav-item">
+      <a href="javascript:">item3</a>
+      <div class="des">item==3</div>
+    </li>
+    <li class="nav-item">
+      <a href="javascript:">item4</a>
+      <div class="des">item==4</div>
+    </li>
+    <li class="nav-item">
+      <a href="javascript:">item5</a>
+      <div class="des">item==5</div>
+    </li>
+    <li class="nav-item">
+      <a href="javascript:">item6</a>
+      <div class="des">item==6</div>
+    </li>
+  </ul>
+</body>
+</html>

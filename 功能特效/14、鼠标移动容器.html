@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery.min.js"></script>
+	<style type="text/css">
+		.box{width: 200px;height: 100px;background: red;position: absolute;}	
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<script type="text/javascript">
+		$('.box').on('mousedown',function(e){
+			// 计算鼠标相对于 .box 容器的位置
+			var dx = e.offsetX;
+			var dy = e.offsetY;
+			// 鼠标按下
+			$(document).on('mousemove',function(evt){
+				// 鼠标移动
+				console.log('move')
+				// 设置 box left  top
+				$('.box').css({top:evt.pageY-dy,left:evt.pageX-dx});
+			})
+		}).on('mouseup',function(){
+			// 鼠标抬起
+			// 清除事件
+			$(document).off('mousemove');
+		})
+
+	</script>
+</body>
+</html>

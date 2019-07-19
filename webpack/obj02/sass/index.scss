@@ -1,0 +1,13 @@
+$bgcolor:pink;
+$color:red;
+.box{
+    width: 500px;
+    height: 300px;
+    border: 1px solid green;
+    h2{
+        color: $color;
+        span{
+            color:$bgcolor;
+        }
+    }
+}

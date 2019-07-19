@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件绑定方法</title>
+</head>
+<body>
+    <div style="width:100px;height:100px;background:red;"></div>
+	<script>
+		var div = document.getElementsByTagName('div')[0];
+		// 常用事件绑定方式，但是一个元素只能有一个点击生效（最后一个）
+		div.onclick = function(){
+			console.log(123);
+		}
+		// 123不会生效
+		div.onclick = function(){
+			console.log(234);
+		}
+
+		// 一个对象可以绑定多个处理函数，并且按照绑定的顺序去执行，IE9以下不兼容
+		// div.addEventListener(事件类型，处理函数，false);
+		div.addEventListener('click',function(){
+			console.log(123);
+		},false);
+		// 都会执行
+		div.addEventListener('click',function(){
+			console.log(234);
+		},false);
+
+		// IE独有，一个对象可以绑定多个处理函数
+		// div.attachEvent(事件类型，处理函数);
+		div.attachEvent('onclick',function(){
+			console.log(123);
+		});
+</script>
+</body>
+</html>

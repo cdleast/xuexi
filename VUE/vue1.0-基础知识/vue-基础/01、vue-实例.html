@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>vue-实例</title>
+	<script src="./vue.min.js"></script>
+</head>
+<body>
+	<div id="box">
+		<!-- 算术运算 -->
+		<h3>{{1+2}}</h3>
+		<!-- 输出变量 -->
+		<h2>{{message}}</h2>
+		<!-- 输出字符串 -->
+		<h2>{{'message'}}</h2>
+	</div>
+	<script>
+		// 实例化 vue 实例
+		new Vue({
+			// 选择容器
+			el: '#box',
+			// 数据
+			data:{
+				message:'hello word'
+			}
+		});
+	</script>
+</body>
+</html>

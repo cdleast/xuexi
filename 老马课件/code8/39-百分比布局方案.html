@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>百分比布局方案</title>
+  <style>
+    html,
+    body,
+    ul,
+    li, div, p, h3 {
+      padding: 0;
+      margin: 0;
+    }
+
+    ul,
+    ol {
+      list-style: none;
+    }
+
+    .box {
+      overflow: hidden;
+    }
+
+    .item {
+      height: 40px;
+      width: 25%;
+      box-sizing: border-box;
+      border: 1px solid #09a;
+      float: left;
+    }
+
+    .list {
+      padding-left: 15px;
+    }
+
+    .list .row {
+      border-bottom: 1px solid #c8c8c8;
+      height: 60px;
+    }
+
+    .list .row .pic-wrap {
+      padding-top: 10px;
+      width: 40px;
+      float: left;
+    }
+
+    .list .row .pro-img {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+    }
+
+    .list .row .pro-des-wrap {
+      padding-top: 10px;
+      margin-left: 55px;
+      height: 40px;
+    }
+    .list .pro-des-wrap h3 {
+      font-size: 14px;
+      font-weight: bolder;
+      line-height: 20px;
+      height: 20px;
+    }
+    .list .pro-des-wrap p {
+      height: 20px;
+      font-size: 12px;
+      line-height: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="box">
+    <li class="item">1</li>
+    <li class="item">2</li>
+    <li class="item">3</li>
+    <li class="item">4</li>
+  </ul>
+
+  <!-- 产品列表 -->
+  <ul class="list">
+    <li class="row">
+      <div class="pic-wrap">
+        <img class="pro-img" src="./img/a.jpg" alt="">
+      </div>
+      <div class="pro-des-wrap">
+        <h3>George Bokhua</h3>
+        <p>Don't hesitate to ping me</p>
+      </div>
+    </li>
+    <li class="row">
+      <div class="pic-wrap">
+        <img class="pro-img" src="./img/a.jpg" alt="">
+      </div>
+      <div class="pro-des-wrap">
+        <h3>George Bokhua</h3>
+        <p>Don't hesitate to ping me</p>
+      </div>
+    </li>
+  </ul>
+</body>
+
+</html>

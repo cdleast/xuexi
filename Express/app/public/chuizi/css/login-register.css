@@ -1,0 +1,284 @@
+body{
+	background: url(../images/login-bj.png);
+}
+.wrap{
+	width: 100%;
+	height: auto;
+}
+.wrap-login{
+    box-shadow: 0 9px 30px -6px rgba(0,0,0,.2), 0 18px 20px -10px rgba(0,0,0,.04), 0 18px 20px -10px rgba(0,0,0,.04), 0 10px 20px -10px rgba(0,0,0,.04);
+	width: 450px;
+	border: 1px solid #dadada;
+    border-radius: 10px;
+    background: #fff;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+.login-logo{
+	text-align: center;
+}
+.login-logo h4{
+	font-weight: bold;
+	color: #333;
+	font-size: 20px;
+	margin-bottom: 50px;
+}
+.ng-scope{
+	padding: 0 40px 22px;
+}
+.ng-scope-main li{
+	margin-bottom: 15px;
+}
+.ng-scope-main li:nth-child(1),.ng-scope-main li:nth-child(2){
+	opacity: .6;
+}
+.ng-scope-main li:nth-child(1):hover{
+	opacity: 1;
+}
+.ng-scope-main li:nth-child(2):hover{
+	opacity: 1;
+}
+.ng-scope-input{
+	background: #fff;
+    box-shadow: 0 3px 5px -4px rgba(0,0,0,.4) inset, -1px 0 3px -2px rgba(0,0,0,.1) inset;
+    /*box-shadow: 1px 0 3px 1px rgba(0,0,0,.1) inset;*/
+    border: #ccc solid 1px;
+    border-radius: 6px;
+    font-size: 18px;
+    height: 46px;
+    line-height: 46px;
+    /*position: relative;*/
+}
+.ng-scope-input span{
+	text-align: center;
+	border-radius: 6px 0 0 6px;
+    border-right: solid 1px #ccc;
+    box-shadow: 1px 0 3px -1px rgba(0,0,0,.1);
+    float: left;
+    height: 46px;
+    width: 46px;
+    font-size: 24px;
+}
+.ng-scope-input input{
+	border: 0;
+	border-radius: 0 6px 6px 0;
+	color: #333;
+    font-size: 16px;
+	float: left;
+	width: 292px;
+    height: 20px;
+    padding: 13px 12px 13px 15px;
+}
+.tishikuang1{
+	position: relative;
+}
+.tishikuang1 .tishikuang2{
+	position: absolute;
+	left: 0px;
+	top: 48px;
+	border: 1px solid #ccc;
+	width: 368px;
+	height: 50px;
+	line-height: 50px;
+	z-index: 9999;
+	opacity: 1;
+	background: #fff;
+	border-radius: 8px;
+	display: none;
+}
+
+.div-div{
+	width: 100%;
+	margin: 15px 5px 25px;
+	color: #999;
+    float: left;
+    font-size: 14px;
+}
+.icon-duihao21{
+	color: #5079d9;
+}
+.div-denglu{
+	color: #999;
+}
+.div-a{
+	font-size: 12px;
+	float: right;
+	color: #5079d9;
+}
+.div-div a:nth-child(3){
+	margin-right: 10px;
+}
+.ng-scope-btn{
+	margin-bottom: 30px;
+}
+.ng-scope-btn a{
+	display: block;
+	text-align: center;
+	border-radius: 6px;
+	font-size: 18px;
+	background: linear-gradient(#6f97e5,#527ed9);
+    box-shadow: inset 0 1px 2px #7ea1e8;
+    color: #fff;
+    text-shadow: #4f70b3 0 -1px 0;
+    height: 46px;
+    line-height: 46px;
+    opacity: .4;
+}
+.ng-qitadl{
+	border-top: 1px solid #d9d9d9;
+	width: 100%;
+	padding-top: 30px;
+    color: #999;
+}
+.ng-qitadl ul{
+	float: left;
+	width: 100%;
+}
+.ng-qitadl ul li{
+	float: left;
+}
+.ng-wxq>li>a>span{
+	display: inline-block;
+	margin-left: 10px;
+}
+.ng-wxq>li:nth-child(2) a span:hover{
+	color: #00cf31;
+}
+.ng-wxq>li:nth-child(3) a span:hover{
+	color: #e70425;
+}
+.ng-wxq>li:nth-child(4) a span:hover{
+	color: #00b7f9;	
+}
+.ng-qitadl>ul>li:nth-child(2){
+	float: right;
+}
+.ng-qitadl>ul>li:nth-child(2) a{
+	color: #999;
+    font-size: 12px;
+}
+.ng-qitadl>ul>li:nth-child(2) a:hover{
+	color: #5079d9;
+}
+
+/*底部*/
+.footer{
+	width: 100%;
+    color: #434d55;
+    font-size: 12px;
+    /*padding: 0 0 60px;*/
+	margin: 50px 0;
+    text-align: center;
+}
+.footer>div>h2{
+	display: inline-block;
+}
+.footer>div>ul{
+	margin-left: 10px;
+	display: inline-block;
+}
+.footer>div>ul>li{
+	display: inline-block;
+	padding: 1px 10px 0;
+    border-left: 1px solid #ccc;
+}
+.footer>div>ul>li>a{
+	color: #5079d9;
+}
+.footer>div>h4{
+	margin-top: 10px;
+}
+.footer>div>h4>a{
+	color: #5079d9;
+}
+
+
+/*注册页*/
+.register-header{
+	color: #666;
+    border-bottom: 1px solid #dcdcdc;
+    font-weight: bold;
+    height: 62px;
+    line-height: 62px;
+    font-size: 20px;
+    background: #f9f9f9;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 6px #d1d1d1;
+    border-radius: 10px 10px 0 0;
+}
+.ng-register>li{
+	opacity: .6;
+}
+.ng-register>li:hover{
+	opacity: 1;
+}
+.ng-scope-input .ng-86{
+	display: inline-block;
+	width: 55px;
+    text-align: center;
+    border: 0;
+    height: auto;
+	position: absolute;
+	box-shadow: none;
+}
+.ng-scope-input .ng-86-ipt{
+	width: 240px;
+	float: right;
+}
+.dxyzm-r{
+	position: relative;
+}
+.ng-scope-main li .dxyzm a{
+	position: absolute;
+	right: 0;
+	top: -1px;
+    border: 1px solid #ddd;
+}
+.dxyzm-r .dxyzm{
+	width: 228px;
+}
+.yzm-dxyzm{
+	width: 130px;
+    font-size: 16px;
+    text-align: center;
+    background: #fbfbfb;
+    border-radius: 6px;
+}
+.ng-scope-main li .dxyzm .duanxinyanzheng{
+	width: 146px;
+}
+.morenxuanze{
+	margin: 20px 0;
+}
+.morenxuanze p{
+	cursor: pointer;
+}
+.morenxuanze p a{
+	color: #999;
+}
+.morenxuanze p a.morenxuanze-sm{
+	color: #5079d9;
+}
+.morenxuanze .icon-duihao21{
+	color: #999;
+}
+.yyid{
+	cursor: pointer;
+	text-align: center;
+}
+.yyid a{
+	color: #999;
+}
+.yyid a span{
+	color: #5079d9;
+}
+
+.focus-border{
+	border: 1px solid blue;
+}
+
+
+
+
+
+

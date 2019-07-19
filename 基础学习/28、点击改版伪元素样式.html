@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>点击改版伪元素样式</title>
+	<style>
+	div{
+		float:left;
+		height:100px;
+		width:10em;
+		background:red;
+	}
+	.green::after{
+		content: "";
+		width: 50px;
+		height: 50px;
+		background: green;
+		display: inline-block;
+	}
+	.yellow::after{
+		content: "";
+		width: 50px;
+		height: 50px;
+		background: yellow;
+		display: inline-block;
+	}
+	</style>
+</head>
+<body>
+	<div class="green"></div>
+	<script>
+		var div = document.getElementsByTagName("div")[0];
+		div.onclick = function(){
+		  div.className = "yellow";
+		}
+	</script>
+</body>
+</html>

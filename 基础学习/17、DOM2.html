@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原生js选项卡</title>
+    <style>
+    .wrapper div {
+        display: none;
+        width: 200px;
+        height: 100px;
+        border: 2px solid red;
+    }
+
+    .active {
+        background: yellow;
+    }
+
+    div.default {
+        display: block;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <button class="active">111</button>
+        <button>222</button>
+        <button>333</button>
+        <div class="content default">陈哥帅</div>
+        <div class="content">张哥帅</div>
+        <div class="content">李哥帅</div>
+    </div>
+    <script>
+    var btn = document.getElementsByTagName('button');
+    var div = document.getElementsByClassName("content");
+    for (var i = 0; i < btn.length; i++) {
+    	// 使用闭包
+        (function(n) {
+            btn[n].onclick = function() {
+                for (var j = 0; j < btn.length; j++) {
+                    btn[j].className = "";
+                    div[j].style.display = "none";
+                }
+                this.className = "active";
+                div[n].style.display = "block";
+            }
+        }(i))
+    }
+    </script>
+</body>
+</html>

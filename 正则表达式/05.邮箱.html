@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	邮箱：<input id="email" type="text">
+	<button id="btn">验证</button>
+	<script type="text/javascript">
+		// 获取对象	
+		var btn = document.getElementById('btn');
+		var Email = document.getElementById('email');
+
+		// 验证邮箱的函数
+		btn.onclick = function(){
+			// alert(Email.value);
+			/*
+				邮箱的规则
+				zhangsongyin@itxdl.cn
+				sfds@qq.com
+				sadfasdf@126.cn
+				数字字母_@[0-9A-z-].[A-z]+
+				\  转义字符
+			*/
+
+			// 邮箱 正则
+			var reg = /^[A-z0-9_]+@[0-9A-z-]+\.[A-z]+$/;
+			if(reg.test(Email.value)){
+				alert('邮箱正确');
+			}else{
+				alert('邮箱错误');
+			}
+
+		}
+
+
+
+	</script>	
+</body>
+</html>

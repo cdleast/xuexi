@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>隐藏和显示相关的指令</title>
+    <script src="./vue.min.js"></script>
+    <style>
+        #box1{
+            width:200px;
+            height: 200px;
+            background: red;
+            display: inline-block;
+        }
+        #box2{
+            width:200px;
+            height: 200px;
+            background: green;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="container">
+        <button @click="isblock=true">v-if-显示-红</button>
+        <button @click="isblock=false">v-if-隐藏-红</button>
+        <button @click="isShow=true">v-show-显示-绿</button>
+        <button @click="isShow=false">v-show-隐藏-绿</button>
+        <br>
+        <div id="box1" v-if="isblock"></div>
+        <div id="box2" v-show="isShow"></div>
+    </div>
+    
+    <script>
+        // 实例化对象
+        new Vue({
+            // 选择容器
+            el:'#container',
+            // 数据
+            data:{
+                isblock:true,
+                isShow:true,
+            }
+        })
+    </script>
+
+</body>
+</html>

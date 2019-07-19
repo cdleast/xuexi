@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>输出内容相关的指令-循环</title>
+    <script src="./vue.min.js"></script>
+    <style>
+        p {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <!-- v-text 输出内容 -->
+        <p v-text="message"></p>
+        <p v-html="message"></p>
+
+        <!-- v-html 可以解析 html 的标签 -->
+        <p v-text="strHtml"></p>
+        <p v-html="strHtml"></p>
+
+        <hr>
+        <!-- 输出变量 -->
+        <p>{{message}}</p>
+        <!-- 输出字符串 -->
+        <p>{{'hello world'}}</p>
+        <!-- 输出数组 -->
+        <p>{{names}}</p>
+        <p>{{names[1]}}</p>
+        <!-- 输出对象 -->
+        <p>{{test}}</p>
+        <p>{{test.username}}</p>
+
+
+        <hr>
+        <table width="500" border="1" cellpadding="0" agellspacing="0">
+            <tr>
+                <td></td>
+                <td>姓名</td>
+                <td>性别</td>
+                <td>年龄</td>
+            </tr>
+            <!-- item是循环的值，index是下标 -->
+            <tr v-for="(item,index) in users">
+                <td>{{index}}</td>
+                <td>{{item.username}}</td>
+                <td>{{item.sex}}</td>
+                <td>{{item.age}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        // 实例化 vue
+        new Vue({
+            // 选择容器
+            el: '#container',
+            // 数据
+            data: {
+                message: 'hello world',
+                strHtml: '<h4 style="background:green;">我们都是牛逼的人</h4>',
+                names: ['唐伯虎', '秋香', '石榴姐'],
+                test: {
+                    username: 'jack',
+                    age: 18,
+                    sex: '男'
+                },
+                users: [
+                    { username: '傻逼', age: 18, sex: '男' },
+                    { username: '八戒', age: 18, sex: '男' },
+                    { username: '沙僧', age: 18, sex: '男' },
+                    { username: '白龙', age: 18, sex: '男' },
+                    { username: '黑龙', age: 18, sex: '男' },
+                    { username: '唐僧', age: 18, sex: '男' }
+                ]
+            },
+        })
+    </script>
+</body>
+
+</html>

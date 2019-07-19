@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		var num = 'hello';
+
+		function add(){
+			// 局部变量
+			var num = 0;
+			return function(){
+				return ++num;
+			}
+		}	
+
+		var res = add();
+
+		console.log(res());
+		console.log(res());
+		console.log(res());
+		console.log(res());
+		console.log(res());
+		console.log(res());
+		console.log(res());
+		console.log(res());
+
+		console.log(num);
+
+		
+
+
+	</script>	
+</body>
+</html>

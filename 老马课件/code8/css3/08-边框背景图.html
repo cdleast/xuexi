@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>08-边框背景图</title>
+  <style>
+    /* 边框背景图，必须设置边框 */
+    .box {
+      width: 300px;
+      height: 200px;
+      background-color: #07a;
+      border: 27px solid #aaa;
+
+      border-image-source: url(../img/border.png);
+      border-image-slice: 27;
+      /* 第一个参数：top bottom  ， 第二个参数是： right  left */
+      /* border-image-slice: 27 27; */
+      
+      /* 第一参数：top， 第二个参数： right left 第三个：bottom */
+      /* border-image-slice: 27 27 27; */
+
+      /* 设置水平和垂直方向的平铺的方式 */
+      border-image-repeat: space;
+      border-image-repeat: space stretch;
+
+      border-image-outset: 1px;
+    }
+
+    .box2 {
+      border: 27px solid #ccc;
+      width: 300px;
+      height: 200px;
+      border-image: url(../img/border.png) 27 stretch round;
+      background-color: #ccc;
+    }
+
+
+    .box3 {
+      border: 70px solid #ccc;
+      width: 900px;
+      height: 200px;
+      border-image: url(../img/timg.jpg) 70 repeat;
+      /* background-color: #ccc; */
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+
+  </div>
+
+  <div class="box2"></div>
+
+  <div class="box3">
+
+  </div>
+</body>
+</html>

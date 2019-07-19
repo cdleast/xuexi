@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>聖杯佈局</title>
+  <style>
+    html, body, header, main, footer {
+      padding: 0;
+      margin: 0;
+    }
+    html, body {
+      height: 100%;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      flex: 0 0 60px;
+      background-color: mediumpurple;
+    }
+
+    footer {
+      flex: 0 0 40px;
+      background-color: lightcoral;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+    }
+    
+    nav, aside {
+      flex: 0 0 150px;
+    }
+    section {
+      flex: 1;
+      background-color: antiquewhite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: khaki;
+    }
+  </style>
+</head>
+<body>
+  <header></header>
+  <main>
+    <nav></nav>
+    <section>
+      <div class="box"></div>
+    </section>
+    <aside></aside>
+  </main>
+  <footer></footer>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+		var obj = {
+			"o" : 'a',
+			"1" : 'b',
+			"2" : 'c',
+			"length" : 3,
+			"push" : Array.prototype.push
+		}
+		// 属性要为索引(数字)属性，必须有length属性，最好加上push
+		// 类数组的内部原理
+		Array.prototype.push = function(target){
+			obj[obj.length] = target;
+			obj.length ++;
+		}
+
+
+	</script>
+
+</body>
+</html>

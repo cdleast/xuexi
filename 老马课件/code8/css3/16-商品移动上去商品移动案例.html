@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>商品移动案例</title>
+  <style>
+    html, body, div, ul, li, h3 {
+      padding: 0; 
+      margin: 0;
+    }
+    ul { list-style: none; }
+    h3 { font: 16px/1.5 'Microsoft YaHei'; font-weight: normal; }
+
+    .layer .pro-list-wrap {
+      margin: 100px auto;
+      width: 960px;
+    }
+    .layer .pro-list-item {
+      float: left;
+      width: 200px;
+      height: 200px;
+      border: 1px solid #ccc;
+      text-align: center;
+      margin: 0 10px;
+      padding: 10px 0;
+    }
+    .layer .pro-list-item img:hover {
+      transform: translate(-5px, 0);
+    }
+    .layer .pro-list-item img {
+      /* transition: transform 0.6s ease, width 0.9s linear; */
+      transition: all 1s ease;
+      width: 80%;
+      height: 80%;
+    }
+  </style>
+</head>
+<body>
+  <!-- emmet语法 -->
+  <div class="layer">
+    <ul class="pro-list-wrap">
+      <li class="pro-list-item">
+        <a href="javascript:"><img src="../img/a.jpg" alt=""></a>
+        <h3>商品1</h3>
+      </li>
+      <li class="pro-list-item">
+        <a href="javascript:"><img src="../img/a.jpg" alt=""></a>
+        <h3>商品2</h3>
+      </li>
+      <li class="pro-list-item">
+        <a href="javascript:"><img src="../img/a.jpg" alt=""></a>
+        <h3>商品3</h3>
+      </li>
+      <li class="pro-list-item">
+        <a href="javascript:"><img src="../img/a.jpg" alt=""></a>
+        <h3>商品4</h3>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

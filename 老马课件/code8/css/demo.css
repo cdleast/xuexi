@@ -1,0 +1,76 @@
+.box {
+  width: 180px;
+  background-color: #09c;
+  border-top: 1px solid #ccc;
+}
+
+.h {
+  font-size: 20px;
+  height: 14px;
+  color: #09c;
+}
+
+.h .m {
+  width: 10px;
+}
+
+.h .m .n {
+  height: 20px;
+}
+
+.h:hover {
+  background-color: red;
+}
+
+.h::before {
+  content: '';
+  display: block;
+  width: 10px;
+  color: #09c;
+}
+
+ul {
+  list-style: none;
+  color: red;
+  width: 2rem;
+}
+
+ol {
+  list-style: none;
+  color: red;
+}
+
+.box {
+  color: #404040;
+  height: 4px;
+  border: 3px solid red;
+}
+
+.h {
+  width: 16px;
+}
+
+.item-1 {
+  width: 8px;
+}
+
+.item-2 {
+  width: 8px;
+}
+
+.puma-icon {
+  background-image: url("/images/puma.png");
+}
+
+.sea-slug-icon {
+  background-image: url("/images/sea-slug.png");
+}
+
+.egret-icon {
+  background-image: url("/images/egret.png");
+}
+
+.salamander-icon {
+  background-image: url("/images/salamander.png");
+}
+/*# sourceMappingURL=demo.css.map */

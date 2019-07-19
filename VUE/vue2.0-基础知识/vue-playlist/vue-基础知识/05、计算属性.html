@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue 计算属性 computed</title>
+	<style>
+		
+	</style>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+	<!-- vue-app是根容器 -->
+	<div id="vue-app">
+		<h1> Computed 计算属性</h1>
+		<hr>
+		<button v-on:click="a++">Add to A</button>
+		<button v-on:click="b++">Add to B</button>
+		<p>A - {{a}}</p>
+		<p>B - {{b}}</p>
+		<!-- 如果写在methods就必须加()，写在computed则不需要 -->
+		<!-- methods：是方法的意思，在js中，我们把一些函数叫做方法，一般情况下，要触发这个方法就要执行，要执行就要有一个源来触发，所以就需要一个事件源。这是和computed的一点不同之处； -->
+		<p>Age + A = {{addToA()}}</p>
+		<p>Age + b = {{addToB()}}</p>
+	</div>
+
+	<script>
+		// 实例化 vue 对象
+		new Vue({
+			// el: element 需要获取的元素，一定是 html 中的根容器元素
+			el:"#vue-app",
+			// data: 用于数据的存储
+			data:{
+				a:0,
+				b:0,
+				age:20
+			},
+			// 方法函数都要写在 methods 里面
+			methods:{
+				addToA:function(){
+					return this.a + this.age;
+				},
+				addToB:function(){
+					return this.b + this.age;
+				}
+			},
+			// 计算属性，优化性能，当性能比较大，耗时，的时候使用，比如搜索
+			// computed:{
+			// 	addToA:function(){
+			// 		return this.a + this.age;
+			// 	},
+			// 	addToB:function(){
+			// 		return this.b + this.age;
+			// 	}
+			// }
+		})
+	</script>
+</body>
+</html>

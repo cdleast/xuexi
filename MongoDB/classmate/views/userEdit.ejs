@@ -1,0 +1,62 @@
+<% include header %>
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="#">学员管理</a></li>
+        <li class="active">编辑学员</li>
+    </ol>
+    <div class="row">
+        <div class="col-md-4 col-sm-3"></div>
+        <div class="col-md-4 col-sm-6">
+            <form action="/userUpdate" class="addUser-form" method="post">
+                <!-- input框的隐藏域，用户看不到，只为和后台数据传输 -->
+                <input type="hidden" value="<%= userlist._id %>" name="_id">
+                <ul>
+                    <li>
+                        <div class="input-group">
+                            <span class="input-group-addon">姓名：</span>
+                            <input type="text" class="form-control" name="username" value="<%= userlist.username %>">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="input-group">
+                            <span class="input-group-addon">性别：</span>
+                            <div class="form-control">
+                                <input type="radio" value="1" name="sex" <%=userlist.sex==1?'checked':'' %>> 男
+                                <input type="radio" value="0" name="sex" <%=userlist.sex==0?'checked':'' %>> 女
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="input-group">
+                            <span class="input-group-addon">年龄：</span>
+                            <input type="number" class="form-control" name="age" value="<%= userlist.age %>">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="input-group">
+                            <span class="input-group-addon">课程：</span>
+                            <select name="kcId" class="form-control">
+                                <% for(var i = 0;i<kcList.length;i++){ %>
+                                <option value="<%= kcList[i]._id %>" <%=kcList[i]._id==userlist.kcId?'selected':''%>>
+                                    <%= kcList[i].name %>
+                                </option>
+                                <% } %>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="input-group">
+                            <span class="input-group-addon">电话：</span>
+                            <input type="number" class="form-control" name="tel" value="<%= userlist.tel %>">
+                        </div>
+                    </li>
+                    <li>
+                        <input type="submit">
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <div class="col-md-4 col-sm-3"></div>
+    </div>
+</div>
+<% include footer %>

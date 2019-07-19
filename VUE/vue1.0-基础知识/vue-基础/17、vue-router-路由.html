@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue-router</title>
+    <script src="./vue.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        .footerNav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #222;
+        }
+
+        .footerNav ul li {
+            float: left;
+            width: 25%;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        .footerNav ul li a {
+            color: #fff;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- 组件模板 -->
+    <template id="index">
+        <div class="nav">
+            <ul>
+                <li><a href="">首页</a></li>
+                <li><a href="">欧美</a></li>
+                <li><a href="">日韩</a></li>
+                <li><a href="">大陆</a></li>
+                <li><a href="">动漫</a></li>
+                <li><a href="">动画</a></li>
+                <li><a href="">下载</a></li>
+            </ul>
+        </div>
+    </template>
+
+
+    <div id="container">
+        <!-- 显示路由的容器 -->
+        <router-view></router-view>
+
+        <div class="footerNav">
+            <ul>
+                <li>
+                    <!-- <router-link>默认会被渲染成一个<a>标签 -->
+                    <!-- <router-link to="/foo">Go to Foo</router-link> -->
+                    <!-- 如果不想渲染成<a>标签，需要加上tag="你想要渲染的标签" -->
+                    <router-link to="/">首页</router-link>
+                </li>
+                <li>
+                    <router-link to="/cat">商城</router-link>
+                </li>
+                <li>
+                    <router-link to="/bbs">论坛</router-link>
+                </li>
+                <li>
+                    <router-link to="/me">我们</router-link>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 加载vue-router -->
+    <script src="./node_modules/vue-router/dist/vue-router.min.js"></script>
+    <script>
+
+        new Vue({
+            el: '#container',
+            // 实例化路由
+            router: new VueRouter({
+                routes: [
+                    { path: '/', component: { template: '#index' }},
+                    { path: '/cat', component: { template: '<h1>商城</h1>' } },
+                    { path: '/bbs', component: { template: '<h1>论坛</h1>' } },
+                    { path: '/me', component: { template: '<h1>我们</h1>' } },
+                ]
+            })
+        })
+    </script>
+</body>
+
+</html>

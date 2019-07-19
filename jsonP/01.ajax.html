@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    #box {
+        width: 400px;
+        height: 300px;
+        border: 1px solid green;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>Ajax</h1>
+    <button id="btn">request</button>
+    <div id="box"></div>
+    <script type="text/javascript">
+    // 获取按钮的对象
+    var Btn = document.getElementById('btn');
+
+    var Box = document.getElementById('box');
+
+    // 绑定事件
+    Btn.onclick = function() {
+
+        // 实例化ajax 对象
+        var xhr = new XMLHttpRequest();
+
+        //  ajax 不能够实现跨域的请求
+        xhr.open('get', 'http://localhost/H5_37/jsonP/01.php');
+
+        // 发送请求
+        xhr.send();
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // 把服务器返回的数据放到 Box 对象的容器里
+                Box.innerHTML = xhr.responseText;
+            }
+        }
+
+    }
+    </script>
+</body>
+
+</html>

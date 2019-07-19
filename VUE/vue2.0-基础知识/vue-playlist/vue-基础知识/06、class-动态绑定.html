@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>class 动态绑定</title>
+	<style>
+		span{
+			background: red;
+			display: inline-block;
+			padding: 10px;
+			color: #fff;
+			margin: 10px 0;
+		}
+		.changeColor span{
+			background: green;
+		}
+		.changeLength span{
+			border-radius: 50%;
+		}
+
+
+		/* .changeLenght span::after{
+			content: "length";
+			margin-left: 10px;
+		} */
+	</style>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+	<!-- vue-app是根容器 -->
+	<div id="vue-app">
+		<h1>动态 css class</h1>
+		<hr>
+
+		<h2>示例 1</h2>
+		<hr>
+		<!-- <div v-on:click="changeColor = !changeColor" v-bind:class="{changeColor:changeColor}">
+			<span>Henry</span>
+		</div> -->
+
+
+		<h2>示例 2</h2>
+		<hr>
+		<button v-on:click="changeColor = !changeColor">change color</button>
+		<button v-on:click="changeLength = !changeLength">change length</button>
+
+		<div v-bind:class="compClasses">
+			<span>Henry</span>
+		</div>
+	</div>
+
+	<script>
+		// 实例化 vue 对象
+		new Vue({
+			// el: element 需要获取的元素，一定是 html 中的根容器元素
+			el:"#vue-app",
+			// data: 用于数据的存储
+			data:{
+				changeColor:false,
+				changeLength:false
+			},
+			// 方法函数都要写在 methods 里面
+			methods:{
+
+			},
+			// 计算属性，优化性能，当性能比较大，耗时，的时候使用，比如搜索
+			computed:{
+				compClasses:function(){
+					return {
+						changeColor:this.changeColor,
+						changeLength:this.changeLength
+					}
+				}
+			}
+		})
+	</script>
+</body>
+</html>

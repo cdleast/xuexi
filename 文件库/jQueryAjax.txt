@@ -1,0 +1,208 @@
+今日大纲
+=================
+    jQuery 封装的 Ajax 
+
+    load()方法   局部方法
+        载入远程 HTML 文件代码并插入至 DOM 中。
+
+        参数
+        url,[data,[callback]]
+        url:待装入 HTML 网页网址。
+        data:发送至服务器的 key/value 数据。在jQuery 1.3中也可以接受一个字符串了。
+        callback:载入成功时回调函数。
+
+    
+        $('button').click(function () {
+            $('div').load('test.html');
+        });
+
+        带选择器的url
+        ----------------
+        $('button').click(function () {
+            $('div').load('test.html .my');
+        });
+
+        get 方式
+        --------------
+        $('button').click(function () {
+            $('div').load('test.php?name=jack');
+        });
+
+
+        post 方式
+        ---------------
+        $('button').click(function () {
+            $('div').load('test.php', {
+                name : 'jack'
+            });
+        });
+        
+
+        Ajax 数据载入完毕之后，就能执行回调函数callback，也就是第三个参数。
+        回调函数也可以传递三个可选参数：responseText（请求返回）、textStatus（请求状态)、XMLHttpRequest（XMLHttpRequest 对象）。
+
+        $('button').click(function () {
+            $('#box').load('test.php', {
+                name : 'jack'
+            }, function (response, status, xhr) {
+                alert('返回的值为：' + response + '，状态为：' + status + '，
+                状态是：' + xhr.statusText);
+            });
+        });
+
+        如果成功 status 返回值是：success，否则为：error
+
+
+    $.get() 
+    =======
+        通过远程 HTTP GET 请求载入信息。
+        这是一个简单的 GET 请求功能以取代复杂 $.ajax 。请求成功时可调用回调函数。如果需要在出错时执行函数，请使用 $.ajax。
+
+
+    参数
+    -------
+    url,[data],[callback],[type]String,Map,Function,StringV1.0url:待载入页面的URL地址
+    data:待发送 Key/value 参数。
+    callback:载入成功时回调函数。
+    type:返回内容格式，xml, html, script, json, text, _default。
+
+
+
+    //使用$.get()异步返回html 类型
+    $('button').click(function () {
+        $.get('test.php', {
+            name : 'jack'
+        }, function (response, status, xhr) {
+            if (status == 'success') {
+                $('#box').html(response);
+            }
+        }) //type 自动转为html
+    });
+
+
+    //使用$.post()异步返回html
+    $.post('test.php', {
+        name : 'jack'
+    }, function (response, status, xhr) {
+        $('#box').html(response);
+    });
+
+    $.getScript()
+    ================
+    //点击按钮后再加载JS 文件
+    $('button').click(function () {
+        $.getScript('test.js');
+    });
+
+
+    $.getJSON()方法是专门用于加载JSON 文件的，使用方法和之前的类似。
+    $('button').click(function () {
+        $.getJSON('test.json', function (response, status, xhr) {
+            alert(response[0].url);
+        });
+    });
+
+    ----------------
+    - $.ajax() *** -
+    ----------------
+    通过 HTTP 请求加载远程数据。
+
+    参数
+    =================
+    url,[settings]
+    settings:AJAX 请求设置。所有选项都是可选的。
+
+
+
+    //$.ajax 使用
+    $('input').click(function () {
+        $.ajax({
+            type : 'POST', //这里可以换成GET
+            url : 'test.php',
+            async : true,  // 异步同步，
+            data : {
+                name : 'jack'
+            },
+            success : function (response, stutas, xhr) {
+                $('#box').html(response);
+            }
+        });
+    });
+
+
+    //用 Ajax json 传递数据
+    $('button').click(function(){
+        $.ajax({
+            dataType:'json',
+            url:'1.php',
+            data:{
+                name:'jack',
+                sex:'nan',
+            },
+            type:'GET',  // GET 用对象传值
+            success:function(data){
+                // alert(data);
+                $('div').html(data.name);
+            }
+        });     
+    });
+
+
+    全局事件
+    =============
+    ajaxStart()   ajaxStop()
+
+    // 1.11.1 的用这个语法
+    $(document).ajaxStart(function () {
+        $('.loading').show();
+    }).ajaxStop(function () {
+        $('.loading').hide();
+    });   
+
+    // 设置请求超时
+    $.ajax({
+        timeout : 500
+    });
+
+    // 取消全局事件
+    $.ajax({
+        global : false
+    });
+
+
+    错误处理
+    ===============
+
+    $('button').click(function(){
+        $.ajax({
+            dataType:'json',
+            url:'1.php',
+            data:{
+                name:'jack',
+                sex:'nan',
+            },
+            type:'GET',  // GET 用对象传值
+            success:function(data){
+                // alert(data);
+                $('div').html(data.name);
+            },
+            error : function (xhr, errorText, errorStatus) {
+                //
+                alert(xhr.status + ':' + xhr.statusText);
+            }
+        });     
+    });
+
+    --------------
+
+    $.post('test1.php').error(function (xhr, status, info) {
+        alert(xhr.status + ':' +xhr.statusText);
+        alert(status + ':' + info);
+    });
+
+
+    //ajaxError() 全局错误事件提示
+    $(document).ajaxError(function (event, xhr, settings, infoError) {
+        alert(xhr.status + ':' +xhr.statusText);
+        alert(settings+ ':' + info);
+    });

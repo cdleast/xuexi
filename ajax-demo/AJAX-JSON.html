@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script>
+    function loadXMLDoc(){
+		var xmlhttp;
+		if (window.XMLHttpRequest){
+			//  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+			xmlhttp=new XMLHttpRequest();
+		}else{
+			// IE6, IE5 浏览器执行代码
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange=function(){
+			if (xmlhttp.readyState==4 && xmlhttp.status==200){
+				eval("var person="+xmlhttp.responseText+";");
+				var firstname = person.firstName;
+				var lastname = person.lastName;
+				var age = person.age;
+				document.getElementById("myDiv").innerHTML="姓名："+firstname+" "+lastname+" 年龄："+age;
+			}
+		}
+		xmlhttp.open("GET","./AJAX-JSON.js",true);
+		xmlhttp.send();
+	}
+</script>
+</head>
+
+<body>
+    <div id="myDiv"><h2>获取用户信息</h2></div>
+    <button type="button" onclick="loadXMLDoc()">获取信息</button>
+</body>
+
+</html>

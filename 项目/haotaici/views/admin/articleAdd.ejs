@@ -1,0 +1,72 @@
+<% include ./header %>
+<!-- 引入富文本编辑器插件 -->
+<script src="/ueditor/ueditor.config.js"></script>
+<script src="/ueditor/ueditor.all.min.js"></script>
+<h3 class="page-title">发布文章</h3>
+<form action="/admin/articleInsert" class="articleAdd-form" method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon">分类：</span>
+                <select name="itemId" id="" class="form-control">
+                    <% for(var i=0;i<articledata.length;i++){ %>
+                        <option value="<%= articledata[i]._id %>"><%= articledata[i].name %></option>
+                    <% } %>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon">标题：</span>
+                <input type="text" class="form-control" name="title">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon">作者：</span>
+                <input type="text" class="form-control" name="author">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon">关键字：</span>
+                <input type="text" class="form-control" name="keywords">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon">封面：</span>
+                <input type="file" class="form-control" name="imgUrl">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="input-group">
+                <span class="input-group-addon">描述</span>
+                <input type="text" class="form-control" name="description">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <textarea name="content" id="content"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <input type="submit" value="确定发布文章">
+        </div>
+    </div>
+</form>
+
+
+<script>
+    // 调用富文本编辑器
+    var ue = UE.getEditor('content');
+</script>
+
+
+<% include ./footer %>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		var person = new Person("cheng",100);
+
+		var obj = {};
+
+		// 改变Person的this指向，其实就是把Person里面的this复制一份放到obj里
+		// 也可以传参数，在第二个位置开始
+		// 借用别人的函数，实现自己的功能
+		Person.call(obj,"chen",100);
+
+		// call
+		function Wheel(wheelSize,style){
+			this.style = style;
+			this.wheelSize = wheelSize;
+		}
+
+		function Sit(c,sitColor){
+			this.c = c;
+			this.sitColor = sitColor;
+		}
+
+		function Model(height,width,len){
+			this.height = height;
+			this.width = width;
+			this.len = len;
+		}
+
+		function Car(background,wheelSize,style,c,sitColor,height,width,len){
+			this.background = background;
+			Wheel.call(this,wheelSize,style);
+			Sit.call(this,c,sitColor);
+			Model.call(this,height,width,len)
+		}
+
+		var car = new Car("green",100,"花里胡哨的","真皮","red",1800,1900,4900);
+		
+
+		// apply和call功能一样，第一位传的都是改变this指向的那个人，第二位必须传数组
+		function Wheel(wheelSize,style){
+			this.style = style;
+			this.wheelSize = wheelSize;
+		}
+
+		function Sit(c,sitColor){
+			this.c = c;
+			this.sitColor = sitColor;
+		}
+
+		function Model(height,width,len){
+			this.height = height;
+			this.width = width;
+			this.len = len;
+		}
+
+		function Car(background,wheelSize,style,c,sitColor,height,width,len){
+			this.background = background;
+			Wheel.apply(this,[wheelSize,style]);
+			Sit.apply(this,[c,sitColor]);
+			Model.apply(this,[height,width,len])
+		}
+
+		var car = new Car("green",100,"花里胡哨的","真皮","red",1800,1900,4900);
+
+
+
+	</script>
+</body>
+</html>

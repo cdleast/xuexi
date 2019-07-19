@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>rem-布局</title>
+    <link rel="stylesheet" href="./node_modules/swiper/dist/css/swiper.min.css">
+    <style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    ul,
+    ol {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    /* 设置 html 字体的默认大小 */
+    /* 浏览器默认大小 20px */
+    html {
+        font-size: 50%;
+    }
+
+    /* 头部导航 */
+    .topNav {
+        width: 100%;
+        height: 5rem;
+        background: #333;
+    }
+
+    .topNav ul li {
+        float: left;
+        width: 25%;
+    }
+
+    .topNav ul li a {
+        color: #fff;
+        display: block;
+        text-align: center;
+        line-height: 5rem;
+        font-size: 2rem;
+    }
+
+    /* 轮播图 */
+    .play{
+        max-width: 64rem;
+        margin: .5rem auto;
+    }
+
+    .play img{
+        width: 100%;
+
+    }
+
+    /* 电影列表 */
+    .box{
+        max-width: 64rem;
+        margin: .5rem auto;
+    }
+
+    .box .item{
+        width: 50%;
+        float: left;
+        margin-top: 1rem;
+    }
+
+    .box .item img{
+        width: 95%;
+        display: block;
+        margin: 0 auto;
+        float: left;
+    }
+
+    .box .item:nth-child(even) img{
+        float: right;
+    }
+
+    .box .item p{
+        text-align: center;
+        color: green;
+        font-size: 1.8rem;
+        line-height: 2.8rem;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 头部导航 -->
+    <div class="topNav">
+        <ul>
+            <li><a href="">首页</a></li>
+            <li><a href="">欧美</a></li>
+            <li><a href="">大陆</a></li>
+            <li><a href="">日韩</a></li>
+        </ul>
+    </div>
+    <!-- 头部导航 end -->
+
+    <!-- 轮播图 -->
+    <div class="play">
+        <!-- Swiper -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="images/1.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/2.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/3.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/4.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/1.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/2.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/3.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/4.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/1.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/2.jpg" alt="">
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <!-- 轮播图 end -->
+
+    <!-- 电影列表 -->
+    <div class="box">
+        <div class="item">
+            <img src="./images/1.jpg" alt="">
+            <p>魔兽世界</p>
+        </div>
+        <div class="item">
+            <img src="./images/2.jpg" alt="">
+            <p>魔兽世界</p>
+        </div>
+        <div class="item">
+            <img src="./images/3.jpg" alt="">
+            <p>魔兽世界</p>
+        </div>
+        <div class="item">
+            <img src="./images/4.jpg" alt="">
+            <p>魔兽世界</p>
+        </div>
+        <div class="item">
+            <img src="./images/1.jpg" alt="">
+            <p>魔兽世界</p>
+        </div>
+        <div class="item">
+            <img src="./images/2.jpg" alt="">
+            <p>魔兽世界</p>
+        </div>
+        <div class="item">
+            <img src="./images/3.jpg" alt="">
+            <p>魔兽世界</p>
+        </div>
+        <div class="item">
+            <img src="./images/4.jpg" alt="">
+            <p>魔兽世界</p>
+        </div>
+    </div>
+    <!-- 电影列表 end -->
+
+    <script src="./node_modules/swiper/dist/js/swiper.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        autoplay: true, //可选选项，自动滑动
+        pagination: {
+            el: '.swiper-pagination',
+            dynamicBullets: true,
+        },
+    });
+    </script>
+</body>
+
+</html>

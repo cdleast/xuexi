@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>css方法</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <button id="btn1">返回 p 元素的背景色</button>
+    <button id="btn2">设置 p 元素的背景色</button>
+    <button id="btn3">为 p 元素设置多个样式</button>
+    <h2>这是标题</h2>
+    <p style="background-color:#ff0000">这是一个段落。</p>
+    <p style="background-color:#00ff00">这是一个段落。</p>
+    <p style="background-color:#0000ff">这是一个段落。</p>
+</body>
+<script>
+// css() 方法设置或返回被选元素的一个或多个样式属性。
+// 如需返回指定的 CSS 属性的值，请使用如下语法：
+// css("propertyname");
+// 下面的例子将返回首个匹配元素的 background-color 值：
+// $("p").css("background-color");
+$("#btn1").click(function() {
+    alert("Background color = " + $("p").css("background-color"));
+});
+
+// 设置 CSS 属性
+// 如需设置指定的 CSS 属性，请使用如下语法：
+// css("propertyname","value");
+// 下面的例子将为所有匹配元素设置 background-color 值：
+// $("p").css("background-color","yellow");
+$("#btn2").click(function() {
+    $("p").css("background-color", "yellow");
+});
+
+
+// 设置多个 CSS 属性
+// 如需设置多个 CSS 属性，请使用如下语法：
+// css({"propertyname":"value","propertyname":"value",...});
+// 下面的例子将为所有匹配元素设置 background-color 和 font-size：
+// $("p").css({"background-color":"yellow","font-size":"200%"});
+$("#btn3").click(function() {
+    $("p").css({ "background-color": "yellow", "font-size": "200%" });
+});
+</script>
+
+</html>

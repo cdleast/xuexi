@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>折线图应用实战</title>
+    <!-- 1.引入 echarts.js -->
+    <script src="echarts.min.js"></script>
+    <!-- 引入echarts主题 -->
+    <script src="dark.js"></script>
+</head>
+
+<body>
+    <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+    <div id="main" style="width: 1200px;height:600px;margin: 0 auto;"></div>
+
+    <script>
+        var container = document.getElementById('main');
+        // 2.基于准备好的dom，初始化echarts实例
+        // container(dom容器),dark(主题)
+        var myChart = echarts.init(container, 'dark');
+
+        // 3.指定图表的配置项和数据
+        var option = {
+            // 标题组件
+            title: {
+                text: '上半年销售情况图', // 主标题文本
+                subtext: '折线图基本使用', // 副标题文本
+                left: 'center', // 标题位置
+            },
+            // 图例组件
+            legend: {
+                // 图例的数据数组-和数据项series里name的要一致
+                data: ['彩电', '冰箱', '空调'],
+                left: 'right', // 图例位置
+            },
+            // x轴坐标系
+            xAxis: {
+                type: 'category',
+                data: ['一月', '二月', '三月', '四月', '五月', '六月'],
+                name: '月份', // x轴坐标系显示文字
+                // 坐标轴名称的文字样式
+                nameTextStyle: {
+                    fontSize: 16, // 文字大小
+                    color: 'red', // 文字颜色
+                },
+                // 坐标轴刻度标签的相关设置
+                axisLabel: {
+                    color: 'green',
+                    rotate: 20, // 倾斜角度
+                },
+                // 坐标轴线相关设置
+                axisLine: {
+                    // x坐标轴线样式
+                    lineStyle: {
+                        color: 'red',
+                        width: 5, // 线的宽度
+                    }
+                },
+                // 坐标轴刻度相关设置
+                axisTick: {
+                    length: 20, // 刻度长度
+                    lineStyle: {
+                        color: 'green',
+                        width: 5, // 刻度宽度
+                    }
+                }
+            },
+            // y轴坐标系
+            yAxis: {
+                type: 'value',
+                name: '金额', // y轴坐标系显示文字
+                interval: 100, // 强制设置y坐标轴分割间隙
+                // max:1800, // 设置最大值
+                boundaryGap: ['0', '50%'],  // 通过百分比设置最大值
+                nameGap: 15, // 坐标轴名称与轴线之间的距离
+                nameTextStyle: {
+                    color: "green",
+                    fontSize: 16,
+                    padding: [0, 40, 0, 0]
+                }
+
+
+            },
+            // 数据源相关组件
+            series: [{
+                data: [120, 420, 921, 662, 1290, 120],
+                type: 'line',
+                name: '彩电'
+            },
+            {
+                data: [220, 567, 1222, 400, 1290, 720],
+                type: 'line',
+                name: '冰箱'
+            },
+            {
+                data: [420, 220, 567, 209, 1222, 530],
+                type: 'line',
+                name: '空调'
+            }]
+        };
+
+        // 4.使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+
+    </script>
+</body>
+
+</html>

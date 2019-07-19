@@ -1,0 +1,562 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: "microsoft yahei";
+    font-size: 16px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.clearfix::after {
+    display: block;
+    content: " ";
+    clear: both;
+}
+
+/* 头部 */
+.page_head {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #cd2626;
+    z-index: 1;
+}
+
+/* 头部 end */
+
+
+/* 左侧 */
+.page_menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 220px;
+    background: #eee;
+    border: 1px solid #ddd;
+    padding: 60px 0 120px 0;
+}
+
+/* 小窗口 */
+.smallwindow {
+    width: 220px;
+    height: 60px;
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    border-top: 1px solid #ddd;
+}
+
+.smallwindow .poster {
+    float: left;
+    width: 30%;
+    height: 100%;
+    position: relative;
+}
+
+.smallwindow .poster img {
+    width: 100%;
+    height: 100%;
+}
+
+/* 小窗口叠加层 */
+.poster_hoverback {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.poster:hover .poster_hoverback {
+    display: block;
+}
+
+.poster .poster_hoverback .iconfont {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 2rem;
+    transform: translate(-50%, -50%);
+}
+
+/* 歌曲详情页 */
+.page_songdetail {
+    position: fixed;
+    top: 100%;
+    right: 100%;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    overflow: auto;
+    transition: all 1s ease;
+    z-index: 8;
+}
+
+.page_songdetail>.maincontainer {
+    width: 1000px;
+    margin: 50px auto;
+    position: relative;
+}
+
+.page_songdetail>.maincontainer>.compressbtn {
+    position: absolute;
+    top: 0;
+    left: 101%;
+    padding: 5px 10px;
+    border: 1px solid #dee2e3;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f8f9fb;
+    cursor: pointer;
+}
+
+.page_songdetail>.maincontainer>.compressbtn:hover {
+    background-color: #f5f5f7;
+}
+
+.page_songdetail>.maincontainer>.lyricsection,
+.page_songdetail>.maincontainer>.discsection {
+    float: left;
+    height: 400px;
+}
+
+.page_songdetail>.maincontainer>.lyricsection {
+    width: 55%;
+}
+
+.page_songdetail>.maincontainer>.discsection {
+    width: 45%;
+    position: relative;
+}
+
+.page_songdetail>.maincontainer>.lyricsection>.lrcinfo {
+    height: 100px;
+}
+
+.page_songdetail>.maincontainer>.lyricsection>.lrcinfo>.info_song,
+.page_songdetail>.maincontainer>.lyricsection>.lrcinfo>.info_album {
+    max-width: 100%;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.page_songdetail>.maincontainer>.lyricsection>.lrcinfo>.info_song>.songname {
+    font-size: 1rem;
+}
+
+.page_songdetail>.maincontainer>.lyricsection>.lrcinfo>.info_song>.label {
+    display: inline-block;
+    margin: 0 6px;
+    padding: 2px;
+    border: 1px solid #f00;
+    color: #f00;
+}
+
+.page_songdetail>.maincontainer>.lyricsection>.lrcinfo>.info_album>span {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.page_songdetail>.maincontainer>.lyricsection>.lrccontainer {
+    height: calc(100% - 100px);
+    border-right: 1px solid #ccc;
+    overflow: auto;
+}
+
+.page_songdetail>.maincontainer>.lyricsection>.lrccontainer>.lrcbox>.lrc {
+    padding: 10px 0;
+    color: #202016;
+}
+
+.page_songdetail>.maincontainer>.lyricsection>.lrccontainer>.lrcbox>.lrc.current {
+    text-shadow: 0 0 3px #333;
+    color: #f9fcf5;
+}
+
+.page_songdetail>.maincontainer>.discsection>.disc_arc {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background-color: rgba(251, 251, 251, 0.08);
+    background-image: url("../images/disc.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 68%;
+    border: 3px solid rgba(251, 251, 251, 0.08);
+    overflow: hidden;
+}
+
+.page_songdetail>.maincontainer>.discsection>.disc_arc>.poster {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.page_songdetail>.maincontainer>.discsection>.disc_arc>.poster>img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.page_songdetail>.maincontainer>.discsection>.disc_btns {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.page_songdetail>.maincontainer>.discsection>.disc_btns>.btn {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: 1px solid #c1c5c6;
+    border-radius: 5px;
+    background-color: #f6fafb;
+    cursor: pointer;
+}
+
+.page_songdetail>.maincontainer>.discsection>.disc_btns>.btn:hover {
+    background-color: #f5f5f7;
+}
+
+.g_blurbg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+    background-image: url("../images/poster001.jpg");
+    background-repeat: no-repeat;
+    background-position: center 0;
+    background-size: 60% 60%;
+    /* 背景模糊 */
+    filter: blur(50px);
+    z-index: -1;
+}
+
+.page_songdetail>.maincontainer>.discsection>.disc_arc {
+    animation: rotateARC 10s linear infinite;
+    animation-play-state: paused;
+}
+
+@keyframes rotateARC {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.smallwindow .info {
+    float: left;
+    width: 40%;
+    height: 100%;
+}
+
+.smallwindow .info p {
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.smallwindow .btngroups {
+    float: left;
+    width: 30%;
+    height: 100%;
+}
+
+.smallwindow .btngroups p {
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.menulist {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.menulist>.list>.title {
+    line-height: 1.5rem;
+    color: #888;
+    padding: 5px 0 5px 5px;
+}
+
+.menulist>.list>.btngroups>.btn {
+    padding-left: 20px;
+    line-height: 1.5rem;
+}
+
+/* 左侧 end */
+
+
+/* 内容 */
+.page_main {
+    height: 100%;
+    padding: 60px 0 60px 220px;
+}
+
+.main_container {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.playlist_info {
+    padding: 20px 40px;
+    margin-bottom: 30px;
+}
+
+.info_poster {
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin-right: 40px;
+}
+
+.info_poster img {
+    width: 100%;
+    height: 100%;
+}
+
+.info_detail {
+    float: left;
+    width: calc(100% - 240px);
+    position: relative;
+}
+
+.detail_info {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.detail_name .tag {
+    color: #fff;
+    background: #cd2626;
+    padding: 5px 10px;
+    margin-right: 5px;
+}
+
+.detail_name .name {
+    font-size: 20px;
+}
+
+.detail_create {
+    margin: 15px 0;
+}
+
+.detail_btns .btn {
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.detail_btns .btn i {
+    color: red;
+    padding-right: 3px;
+}
+
+.playlist_tab>.tab_btns {
+    padding: 0 40px;
+    border-bottom: 2px solid #c20c0c;
+}
+
+.playlist_tab .btn {
+    display: inline-block;
+    padding: 5px 20px;
+    margin-right: 5px;
+    border: 1px solid #eee;
+    border-bottom: none;
+}
+
+.playlist_tab>.tab_btns>.active {
+    background: red;
+    color: #fff;
+    border: 1px solid red;
+    border-bottom: none;
+}
+
+/* 歌单列表表格 */
+.tab_musiclist>table {
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    border-collapse: collapse;
+}
+
+.tab_musiclist>table th,
+.tab_musiclist>table td {
+    height: 40px;
+    max-width: 200px;
+}
+
+.tab_musiclist>table th {
+    border-right: 1px solid #c4c4c4;
+}
+
+.tab_musiclist>table th:last-child {
+    border-right: none;
+}
+
+.tab_musiclist>table>.infolist>tr:nth-child(even) {
+    background: #fff;
+}
+
+.tab_musiclist>table>.infolist>tr:nth-child(odd) {
+    background: #f4f4f4;
+}
+
+.tab_musiclist>table>.infolist>tr>td:first-of-type {
+    padding-right: 10px;
+    text-align: right;
+    color: #9c9c9c;
+}
+
+.tab_musiclist>table>.infolist>tr>td.active>span {
+    font-size: 18px;
+    color: #c52f30;
+}
+
+.tab_musiclist>table>.infolist>tr:hover {
+    background: #c4c4c4;
+}
+
+/* 内容 end */
+
+/* 底部 */
+.page_playbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #eee;
+    border: 1px solid #ddd;
+    z-index: 1;
+}
+
+.page_playbar .playbar_btns {
+    width: 220px;
+    height: 60px;
+    float: left;
+}
+
+.page_playbar .playbar_btns .btn {
+    float: left;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background: #cd2626;
+    color: #fff;
+    text-align: center;
+    border-radius: 50%;
+    margin-left: 20px;
+    position: relative;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    cursor: pointer;
+    opacity: .7;
+}
+
+.page_playbar .playbar_btns .btn:hover {
+    opacity: 1;
+}
+
+.page_playbar .playbar_btns .play {
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+}
+
+/* 进度条 */
+.playbar_process {
+    width: calc(100% - 520px);
+    height: 100%;
+    float: left;
+}
+
+/* 歌曲长度条 */
+.play_process {
+    height: 10px;
+    width: 80%;
+    background: green;
+    position: relative;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    margin: 0 auto;
+}
+
+/* 缓冲条 */
+.process_cache {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0%;
+    height: 100%;
+    background: red;
+    transition: width 2s ease;
+}
+
+/* 当前播放进度条 */
+.process_current {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: yellow;
+}
+
+/* 播放进度按钮 */
+.circle {
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    width: 13px;
+    height: 13px;
+    transform: translate(-50%, -50%);
+    background: #000;
+    border-radius: 50%;
+    box-shadow: 3px 0 5px #fff;
+    cursor: pointer;
+}
+
+/* 开始时间 */
+.time_star {
+    position: absolute;
+    top: 50%;
+    left: -7%;
+    transform: translateY(-50%);
+}
+
+/* 结束时间 */
+.time_end {
+    position: absolute;
+    top: 50%;
+    right: -7%;
+    transform: translateY(-50%);
+}
+
+
+/* 底部 end */

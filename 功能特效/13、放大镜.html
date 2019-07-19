@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>放大镜</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .min {
+        width: 384px;
+        height: 216px;
+        margin: 100px;
+    }
+
+    .max {
+        width: 300px;
+        height: 300px;
+        overflow: hidden;
+        display: none;
+        position: absolute;
+    }
+    </style>
+    <script src="./jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        // 鼠标移入
+        $('.min').mouseover(function() {
+            // 获取小图的位置
+            var minPis = $(this).offset();
+            // 设置大图显示的位置
+            $('.max').css({ top: minPis.top, left: minPis.left + $(this).width() + 10 });
+            // 显示大图
+            $('.max').show();
+            // 鼠标移出
+        }).mouseout(function() {
+            // 隐藏小图
+            $('.max').hide();
+            // 鼠标移动
+        }).mousemove(function(e) {
+            // console.log(e.offsetX+':'+e.offsetY);
+            // 获取鼠标相对小图坐标
+            // 大图滚动条的 left 值
+            var maxLeft = e.offsetX * 5 - ($('.max').height() / 2);
+            // 大图滚动条的 top 值
+            var maxTop = e.offsetY * 5 - ($('.max').width() / 2);
+            // 设置大图滚动条的值
+            $('.max').scrollTop(maxTop).scrollLeft(maxLeft)
+
+        });
+    })
+    </script>
+</head>
+
+<body>
+    <img class="min" src="./images/Meinv155.jpg">
+    <div class="max">
+        <img src="./images/Meinv155.jpg">
+	</div>
+</body>
+
+</html>

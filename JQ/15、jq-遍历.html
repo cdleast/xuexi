@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>jq遍历</title>
+    <script src="jquery.min.js"></script>
+    <style>
+    .ancestors * {
+        display: block;
+        border: 2px solid lightgrey;
+        color: lightgrey;
+        padding: 5px;
+        margin: 15px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="ancestors">
+        <div style="width:500px;">div (曾祖父)
+            <ul>ul (祖父)
+                <li>li (直接父)
+                    <span>span</span>
+                </li>
+            </ul>
+        </div>
+        <div style="width:500px;">div (祖父)
+            <p>p (直接父)
+                <span id="span1">span</span>
+            </p>
+        </div>
+        <div style="width:500px;">div (曾祖父)
+            <ul>ul (祖父)
+                <li>li (直接父)
+                    <span id="span2">span</span>
+                </li>
+            </ul>
+        </div>
+        <div id="div1" style="width:500px;">div (曾祖父)
+            <ul>ul (祖父)
+                <li>li (直接父)
+                    <span id="span4">span</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+// jQuery遍历，意为"移动"，用于根据其相对于其他元素的关系来"查找"（或选取）HTML 元素。以某项选择开始，并沿着这个选择移动，直到抵达您期望的元素为止。
+
+
+// 向上遍历 DOM 树
+// jQuery parent() 方法
+// parent() 方法返回被选元素的直接父元素。
+// 该方法只会向上一级对 DOM 树进行遍历。
+// 下面的例子返回每个 <span> 元素的的直接父元素：
+$("span").parent().css({"color":"red","border":"2px solid red"});
+
+
+// jQuery parents() 方法
+// parents() 方法返回被选元素的所有祖先元素，它一路向上直到文档的根元素 (<html>)。
+// 下面的例子返回所有 <span> 元素的所有祖先：
+$("#span1").parents().css({"color":"red","border":"2px solid green"});
+
+// 您也可以使用可选参数来过滤对祖先元素的搜索。
+// 下面的例子返回所有 <span> 元素的所有祖先，并且它是 <ul> 元素：
+$("#span2").parents("ul").css({"color":"red","border":"2px solid #000"});
+
+
+// jQuery parentsUntil() 方法
+// parentsUntil() 方法返回介于两个给定元素之间的所有祖先元素。
+// 下面的例子返回介于 <span> 与 <div> 元素之间的所有祖先元素：
+$("#span4").parentsUntil("#div1").css({"color":"red","border":"2px solid blue"});
+
+
+
+</script>
+
+</html>

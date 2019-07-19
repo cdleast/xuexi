@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>get表单数据交互</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<a href="/postdata">想试试post方式传递表单吗？点击我！</a>
+	<form action="/getdata" method="get">
+		<ul>
+			<li>
+				姓名：<input type="text" name="username">
+			</li>
+			<li>
+				年龄：<input type="text" name="age">
+			</li>
+			<li>
+				<input type="submit">
+			</li>
+		</ul>
+	</form>
+</body>
+</html>

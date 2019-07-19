@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><%= title %></title>
+	<style>
+		h1{
+			text-align: center;
+			color: red;
+		}
+		p{
+			text-align: center;
+		}
+		.container{
+			width: 80%;
+			padding: 20px;
+			color: #000;
+			margin: 0 auto;
+			border: 1px solid green;
+		}
+	</style>
+</head>
+<body>
+	<h1><%= title %></h1>
+	<p>作者：<%= author %></p>
+	<div class="container"><%= content %></div>
+
+	<!-- 把后台数据的内容按标签自由的属性，输出到内容上 -->
+	<div class="container"><%- content %></div>
+</body>
+</html>

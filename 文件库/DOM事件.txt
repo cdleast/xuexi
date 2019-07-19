@@ -1,0 +1,67 @@
+一、DOM事件
+    1.什么是事件？
+
+    2.DOM中常见的事件
+        click/mouseover/mouseout/mouseenter/mouseleave.......
+        keyup/keydown/keypress....
+
+    3.DOM几种事件级别
+        (1) DOM0    dom.onclick/dom.onmouseover/......
+
+        (2) DOM2    addEventListener()
+                    addEventListener(事件名称,事件执行函数,false/null)
+                
+        (3) DOM3    addEventListener() 新增了一些新的事件
+    4.DOM绑定事件的几种方式
+        (1)直接在元素的属性上添加事件
+
+            <button onclick=""></button>
+
+        (2)获取DOM元素，添加事件属性
+
+            dom.onclick = function(){}
+
+        (3)用addEventListener(type,callback,false/null)
+    5.DOM0级别的事件绑定方式和DOM2、DOM3级别的事件绑定方式的区别
+        DOM0级别的事件绑定只能绑一个事件处理函数，后面的会将前面的覆盖
+        DOM2、DOM3则可以绑定多个事件处理函数
+    
+    6.DOM事件的移出
+        (1)DOM0级别绑定事件的移除        dom.onclick= null/dom.onmouseover = null
+
+        (2)DOM2和DOM3级别的事件移除      dom.removeEventListener(type,callback,false)
+
+
+    7.DOM事件模型
+        (1)冒泡
+            事件从DOM结构最底层出发，逐级向父元素传递
+        (2)捕获
+            事件从DOM结构最顶成出发，逐级向触发该事件的底层元素传递
+
+    8.事件对象(ev)常用属性
+        (1) clientX/clientY         鼠标点击的位置
+
+        (2)srcElement/target        触发该事件的具体元素
+
+        (3)preventDefault           阻止事件的默认行为 
+
+        (4)stopPropagation          阻止事件冒泡
+
+    9.作业要求
+       （1）完成基本的样式布局
+
+        (2)中间的模态框默认时隐藏的
+
+        (3)点击显示按钮，模态框个显示出来
+
+        (4)模态框显示以后，点击模态框之外的区域，模态框要隐藏
+
+        （5）模态框显示以后,点击模态框自身，模态框不能隐藏
+
+        （6）点击模态框右上角的关闭按钮，隐藏模态框
+
+
+    
+    
+    
+

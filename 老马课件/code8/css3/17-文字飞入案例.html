@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>文字飞入效果</title>
+  <style>
+    html, body, div {
+      padding: 0;
+      margin: 0;
+    }
+    .box {
+      font: 40px/1.5 'Microsoft YaHei',serif;
+      color: rgba(33, 98, 197, .8);
+      font-weight: bolder;
+      text-shadow: 4px 4px 5px rgba(33, 98, 197, .3);
+      text-align: center;
+      transition: transform 1s ease, opacity 1s linear;
+      opacity: 0.1;
+      transform: translate(-1300px) rotate(280deg) scale(3, 3);
+    }
+
+    .left-fade-in {
+      transform: none;
+      opacity: .9;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" id="btnFlyIn" value="飞入">
+  <input type="button" id="btnFlyOut" value="飞走">
+  <div class="box">
+    我是飞入的文字。
+  </div>
+  <script>
+    window.onload = function() {
+      var box = document.querySelector('.box');
+      document.querySelector('#btnFlyIn').addEventListener('click', function(e) {
+        // 给box的div设置样式类 left-fade-in，目的是去掉变换的样式
+        box.className += ' left-fade-in';
+      });
+      document.querySelector('#btnFlyOut').addEventListener('click', function(e) {
+        // 给box的div设置样式类 left-fade-in，目的是去掉变换的样式
+        box.className = box.className.replace(' left-fade-in', '');
+      });
+
+    }
+  </script>
+</body>
+</html>

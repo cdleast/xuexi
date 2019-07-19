@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>监听变量</title>
+    <script src="./vue.min.js"></script>
+</head>
+<body>
+    <div id="container">
+        <!-- 绑定数据 -->
+        <input type="text" v-model="message">
+        <h1>{{message}}</h1>
+
+        <hr>
+
+        姓：<input type="text" v-model="xing">
+        名：<input type="text" v-model="ming">
+        <h4>{{allname}}</h4>
+    </div>
+    <script>
+        new Vue({
+            // 绑定属性
+            el:'#container',
+            // 数据
+            data:{
+                message:'hello world',
+                xing:'',
+                ming:'',
+                allname:''
+            },
+            // 监听变量
+            watch:{
+                message:function(){
+                    console.log('你改变了message');
+                },
+                xing:function(){
+                    this.allname = this.xing +' '+ this.ming;
+                },
+                ming:function(){
+                    this.allname = this.xing +' '+ this.ming;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

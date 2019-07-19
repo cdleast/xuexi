@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件处理函数的运行环境</title>
+</head>
+<body>
+	<div style="height: 100px;width:100px;background:red;"></div>
+	<script>
+		1.ele.onxxx = function(event){};
+			程序this指向是dom元素本身
+		2.obj.addEventListener(type,fn,false);
+			程序this指向是dom元素本身
+		3.obj.attachEvent('on'+type,fn);
+			程序this指向window
+
+		// 封装兼容性的绑定事件处理函数
+		function addEvent(elem,type,handle){
+			if (elem.addEventListener) {
+				elem.addEventListener(type,handle,false);
+			}else if (elem.attachEvent) {
+				elem.attachEvent('on' + type,function(){
+					handle.call(elem);
+				})
+			}else {
+				elem['on' + type] = handle;
+			}
+		}
+
+		var div = document.getElementsByTagName('div')[0];
+		addEvent(div,'click', function(){
+			console.log(123);
+		});
+
+		// 解除事件处理函数
+		ele.onclick = false/null;
+		ele.removeEventListener(type , fn , false);
+		ele.detachEvent('on' + type , fn);
+		注：若绑定匿名函数，则无法解除
+
+	</script>
+</body>
+</html>

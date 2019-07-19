@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM基本操作</title>
+</head>
+<body>
+	<script>
+		// 查看元素的尺寸
+		// dom.offsetWidth/dom.offsetHeight
+
+		// 查看元素的位置，求的是相对于父级的位置，对于无定位父级的元素，返回相对文档的坐标，对于有定位父级的元素，返回相对于最近的有定位父级的坐标
+		// dom.offsetLeft/dom.offsetTop
+
+		// 返回最近的有定位的父级，如无，返回body，body.offsetParent返回null
+		// dom.offsetParent
+		// eg：求元素相对于文档的坐标 getElementPosition
+
+		// 让滚动条滚动，window上有三种方法
+		// scroll(),scrollTo(),scrollBy()
+		// scroll()和scrollTo()功能是一样的都是让滚动条跳转到指定位置，scroll()和scrollTo()都有两个参数，(x,y)分别带吧横向和纵向的坐标
+		// scrollBy()也是一样，区别是在scroll()和scrollTo()的基功能，基础上做了累加的功能
+		// eg：利用scrollBy()做快速阅读的功能
+	</script>
+</body>
+</html>

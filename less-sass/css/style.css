@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+ul,
+ol {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+div {
+  margin-bottom: 10px;
+}
+body {
+  margin: 0 30px;
+  height: 10000px;
+}
+/* 顶部导航 */
+.top {
+  width: 100%;
+  height: 50px;
+  background: #333;
+}
+.top ul {
+  width: 960px;
+  height: 50px;
+  margin: 0 auto;
+}
+.top ul li {
+  float: left;
+  width: 20%;
+}
+.top ul li a {
+  color: #fff;
+  display: block;
+  padding: 0 20px;
+  line-height: 50px;
+  text-align: center;
+}
+.top ul li a:hover {
+  /* & 表示自己 */
+  color: red;
+  background: yellow;
+}
+/* 运算 */
+.box1 {
+  width: 200px;
+  height: 50px;
+  background: red;
+}
+.box2 {
+  /* 让 box2 的宽度永远是 box1 的两倍 */
+  width: 400px;
+  height: 50px;
+  background: green;
+}
+/* 混合 */
+.title1 {
+  width: 100%;
+  height: 50px;
+  border: 1px solid green;
+  background: pink;
+}
+.title2 {
+  color: red;
+  /* 让 .title2 使用 .title1 的样式*/
+  width: 100%;
+  height: 50px;
+  border: 1px solid green;
+  background: pink;
+}
+/* 带参数的混合 */
+.div1 {
+  width: 100%;
+  height: 100px;
+  /* 冒号后面的属性是默认的属性 */
+  border-radius: 10px;
+  border: 10px solid #ff0000;
+}
+.div2 {
+  width: 100%;
+  height: 100px;
+  /* 冒号后面的属性是默认的属性 */
+  border-radius: 10px;
+  border: 5px solid #008000;
+}
+.div3 {
+  width: 100%;
+  height: 100px;
+  /* 使用默认值 */
+  /* 冒号后面的属性是默认的属性 */
+  border: 1px solid #333333;
+  /* 如果只想改一个，前面的也要写上 */
+  /* 冒号后面的属性是默认的属性 */
+  border-radius: 10px;
+  border: 1px solid #ff0000;
+}
+/* 匹配 */
+/* 公用的样式 @_ 表示有 btn 的都加载*/
+.mybtn1 {
+  border: 1px solid red;
+  border-radius: 10px;
+  background: #333;
+  color: #fff;
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 18px;
+  color: #ff0000;
+}
+.mybtn2 {
+  border: 1px solid red;
+  border-radius: 10px;
+  background: #333;
+  color: #fff;
+  display: inline-block;
+  padding: 5px 18px;
+  font-size: 22px;
+  color: #008000;
+}
+.mybtn3 {
+  border: 1px solid red;
+  border-radius: 10px;
+  background: #333;
+  color: #fff;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 28px;
+  color: #ffff00;
+}
+.box3 {
+  /* 避免编译 */
+  width: 200px + 200px;
+  height: 50px;
+  background: red;
+}

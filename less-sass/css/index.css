@@ -1,0 +1,47 @@
+@charset "UTF-8";
+/* 变量 */
+/* 全局变量 */
+.box1 {
+  /* 局部变量 */
+  background: red;
+  border: 2px solid yellow;
+}
+.box1 span {
+  color: yellow;
+}
+
+.box2 {
+  /* 局部变量不能使用只能在 box1 里面使用 */
+  /* color: $bgcolor; */
+}
+
+/* 混合 */
+.box3 {
+  border: 1px solid red;
+}
+
+/* 混合带参数 */
+.box4 {
+  border: 1px solid red;
+}
+
+.box5 {
+  border: 1px solid green;
+}
+
+/* 继承 */
+.title, .topTitle {
+  color: red;
+  width: 100%;
+  height: 50px;
+}
+
+/* 占位符 */
+li {
+  clear: both;
+}
+
+/* 函数 */
+.box6 {
+  width: 300px;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单相关的指令</title>
+    <script src="./vue.min.js"></script>
+</head>
+<body>
+    <div id="container">
+        <input type="text" v-model="message">
+
+        <h3>性别:{{sex}}</h3>
+        <input type="radio" name="sex" value="汉子" v-model="sex"> 汉子
+        <input type="radio" name="sex" value="妹子" v-model="sex"> 妹子
+
+        <h3>爱好:{{likes}}</h3>
+        <input type="checkbox" name="likes[]" value="篮球" v-model="likes"> 篮球
+        <input type="checkbox" name="likes[]" value="足球" v-model="likes"> 足球
+        <input type="checkbox" name="likes[]" value="排球" v-model="likes"> 排球
+        <input type="checkbox" name="likes[]" value="网球" v-model="likes"> 网球
+
+        <h3>城市:{{dis}}</h3>
+        <select name="" id="" v-model="dis">
+            <option value="">请选择</option>
+            <option value="青岛">青岛</option>
+            <option value="杭州">杭州</option>
+            <option value="北京">北京</option>
+            <option value="上海">上海</option>
+        </select>
+    </div>
+
+    <script>
+        // 实例化对象
+        new Vue({
+            // 选择容器
+            el:'#container',
+            // 数据
+            data:{
+                message:'hello world',
+                sex:'汉子',
+                likes:['篮球'],
+                dis:'青岛',
+            }
+        })
+    </script>
+</body>
+</html>

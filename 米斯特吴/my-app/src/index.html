@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MyApp</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--网站打开的抬抬头图标-->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!--<link rel="stylesheet" href="../public/style.css">-->
+  <link rel="stylesheet" href="http://bootswatch.com/slate/bootstrap.min.css">
+</head>
+<body>
+<!--指令调用 ,只能使用一次-->
+  <app-root>Loading...</app-root>
+</body>
+</html>
+<script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDooP78Ukdem-uyMohUXvh2Bf1rup9SKRQ",
+    authDomain: "angular2deom.firebaseapp.com",
+    databaseURL: "https://angular2deom.firebaseio.com",
+    projectId: "angular2deom",
+    storageBucket: "angular2deom.appspot.com",
+    messagingSenderId: "94823953018"
+  };
+  firebase.initializeApp(config);
+</script>

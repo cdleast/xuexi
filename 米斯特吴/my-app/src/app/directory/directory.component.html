@@ -1,0 +1,57 @@
+<!--<h1 [ngClass]="classes">-->
+  <!--directory works!-->
+<!--</h1>-->
+<!--<p *ngIf="false">真看见,假看不见</p>-->
+<!--<p *ngFor="let person of people">{{person.name}}</p>-->
+<!--<style>-->
+  <!--.blue{color: blue;}-->
+  <!--.red{color: red;}-->
+  <!--.underline{text-decoration: underline;}-->
+<!--</style>-->
+<!--<h1>{{person}}</h1>-->
+<!--指令分为俩种:1.属性指令: ngClass ngStyle
+
+
+
+               2.结构指令: *ngFor *ngIf
+-->
+<div class="container">
+  <h1>个人通讯录</h1>
+  <input type="text" [(ngModel)]="term" class="form-control" placeholder="搜索姓名">
+  <table class="table table-striped text-center">
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Color</td>
+        <td>phone</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of people | filter:term;let i=index">
+        <!--过滤方法-->
+        <!--<td>{{person.name | uppercase | lowercase | slice:1:3}}</td>-->
+        <td>{{person.name}}</td>
+        <td [ngStyle]="{background:person.color}">{{person.color}}</td>
+        <td>{{person.phone}}</td>
+        <td>
+          <button on-click="deleteItem(i)" class="btn btn-danger">x</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <form>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="email" #pName class="form-control" id="name" placeholder="name">
+    </div>
+    <div class="form-group">
+      <label for="color">Color</label>
+      <input type="text" #pColor class="form-control" id="color" placeholder="color">
+    </div>
+    <div class="form-group">
+      <label for="phone">phone</label>
+      <input type="text" #pPhone class="form-control" id="phone" placeholder="phone">
+    </div>
+    <button (click)="addItem(pName.value,pColor.value,pPhone.value)" class="btn btn-default">Submit</button>
+  </form>
+</div>

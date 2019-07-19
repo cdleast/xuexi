@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>闭包</title>
+</head>
+<body>
+	<script>
+		// 当闭包函数被保存到外部时，将会生成闭包。闭包会导致原有作用域链不释放，造成内存泄漏。
+		// function test(){
+		// 	var arr = [];
+		// 	console.log(arr);
+		// 	for(var i = 0;i< 10;i ++){
+		// 		// 立即执行函数
+		// 		(function(j){
+		// 			// 只有表达式才能被执行符号执行
+		// 			arr[j] = function(){
+		// 				console.log(j);
+		// 			}
+		// 		}(i));
+		// 	}
+		// 	return arr;
+		// }
+		// var myArr = test();
+		// for(var j = 0;j < 10;j ++){
+		// 	myArr[j]();
+		// }
+
+		// 私有化变量
+		function Deng(name,wife){
+			var prepareWife = "xiaozhang";
+			this.name = name;
+			this.wife = wife;
+
+			this.divorce = function(){
+				this.wife = prepareWife;
+			}
+			this.changePrepareWife = function(target){
+				prepareWife = target;
+			}
+			this.sayPraprewift = function(){
+				console.log(prepareWife);
+			}
+		}
+
+		var deng = new Deng("deng","xiaoliu");
+		console.log(deng.wife);	// xiaoliu
+		deng.divorce();
+		// 虽然divorce()是在外部执行，但是因为this.divorce被保存到了外部，形成了闭包，形成了执行期上下文，使用Deng的AO
+		console.log(deng.wife)	// xiaozhang
+
+
+	</script>
+</body>
+</html>

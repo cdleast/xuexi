@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>实例化 vue 对象</title>
+	<style>
+		
+	</style>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+	<!-- vue-app是根容器 -->
+	<div id="vue-app">
+		<p>name: {{ name }}</p>
+		<p>job: {{ job }}</p>
+		<!-- <p>调用函数方法: {{ greet() }}</p> -->
+		<p>调用函数方法并传值: {{ greet('afternoon') }}</p>
+		<hr>
+		<br>
+		<!-- 绑定属性 -->
+		<a v-bind:href="website">web开发</a>
+		<input type="text" v-bind:value="name">
+		<!-- 绑定标签 -->
+		<p v-html="websiteTag"></p>
+	</div>
+
+
+	<script>
+		// 实例化 vue 对象
+		new Vue({
+			// el: element 需要获取的元素，一定是 html 中的根容器元素
+			el: "#vue-app",
+			// data: 用于数据的存储
+			data: {
+				name: "嘻嘻哈哈",
+				job:"web开发",
+				website:"http://www.baidu.com",
+				websiteTag:"<a href='http://www.baidu.com'>Thenewstep</a>"
+			},
+			// 方法函数都要写在 methods 里面
+			methods:{
+				greet: function(time){
+					return 'good' + time + ' ' + this.name + '!';
+				}
+			}
+		});
+	</script>
+</body>
+</html>

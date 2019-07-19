@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>jq滑动</title>
+    <style>
+    #panel,
+    button {
+        padding: 5px;
+        text-align: center;
+        background-color: #e5eecc;
+        border: solid 1px #c3c3c3;
+        margin-bottom: 10px;
+    }
+
+    #panel {
+        padding: 50px;
+        display: none;
+    }
+    </style>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <button id="slideDown">点我滑下面板</button>
+    <button id="slideUp">点我拉起面板</button>
+    <button id="slideToggle">点位进行切换</button>
+    <div id="panel">Hello world!</div>
+</body>
+<script>
+$(function() {
+    // jQuery slideDown() 方法用于向下滑动元素。
+    // $(selector).slideDown(speed,callback);
+    // 可选的 speed 参数规定效果的时长。它可以取以下值："slow"、"fast" 或毫秒。
+    // 可选的 callback 参数是滑动完成后所执行的函数名称。
+    $("#slideDown").click(function() {
+        $("#panel").slideDown(1000);
+    });
+
+
+    // jQuery slideUp() 方法用于向上滑动元素。
+    // $(selector).slideUp(speed,callback);
+    // 可选的 speed 参数规定效果的时长。它可以取以下值："slow"、"fast" 或毫秒。
+    // 可选的 callback 参数是滑动完成后所执行的函数名称。
+    $("#slideUp").click(function() {
+        $("#panel").slideUp(1000);
+    });
+
+
+    // jQuery slideToggle() 方法可以在 slideDown() 与 slideUp() 方法之间进行切换。
+    // 如果元素向下滑动，则 slideToggle() 可向上滑动它们。
+    // 如果元素向上滑动，则 slideToggle() 可向下滑动它们。
+    // $(selector).slideToggle(speed,callback);
+    // 可选的 speed 参数规定效果的时长。它可以取以下值："slow"、"fast" 或毫秒。
+    // 可选的 callback 参数是滑动完成后所执行的函数名称。
+    $("#slideToggle").click(function() {
+        $("#panel").slideToggle();
+    });
+
+    
+
+})
+</script>
+
+</html>

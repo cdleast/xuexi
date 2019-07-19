@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>创建vue实例</title>
+    <script src="./vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{message}}
+        <br>
+        {{messageReverse}}
+        <br>
+        <!-- 数据绑定 绑定事件 绑定属性-->
+        <input type="text" v-model="message" v-on:click="changeBgclor" v-bind:title="message">
+    </div>
+    <script>
+        // 创建vue实例
+        var vm = new Vue({
+            // 元素id
+            el: '#app',
+            // 数据
+            data: {
+                message: 'hello vue'
+            },
+            // 计算属性
+            computed: {
+                messageReverse: function () {
+                    // 反转排序
+                    return this.message.split('').reverse().join('');
+                }
+            },
+            methods: {
+                changeBgclor: function (ev) {
+                    ev.target.style.background = 'red';
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

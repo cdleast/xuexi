@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="aa"></div>
+    <div style="display:none" id="word">
+        系统正在升级中，预计本次升级需要2小时，请稍后使用。
+    </div>
+</body>
+<script language="javascript">
+    var index = 0;
+    var word = document.getElementById("word").innerHTML;
+
+    function type() {
+        document.getElementById("aa").innerText = word.substring(0, index++);
+    }
+    setInterval(type, 20);
+</script>
+
+</html>

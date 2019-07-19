@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    img {
+        border: 5px solid #fff;
+    }
+
+    .box {
+        margin-bottom: 20px;
+    }
+
+    .box img {
+        width: 200px;
+    }
+
+    .images {
+        margin-top: 20px;
+    }
+
+    .images img {
+        width: 100px;
+    }
+
+    .border {
+        border: 5px solid yellow;
+        border-radius: 50%;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="./images/m1.jpg">
+    </div>
+    <hr>
+    <button>替换</button>
+    <button>清空</button>
+    <hr>
+    <div class="images">
+        <img src="./images/m2.jpg">
+        <img src="./images/m3.jpg">
+        <img src="./images/m4.jpg">
+        <img src="./images/m5.jpg">
+        <img src="./images/m6.jpg">
+        <img src="./images/m7.jpg">
+    </div>
+    <script type="text/javascript">
+    // 给待选的图片绑定单击事件	
+    $('.images img').click(function() {
+        // 把所有待选图片的边框都取消
+        $('.images img').removeClass('border');
+        // 给当前点击的对象添加 .border 类
+        $(this).addClass('border');
+    })
+
+    // 替换节点
+    $('button:eq(0)').click(function() {
+        // 找到选中的图片(看谁有class=border) 替换指定的图片
+        // $('.images img[class=border]').replaceAll('.box img');
+
+        // 1. 先把要替换的图片 克隆一下
+        var boxImg = $('.box img').clone();
+        // 2. 只替换图片不需要样式
+        $('.images img[class=border]').clone().replaceAll('.box img').removeClass('border');
+        // 3. 把 1 步克隆的对象 替换到用户选择的这张图片
+        boxImg.replaceAll('.images img[class=border]');
+
+    });
+
+    // 替换 
+    $('button:eq(1)').click(function() {
+        // 清空所有的子节点
+        $('.images').empty();
+    })
+    </script>
+</body>
+
+</html>

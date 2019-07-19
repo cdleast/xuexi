@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        <%= item %>
+    </title>
+</head>
+
+<body>
+    <h1><%= item %></h1>
+    <ul>
+    	<!-- 循环拿数据 -->
+        <% for(var i = 0;i < items.length;i ++){ %>
+			<li><a href="#"><%= items[i].title %></a></li>
+        <% } %>
+    </ul>
+</body>
+
+</html>

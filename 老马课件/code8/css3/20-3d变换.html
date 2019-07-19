@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>3D变换</title>
+  <style>
+    html, body, div {
+      padding: 0;
+      margin: 0;
+    }
+
+    .box {
+      width: 200px;
+      height: 200px;
+      border: 1px solid #ccc;
+      margin: 100px auto;
+      transition: transform 0.5s ease;
+      /* transform: perspective(1000px) translate3d(10px, -20px, 100px); */
+      transform: translate3d(10px, -20px, 100px);
+    }
+
+    body {
+      perspective: 1000px;
+    }
+    .box:hover {
+      /* 2D的移动 */
+      /* transform: translate(10px, -20px); */
+      transform: perspective(1000px) translate3d(10px, -20px, 100px);
+    }
+
+    .box-rotate {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      transition: all 1s ease;
+      transform: rotateX(-30deg) rotateY(60deg) rotateZ(10deg);
+    }
+    .box-rotate:hover {
+      transform: rotateX(-30deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+
+  </div>
+
+  <div class="box-rotate">
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!--&lt;!&ndash;<p>&ndash;&gt;-->
+  <!--&lt;!&ndash;home works!!!!!!!!!!!!!!!!!!!!孟祥个二!!!!!!!!!!!!!!!!!!!&ndash;&gt;-->
+<!--&lt;!&ndash;</p>&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;显示指令中的内容&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;<ng-content></ng-content>&ndash;&gt;-->
+<!--&lt;!&ndash;<p>{{homeTitle}}</p>&ndash;&gt;-->
+<!--&lt;!&ndash;数据绷定 模板绷定&ndash;&gt;-->
+<!--&lt;!&ndash;<p>{{title}}</p>&ndash;&gt;-->
+<!--&lt;!&ndash;属性绷定 ..模板绷定,..属性绑定是绑定属性的名,用的是中括号就是把数据绑定到属性上&ndash;&gt;-->
+<!--&lt;!&ndash;<input value={{myString}}>&ndash;&gt;-->
+<!--&lt;!&ndash;<hr>&ndash;&gt;-->
+<!--&lt;!&ndash;<input [value]="myString+title">&ndash;&gt;-->
+<!--&lt;!&ndash;注意:模板绑定:其内容只能是字符串.-->
+        <!--属性绑定:其内容可以是字符串或表达式;-->
+<!--&ndash;&gt;-->
+<!--&lt;!&ndash;双向数据绑定&ndash;&gt;-->
+<!--&lt;!&ndash;<hr>&ndash;&gt;-->
+<!--&lt;!&ndash;<input [(ngModel)]="person.name">&ndash;&gt;-->
+<!--&lt;!&ndash;<p>{{person.name}}</p>&ndash;&gt;-->
+<!--&lt;!&ndash;<p>{{binding:person}}</p>&ndash;&gt;-->
+<!--<p>{{sbqPerson.name}}</p>-->
+<!--<p>{{sbqPerson.color}}</p>-->
+<!--<p>{{sbqPerson.phone}}</p>-->
+<!--<p *ngFor="let sbqarr1 of sbqarr">{{sbqarr1}}</p>-->
+<!--&lt;!&ndash;绑定事件1&ndash;&gt;-->
+<!--<button on-click="touchMe('hello')">click Me</button>-->
+<!--&lt;!&ndash;绑定事件2&ndash;&gt;-->
+<!--<button (click)="touchMe('hello world')">click You</button>-->
+<!--&lt;!&ndash;场景1 触发点击事件&ndash;&gt;-->
+<!--<button (click)="fireParentEvent()">触发父级的方法</button>-->
+<!--<h1>hello home</h1>-->
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <div class="container">
+    <h1>Hello, world!</h1>
+    <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-4">
+      <h2>Heading</h2>
+      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+      <h2>Heading</h2>
+      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+      <h2>Heading</h2>
+      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    </div>
+  </div>
+
+  <hr>
+
+  <footer>
+    <p>&copy; 2017 Company, Inc.</p>
+  </footer>
+</div>

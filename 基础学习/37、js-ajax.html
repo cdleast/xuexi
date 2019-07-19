@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>简单的ajax请求</title>
+    <style type="text/css">
+    #box {
+        width: 400px;
+        height: 300px;
+        border: 1px solid red;
+    }
+    </style>
+</head>
+
+<body>
+    <button onclick="request()">request</button>
+    <div id="box"></div>
+    <script type="text/javascript">
+    // 函数
+    function request() {
+        //1. 实例化 ajax 对象
+        if (window.XMLHttpRequest) {
+            var xhr = new XMLHttpRequest();
+        } else {
+            // 处理 ie 5 和 ie6 的兼容性
+            var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        // 2. 准备数据
+        xhr.open('post', './ceshi.html');
+        // 3. 发送请求
+        xhr.send();
+        // 4. 监听服务器返回来的数据
+        xhr.onreadystatechange = function() {
+            // ajax 的对象 readyState 状态是 4 , 服务器的状态码(status)必须是成功（200） 的情况下才能抄作内容。
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // 把从服务器请求来的数据 放到 指定的容器里
+                document.getElementById('box').innerHTML = xhr.responseText;
+            }
+        }
+    }
+    </script>
+</body>
+
+</html>

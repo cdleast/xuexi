@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>图片向上滑动</title>
+<script src="./jquery.min.js"></script>
+<style type="text/css">
+*{margin: 0;padding: 0;}
+.box{width: 500px;height: 250px;overflow: hidden;}	
+.box img{width: 500px;height: 250px;float: left;}	
+</style>
+<script type="text/javascript">
+$(function(){
+	setInterval(function(){
+		$('.box img:first').slideUp(500,function(){
+			// 第一个向上滑动过后 把它追加到最后的位置然后显示
+			$(this).appendTo('.box').show();
+		});
+	},2000);
+})
+</script>
+</head>
+<body>
+	<div class="box">
+		<img src="images/1.jpg">
+		<img src="images/2.jpg">
+		<img src="images/3.jpg">
+		<img src="images/4.jpg">
+		<img src="images/5.jpg">
+	</div>		
+</body>
+</html>

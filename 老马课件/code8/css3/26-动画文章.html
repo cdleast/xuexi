@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box {
+      color: rgba(44, 209, 100, .8);
+      font-size: 40px;
+      font-weight: bolder;
+      text-shadow: 3px 3px 10px rgba(44, 209, 100, .4);
+      margin: 100px auto;
+      width: 300px;
+      text-align: center;
+      animation: shake 1s ease 1 normal;
+    }
+
+    @keyframes shake {
+      form {
+        transform: translate3d(0, -15px, 0);
+      }
+      40%, 77%, 90% {
+        transform: translate3d(0, -4px, 0);
+      }
+      50%, 82%, 100% {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+    .box2 {
+      background-color: aqua;
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+</head>
+<body>
+  <div class="box">
+    动画文字
+  </div>
+  <div class="box2 animated flash infinite">
+  </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="3">
+        <tbody>
+            <tr>
+                <th>Reports</th>
+                <th>Location</th>
+                <th>Time</th>
+            </tr>
+            <tr>
+                <td>Web 2.0 Introduction</td>
+                <td>Teaching Building 1</td>
+                <td>9:00 AM</td>
+            </tr>
+            <tr>
+                <td>What's Ajax?</td>
+                <td>Report Communication Center</td>
+                <td>2:00 PM</td>
+            </tr>
+            <tr>
+                <td>The Future of Internet</td>
+                <td>Study Building 3</td>
+                <td>3:30 PM</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

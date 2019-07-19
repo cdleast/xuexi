@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// // 专门给对象遍历循环用的
+		// // 通过对象属性的个数来判定循环多少圈
+		// var obj = {
+		// 	height:100,
+		// 	weight:300,
+		// 	body:123,
+		// 	name:"xiaosan",
+		// 	__proto__:{
+		// 		lastName:"deng"
+		// 	}
+		// }
+		// // 隐士转换 obj.name  ---> obj["name"]
+		// for(var prop in obj){
+		// 	// 判断属性是不是属于自个的，只打印自己写的属性，__proto__是系统自带的原型，所有不打印
+		// 	if (obj.hasOwnProperty(prop)) {
+		// 		console.log(obj[prop]);
+		// 	}
+		// 	// 遍历属性
+		// 	// console.log(prop +" "+ typeof(prop));
+		// 	// 遍历属性值
+		// 	// console.log(obj[prop]);
+		// }
+
+
+		// A instanceopf B
+		// 官方解释：判断A对象是不是B构造函数构造出来的
+		// 看A对象的原型链上，有没有B的原型
+		function Person(){
+			
+		}
+
+		var person = new Person();
+
+
+
+	</script>
+</body>
+</html>

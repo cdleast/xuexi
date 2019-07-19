@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+	// window.pageXOffset    横向滚动条 ie8以下不兼容
+	// window.pageYOffset    纵向滚动条 ie8以下不兼容
+	// ie8 以下取滚动条距离的方法
+    // document.body.scrollLeft / top
+    // document.documentElement.scrollLeft / top
+    // 由于这两个方法冲突，所有其中一个在浏览器有值的情况下，另一个在该浏览器的值肯定为0，所有我们一般都会用两个方法相加来取滚动条的值
+    // document.body.scrollLeft + document.documentElement.scrollLeft
+
+    // 封装函数方法，自动计算滚动条距离
+    // function getScrollOffset(){
+    // 	if (window.pageXoffset) {
+    // 		return {
+    // 			x : window.pageXoffset,
+    // 			y : window.pageYOffset
+    // 		}
+    // 	}else{
+    // 		return {
+    // 			x : document.body.scrollLeft + document.documentElement.scrollLeft,
+    // 			y : document.body.scrollTop + document.documentElement.scrollTop
+    // 		}
+    // 	}
+    // }
+    // getScrollOffset();
+    </script>
+    <script>
+        // window.innerWidth    横向尺寸
+        // window.innerHeight    纵向尺寸
+        // ie8以下不兼容
+        // document.documentElement.clientWidth
+        // document.documentElement.clientHeight
+        // 标准模式下任意浏览器都兼容
+        // document.body.clientWidth
+        // document.body.clientHeight
+        // 适用于怪异模式下的浏览器
+
+        // 封装函数，自动计算可视窗口尺寸
+        function getViewportOffset(){
+            if (window.innerWidth) {
+                return {
+                    w : window.innerWidth,
+                    y : window.innerHeight
+                }
+            }else {
+                // compatMode是浏览器自带的一个属性，判断是怪异模式还是标准模式
+                if (document.compatMode === "BackCompat") {
+                    return {
+                        x : document.body.clientWidth,
+                        y : document.body.clientHeight
+                    }
+                }else {
+                    return {
+                        x : document.documentElement.clientWidth,
+                        y : document.documentElement.chientHeight
+                    }
+                }
+            }
+        }
+        console.log(getViewportOffset());
+
+
+
+    </script>
+</body>
+
+</html>

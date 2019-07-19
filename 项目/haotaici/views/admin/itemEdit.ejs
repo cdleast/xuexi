@@ -1,0 +1,35 @@
+<% include ./header %>
+<h3 class="page-title">编辑栏目</h3>
+<div class="row">
+    <div class="col-md-4 col-sm-3"></div>
+    <div class="col-md-4 col-sm-6">
+        <form action="/admin/itemUpdate" class="addUser-form" method="post">
+            <input type="hidden" value="<%= itemdata._id %>" name="_id">
+            <ul>
+                <li>
+                    <div class="input-group">
+                        <span class="input-group-addon">名称：</span>
+                        <input type="text" class="form-control" name="name" value="<%= itemdata.name %>">
+                    </div>
+                </li>
+                <li>
+                    <div class="input-group">
+                        <span class="input-group-addon">介绍：</span>
+                        <input type="text" class="form-control" name="info" value="<%= itemdata.info %>">
+                    </div>
+                </li>
+                <li>
+                    <div class="input-group">
+                        <span class="input-group-addon">排序：</span>
+                        <input type="number" class="form-control" name="order" value="<%= itemdata.order %>">
+                    </div>
+                </li>
+                <li>
+                    <input type="submit">
+                </li>
+            </ul>
+        </form>
+    </div>
+    <div class="col-md-4 col-sm-3"></div>
+</div>
+<% include ./footer %>

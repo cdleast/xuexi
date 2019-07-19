@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../../lib/jquery-1.11.1/jquery.min.js"></script>
+	<style type="text/css">
+		.box{width: 400px;height: 300px;border:1px solid red;}
+	</style>
+</head>
+<body>
+	
+	<button>请求</button>	
+	<div class="box"></div>
+	<script type="text/javascript">
+		
+		$('button').click(function(){
+
+			// $.get 传递参数 地址栏 传参
+			$.get('./05.get.php?name=allen',function(data){
+				// alert(data);
+				$('.box').html(data);
+			})
+
+
+			// $.post('./05.post.php',{name:'rousi'},function(data){
+			// 	// alert(data);
+			// 	$('.box').html(data);
+			// })
+
+
+		});
+
+	</script>
+</body>
+</html>

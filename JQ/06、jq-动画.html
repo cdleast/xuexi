@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>jq动画</title>
+    <script src="jquery.min.js"></script>
+    <style>
+    #panel,
+    #flip {
+        padding: 5px;
+        text-align: center;
+        background-color: #e5eecc;
+        border: solid 1px #c3c3c3;
+    }
+
+    #panel {
+        padding: 50px;
+        display: none;
+    }
+    button{
+    	margin-bottom: 10px;
+    }
+    </style>
+</head>
+
+<body>
+    <button id="box1">简单动画</button>
+    <button id="box2">操作多个属性动画</button>
+    <button id="box3">使用相对值</button>
+    <button id="box4">使用预定义的值</button>
+    <button id="box5">使用队列功能1</button>
+    <button id="box6">使用队列功能2</button>
+    <button id="stop">停止滑动</button>
+
+	
+
+    <div id="flip">点我向下滑动面板</div>
+    <div id="panel">Hello world!</div>
+    <p>默认情况下，所有的 HTML 元素有一个静态的位置，且是不可移动的。
+        如果需要改变为，我们需要将元素的 position 属性设置为 relative, fixed, 或 absolute!</p>
+    <div style="background:#98bf21;height:200px;width:200px;position:absolute;">HELLO</div>
+</body>
+<script>
+$(function() {
+    // jQuery animate() 方法用于创建自定义动画。
+    // $(selector).animate({ params }, speed, callback);
+    // 必需的 params 参数定义形成动画的 CSS 属性。
+    // 可选的 speed 参数规定效果的时长。 它可以取以下值： "slow"、"fast"或毫秒。
+    // 可选的 callback 参数是动画完成后所执行的函数名称。
+    // 下面的例子演示 animate() 方法的简单应用。它把 <div> 元素往右边移动了 250 像素：
+    $("#box1").click(function() {
+        $("div").animate({ left: '250px' });
+    });
+
+    // 请注意，生成动画的过程中可同时使用多个属性：
+    $("#box2").click(function() {
+        $("div").animate({
+            left: '250px',
+            opacity: '0.5',
+            height: '150px',
+            width: '150px'
+        });
+    });
+
+    // 可以用 animate() 方法来操作所有 CSS 属性吗？
+    // 是的， 几乎可以！ 不过， 需要记住一件重要的事情： 当使用 animate() 时， 必须使用 Camel 标记法书写所有的属性名， 比如， 必须使用 paddingLeft 而不是 padding - left， 使用 marginRight 而不是 margin - right， 等等。
+    // 同时， 色彩动画并不包含在核心 jQuery 库中。
+    // 如果需要生成颜色动画， 您需要从 jquery.com 下载 Color Animations 插件。
+
+
+
+    // 也可以定义相对值（该值相对于元素的当前值）。需要在值的前面加上 += 或 -=：
+    $("#box3").click(function() {
+        $("div").animate({
+            left: '250px',
+            height: '+=150px',
+            width: '+=150px'
+        });
+    });
+
+
+    // jQuery animate() - 使用预定义的值
+    // 您甚至可以把属性的动画值设置为 "show"、"hide" 或 "toggle"：
+    $("#box4").click(function() {
+        $("div").animate({
+            height: 'toggle'
+        });
+    });
+
+
+    // jQuery animate() - 使用队列功能
+    // 默认地，jQuery 提供针对动画的队列功能。
+    // 这意味着如果您在彼此之后编写多个 animate() 调用，jQuery 会创建包含这些方法调用的"内部"队列。然后逐一运行这些 animate 调用。
+
+    // 实例 1
+    $("#box5").click(function() {
+        var div = $("div");
+        div.animate({ height: '300px', opacity: '0.4' });
+        div.animate({ width: '300px', opacity: '0.8' });
+        div.animate({ height: '100px', opacity: '0.4' });
+        div.animate({ width: '100px', opacity: '0.8' });
+    });
+
+
+    // 实例 2
+    // 下面的例子把 <div> 元素往右边移动了 100 像素，然后增加文本的字号:
+    $("#box6").click(function() {
+        var div = $("div");
+        div.animate({ left: '100px' }, "slow");
+        div.animate({ fontSize: '3em' }, "slow");
+    });
+
+
+    // jQuery stop() 停止动画方法
+    // stop() 方法适用于所有 jQuery 效果函数， 包括滑动、 淡入淡出和自定义动画。
+    // $(selector).stop(stopAll, goToEnd);
+    // 可选的 stopAll 参数规定是否应该清除动画队列。 默认是 false， 即仅停止活动的动画， 允许任何排入队列的动画向后执行。
+    // 可选的 goToEnd 参数规定是否立即完成当前动画。 默认是 false。
+    // 因此， 默认地， stop() 会清除在被选元素上指定的当前动画。
+    $("#flip").click(function() {
+        $("#panel").slideDown(5000);
+    });
+    $("#stop").click(function() {
+        $("#panel").stop();
+    });
+
+
+})
+</script>
+
+</html>

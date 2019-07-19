@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件对象</title>
+	<style>
+		li{
+			margin-bottom: 20px;
+			height: 20px;
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+	</ul>
+	<script>
+		// 事件对象：event
+			// 事件发生时，自动创建的，封装事件信息的对象
+			// 还提供了对事件进行操作的API
+			// 获得event对象：DOM发生时，会自动创建event对象，会将event对象作为事件处理函数的第一个参数自动传入
+
+		// 事件对象，用于IE
+		// var event = e || window.event; 
+		// 事件源对象：
+		// 	event.target 火狐只有这个
+		// 	event.srcElement IE只有这个
+		// 	这两chrome都有
+
+		// // 事件源对象
+		// var target = event.target || event.srcElement;
+
+
+		// 事件委托
+		// var li = document.getElementsByTagName('li');
+		// var len = li.length;
+		// for(var i = 0;i < len;i ++){
+		// 	li[i].onclick = function(){
+		// 		console.log(this.innerText);
+		// 	}
+		// }
+
+		// 事件委托：利用事件冒泡，和事件源对象进行处理
+		// 优点：
+		// 	1.性能，不需要循环所有的元素，一个个进行绑定
+		// 	2.灵活，当有新的子元素时不需要重新绑定事件
+
+		function stopBubble(event){
+			if (event.stopPropagation) {
+				event.stopPropagation();
+			}else {
+				event.cancelBubble = true;
+			}
+		}
+		
+		// 如果多个平级子元素需要绑定相同的事件处理函数时，只要在父元素上绑定一次即可，所有子元素共用
+		var ul = document.getElementsByTagName('ul')[0];
+		ul.onclick = function(e){
+			// 兼容事件对象，window.event这个是IE下的事件对象
+			var event = e || window.event;
+			// 获得目标元素
+			var target = event.target || event.srcElement;
+			console.log(target.innerText);
+		}
+
+	</script>
+</body>
+</html>

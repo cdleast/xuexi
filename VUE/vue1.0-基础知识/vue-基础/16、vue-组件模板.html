@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue-组件</title>
+    <script src="./vue.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .nav {
+            width: 100%;
+            height: 40px;
+            background: #333;
+        }
+
+        .nav ul {
+            width: 960px;
+            height: 40px;
+            margin: 0 auto;
+        }
+
+        .nav ul li {
+            float: left;
+            line-height: 40px;
+        }
+
+        .nav ul li a {
+            color: #fff;
+            display: block;
+            padding: 0 20px;
+        }
+
+        .nav ul li a:hover {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <template id="my-nav">
+        <div class="nav">
+            <ul>
+                <li><a href="">首页</a></li>
+                <li><a href="">欧美</a></li>
+                <li><a href="">日韩</a></li>
+                <li><a href="">大陆</a></li>
+                <li><a href="">动漫</a></li>
+                <li><a href="">动画</a></li>
+                <li><a href="">下载</a></li>
+                <li><a href="">{{str}}</a></li>
+            </ul>
+        </div>
+    </template>
+
+    <div id="container">
+        <!-- 使用组件 -->
+        <my-nav></my-nav>
+        <my-nav></my-nav>
+    </div>
+
+    <script>
+        // 定义一个名为 my-nav 的新组件
+
+        // 注意：组件 不能 使用 html 原有的标签名 作为组件的名称 
+        //   组件 必须只能有 一个 顶级容器
+        //   局部组件 的名称 不能用 驼峰命名法
+
+        // 全局组件（component-组件定义，my-nav-组件名）
+        Vue.component('my-nav', {
+            // 组件模板
+            template: "#my-nav",
+            data:function(){
+                return {
+                    str: "哈哈哈哈哈哈"
+                }
+            }
+        })
+
+        new Vue({
+            // 绑定容器
+            el: '#container',
+            // 数据
+            data: {
+            }
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>json</title>
+</head>
+<body>
+	<script>
+		// json
+		// json是一种传输数据的格式（以对象为样板，本质上就是对象，但用途有区别，对象就是本地用的，json是用来传输的）
+		// JSON.parse(); string -> json
+		// JSON.stringify(); json -> string
+
+		var obj = {
+			name : "abc",
+			age : 18
+		}
+		
+		// 正常对象属性名是加不加引号都可以的，但是json转换的时候会给属性名加上引号
+		console.log(JSON.stringify(obj));
+	</script>
+</body>
+</html>

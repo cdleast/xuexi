@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue 键盘事件</title>
+	<style>
+		
+	</style>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="vue-app">
+		<h1> 键盘 Events</h1>
+		<hr>
+		
+		<label>姓名:</label>
+		<!-- 只有在输入完之后，触发了enter键之后才会触发事件 -->
+		<input type="text" v-on:keyup.enter="logName">
+
+		<label>年龄:</label>
+		<!-- 只有在输入完之后，触发了enter键之后才会触发事件 -->
+		<input type="text" v-on:keyup.enter="logAge">
+	</div>
+
+
+	<script>
+		// 实例化 vue 对象
+		new Vue({
+			// el: element 需要获取的元素，一定是 html 中的根容器元素
+			el: "#vue-app",
+			// data: 用于数据的存储
+			data: {
+				
+			},
+			// 方法函数都要写在 methods 里面
+			methods:{
+				logName:function(){
+					console.log('您正在输入名字！');
+				},
+				logAge:function(){
+					console.log('您正在输入年龄！');
+				}
+			}
+		});
+	</script>
+</body>
+</html>

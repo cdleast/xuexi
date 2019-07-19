@@ -1,0 +1,15 @@
+h1{
+	font-size: 30px;
+	text-align: center;
+	color: green;
+	line-height: 100px;
+}
+
+ul{
+	list-style: none;
+}
+
+li{
+	margin-top: 10px;
+	color: red;
+}

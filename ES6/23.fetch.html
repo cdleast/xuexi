@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="easyhttp.js"></script>
+    <script>
+        // 实例化对象,接收封装函数
+        const http = new EasyHttp;
+
+        // 请求数据
+        // http.get('http://jsonplaceholder.typicode.com/users')
+        //     .then((data) => {
+        //         console.log(data);
+        //     })
+        //     .catch((error) => {
+        //         console.log(error);
+        //     })
+
+
+        // 定义数据
+        const data = {
+            name: "Henry",
+            username: "米斯特吴",
+            email: "747439590@qq.com"
+        };
+
+        // 传输数据 post user
+        // http.post('http://jsonplaceholder.typicode.com/users', data)
+        //     .then((data) => {
+        //         console.log(data);
+        //     })
+        //     .catch((error) => {
+        //         console.log(error);
+        //     })
+
+
+        // 更新数据 put
+        // http.put('http://jsonplaceholder.typicode.com/users/2', data)
+        //     .then((data) => {
+        //         console.log(data);
+        //     })
+        //     .catch((error) => {
+        //         console.log(error);
+        //     })
+        
+        
+        // 删除数据 delete
+        http.delete('http://jsonplaceholder.typicode.com/users/2', data)
+            .then((data) => {
+                console.log(data);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+
+
+    </script>
+</body>
+
+</html>

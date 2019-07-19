@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绑定事件</title>
+    <script src="./vue.min.js"></script>
+    <style>
+    .bg {
+        background: #09c;
+    }
+
+    .bg1 {
+        background: red;
+    }
+
+    .bg2 {
+        background: yellow;
+    }
+    </style>
+</head>
+
+<body>
+    <!--  
+        v-if    
+        v-show
+            区别：
+                v-if 通过给容器 添加注释的方式 做到容器的显示和隐藏
+                v-show  通过改变 容器 css 的 display 属性 的 node 和 block 来做到容器的显示和隐藏 
+    -->
+    
+    <div id="container">
+        <p :class="'bg1'">今天是vue的第一天</p>
+        <p :class="style">今天是vue的第一天</p>
+        <p :class="{bg:true}">今天是vue的第一天</p>
+        <p :class="{bg:false}">今天是vue的第一天</p>
+        <button @click="isBg=true">添加背景颜色</button>
+        <button @click="isBg=false">取消背景颜色</button>
+        <p :class="{bg:isBg}">今天是vue的第一天</p>
+    </div>
+    <script>
+    new Vue({
+        // 选择容器
+        el: '#container',
+        // 数据
+        data: {
+            style: "bg2",
+            isBg: true,
+        },
+    })
+    </script>
+</body>
+
+</html>

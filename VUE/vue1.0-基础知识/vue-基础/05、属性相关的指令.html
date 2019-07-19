@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>属性相关的指令</title>
+    <script src="./vue.min.js"></script>
+    <style>
+        .fontColor{
+            color: red;
+        }
+        img{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <!-- 绑定属性，v-bind:属性名称="属性的值" -->
+        <p v-bind:title="'hahaha'">我家门前有条小河沟</p>
+        <p v-bind:title="title">我家门前有条小河沟</p>
+        <p v-bind:class="'fontColor'">我家门前有条小河沟</p>
+
+        <img v-bind:src="imgurl" alt="">
+        <!-- 简写 -->
+        <img :src="imgurl" alt="">
+    </div>
+
+    <script>
+        new Vue({
+            el:'#container',
+            data:{
+                title:'我现在可以一只脚，跳过小河沟',
+                imgurl:'./images/1.jpeg'
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+@import 'main';
+
+$theme-color: #202020;
+$w: 8px;
+
+// 定义函数
+@function px2rem($px) {
+  @return $px / 100 + rem;
+}
+
+// 定义混用
+@mixin listStyleReset {
+  list-style: none;
+  color: red;
+}
+
+ul {
+  @include listStyleReset(); //引入混用的代码。
+  width: px2rem(200);
+}
+
+ol {
+  @include listStyleReset();
+}
+
+// 定义带参数的混用
+@mixin border-x($color, $width, $style) {
+  border: $width $style $color;
+}
+
+.box {
+  color: $theme-color * 2;
+  height: $w / 2;
+  @include border-x(red, 3px, solid);
+}
+
+.h {
+  @if $w > 10px {
+    width: $w;
+  } @else if $w > 7 {
+    width: 2 * $w;
+  } @else {
+    width: 3 * $w;  
+  }
+}
+
+// @for循环  to只包括开始，不包括结束。 through包括开始和结束边界。
+@for $i from 1 to 3 {
+  .item-#{$i} {
+    width: $w;
+  }
+}
+
+@each $animal in puma, sea-slug, egret, salamander {
+  .#{$animal}-icon {
+    background-image: url('/images/#{$animal}.png');
+  }
+}
+
+

@@ -1,0 +1,33 @@
+<% include header %>
+	<div class="container">
+		<ol class="breadcrumb">
+            <li><a href="#">学员管理</a></li>
+            <li class="active">添加课程</li>
+        </ol>
+		<div class="row">
+			<div class="col-md-4 col-sm-3"></div>
+			<div class="col-md-4 col-sm-6">
+				<form action="/kcInsert" class="addUser-form" method="post">
+					<ul>
+						<li>
+							<div class="input-group">
+								<span class="input-group-addon">名称：</span>
+								<input type="text" class="form-control" name="name">
+							</div>
+						</li>
+						<li>
+							<div class="input-group">
+								<span class="input-group-addon">介绍：</span>
+								<input type="text" class="form-control" name="info">
+							</div>
+						</li>
+						<li>
+							<input type="submit">
+						</li>
+					</ul>
+				</form>
+			</div>
+			<div class="col-md-4 col-sm-3"></div>
+		</div>
+	</div>
+<% include footer %>

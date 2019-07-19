@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绑定事件</title>
+    <script src="./vue.min.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <!-- 正常点击事件 -->
+        <button onclick="test1()">按钮1</button>
+
+        <!-- vue 绑定事件 v-on 用来绑定事件 -->
+        <button v-on:click="test2()">按钮2</button>
+        <button v-on:click="test3()">按钮3</button>
+
+        <!-- v-on 简写模式 -->
+        <button @click="test4()">按钮4</button>
+
+        <!-- 绑定键盘事件 -->
+        <input type="text" @keydown="mykeydown(event)">
+
+        <!-- 简写 -->
+        <input type="text" @keydown.38="up()" @keydown.32="kong()">
+    </div>
+
+    <script>
+        // 正常事件函数
+        function test1() {
+            console.log('hahahha');
+        }
+
+        new Vue({
+            // 选择容器
+            el: '#container',
+            // 数据
+            data: {
+                title:'我现在可以一只脚，跳过小河沟',
+                imgurl:'./images/1.jpeg'
+            },
+            // 放方法
+            methods: {
+                test2: function () {
+                    console.log('abc');
+                },
+                test3: function () {
+                    // 这里的this都指向vue(#container)，所以可以直接拿
+                    console.log(this.title);
+                },
+                test4: function() {
+                    console.log(this.title);
+                },
+                mykeydown:function(e){
+                    // console.log(e.keyCode);
+                    switch(e.keyCode){
+                        case 38: 
+                            console.log('向上');
+                        break;
+                        case 40: 
+                            console.log('向下');
+                        break;
+                        case 37: 
+                            console.log('向左');
+                        break;
+                        case 39: 
+                            console.log('向右');
+                        break;
+                    }
+                },
+                up:function(){
+                    console.log('请向上走一步');
+                },
+                kong:function(){
+                    console.log('您按下了空格');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

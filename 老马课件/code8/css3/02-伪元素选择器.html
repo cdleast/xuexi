@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>伪元素</title>
+  <style>
+    /* 段落中的第一个字符 */
+    p::first-letter {
+      font-size:40px;
+    }
+
+    /* 第一行 */
+    p::first-line {
+      color: magenta;
+    }
+
+    /* 伪类兼容老的浏览器的话，可以继续使用单个冒号 */
+    p:before {
+      /* content: '你好啊，伪元素！';
+      display: block;
+      border: 1px solid #ccc;
+      height: 30px; */
+    }
+
+    /* 设置选中的文本的样式 */
+    p::selection {
+      background-color: lightcoral;
+      /* font-size: 30px; */
+      color: red;
+    }
+
+    /* 伪类 */
+    p:target {
+      background-color: mediumblue;
+    }
+  </style>
+</head>
+<body>
+  <a href="#txt1">段落</a>
+  <a href="#txt2">段落</a>
+  <a href="#txt3">段落</a>
+  <a href="#txt4">段落</a>
+  <p id="txt1">
+    你好啊，老马的Q：515154084 <br >
+    老马的腾讯课堂： http://qtxh.ke.qq.com  <br>
+
+    老马的传课地址：https://chuanke.baidu.com/s5508922.html
+  </p>
+  <p id="txt2">
+    你好啊，老马的Q：515154084 <br >
+    老马的腾讯课堂： http://qtxh.ke.qq.com  <br>
+
+    老马的传课地址：https://chuanke.baidu.com/s5508922.html
+  </p>
+  <p id="txt3">
+    你好啊，老马的Q：515154084 <br >
+    老马的腾讯课堂： http://qtxh.ke.qq.com  <br>
+
+    老马的传课地址：https://chuanke.baidu.com/s5508922.html
+  </p>
+  <p id="txt4">
+    你好啊，老马的Q：515154084 <br >
+    老马的腾讯课堂： http://qtxh.ke.qq.com  <br>
+
+    老马的传课地址：https://chuanke.baidu.com/s5508922.html
+  </p>
+  <p id="txt4">
+    你好啊，老马的Q：515154084 <br >
+    老马的腾讯课堂： http://qtxh.ke.qq.com  <br>
+
+    老马的传课地址：https://chuanke.baidu.com/s5508922.html
+  </p>
+  <p id="txt4">
+    你好啊，老马的Q：515154084 <br >
+    老马的腾讯课堂： http://qtxh.ke.qq.com  <br>
+
+    老马的传课地址：https://chuanke.baidu.com/s5508922.html
+  </p>
+  <p id="txt4">
+    你好啊，老马的Q：515154084 <br >
+    老马的腾讯课堂： http://qtxh.ke.qq.com  <br>
+
+    老马的传课地址：https://chuanke.baidu.com/s5508922.html
+  </p>
+  <p id="txt4">
+    你好啊，老马的Q：515154084 <br >
+    老马的腾讯课堂： http://qtxh.ke.qq.com  <br>
+
+    老马的传课地址：https://chuanke.baidu.com/s5508922.html
+  </p>
+  <p id="txt4">
+    你好啊，老马的Q：515154084 <br >
+    老马的腾讯课堂： http://qtxh.ke.qq.com  <br>
+
+    老马的传课地址：https://chuanke.baidu.com/s5508922.html
+  </p>
+</body>
+</html>

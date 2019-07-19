@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>缓动效果</title>
+	<style>
+		.container{
+            position: relative;
+            width:100%;
+            height:300px;
+            border:1px solid red;
+        }
+        .block{
+            position: absolute;
+            left:0;
+            top:0;
+            width:40px;
+            height: 40px;
+            background-color:green;
+        }
+	</style>
+	<script src="../daimaku/tools.js"></script>
+</head>
+<body>
+	<div class="container">
+        <div class="block"></div>
+    </div>
+    <button class="move">开始运动</button>
+
+	<script>
+		var container = document.querySelector('.container');
+		var block = document.querySelector('.block');
+		var move = document.querySelector('.move');
+
+		// 假设需要将block移动到left值为700的位置
+		var target = 700;
+
+		move.onclick = function(){
+			var timer = setInterval(function(){
+				// 获取block当前left的值(调用getStyle函数)
+				var currentLeft = parseInt(getStyle(block,'left'));
+
+				// 设定一个速度值
+				var speed = Math.floor((target - currentLeft) / 6);
+				currentLeft += speed;
+
+				// 判断如果当前的值大于目标值，则将当前值设为目标值
+				if (currentLeft >= 700) {
+					block.style.left = target;
+					clearInterval(timer);
+				}else {
+					block.style.left = currentLeft + 'px';
+				}
+
+			},30);
+		}
+	</script>
+</body>
+</html>

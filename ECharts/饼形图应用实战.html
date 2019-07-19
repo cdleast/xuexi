@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 1.引入 echarts.js -->
+    <script src="echarts.min.js"></script>
+    <!-- 引入echarts主题 -->
+    <script src="dark.js"></script>
+</head>
+
+<body>
+    <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+    <div id="main" style="width: 1200px;height:600px;margin: 0 auto;"></div>
+
+    <script>
+        var container = document.getElementById('main');
+        // 2.基于准备好的dom，初始化echarts实例
+        // container(dom容器),dark(主题)
+        var myChart = echarts.init(container, 'dark');
+
+        // 3.指定图表的配置项和数据
+        var option = {
+            // 标题组件
+            title: {
+                text: '上半年销售情况图', // 主标题文本
+                subtext: '饼形图基本使用', // 副标题文本
+                x: 'center', // 标题位置
+            },
+            // 提示框组件
+            tooltip: {
+                 // 触发类型
+                trigger: 'item',
+                // 悬停时显示的格式
+                formatter: "{a} <br/>{b} : {c}万元({d}%)"
+            },
+            // 图例组件
+            legend: {
+                orient: 'vertical', // 图例的显示方式,垂直
+                left: 'left', // 图例位置
+                // 图例的数据数组-和数据项series里name的要一致
+                data: ['彩电', '冰箱', '空调',]
+            },
+            // 数据源相关组件
+            series: [
+                {
+                    name: '销售额', // 悬停时提示名
+                    type: 'pie', // 类型
+                    radius: '55%', // 饼形图的大小
+                    center: ['50%', '60%'], // 饼形图的位置
+                    data: [
+                        // 根据value来计算百分比
+                        { value: 335, name: '彩电' },
+                        { value: 310, name: '冰箱' },
+                        { value: 234, name: '空调' },
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+
+        // 4.使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>

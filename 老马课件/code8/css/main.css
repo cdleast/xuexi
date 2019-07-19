@@ -1,0 +1,31 @@
+.box {
+  width: 180px;
+  background-color: #09c;
+  border-top: 1px solid #ccc;
+}
+
+.h {
+  font-size: 20px;
+  height: 14px;
+  color: #09c;
+}
+
+.h .m {
+  width: 10px;
+}
+
+.h .m .n {
+  height: 20px;
+}
+
+.h:hover {
+  background-color: red;
+}
+
+.h::before {
+  content: '';
+  display: block;
+  width: 10px;
+  color: #09c;
+}
+/*# sourceMappingURL=main.css.map */

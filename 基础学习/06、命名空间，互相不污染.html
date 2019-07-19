@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// 变量name互相不影响
+		// var initChen = (function(){
+		// 	var name = 123;
+		// 	function callName(){
+		// 		console.log(name);
+		// 	}
+		// 	return function(){
+		// 		callName();
+		// 	}
+		// }())
+		// initChen();
+		// var initDeng = (function(){
+		// 	var name = 123;
+		// 	function callName(){
+		// 		console.log(name);
+		// 	}
+		// 	return function(){
+		// 		callName();
+		// 	}
+		// }())
+		// initDeng();
+
+		// 连续调用的小方法
+		// var deng = {
+		// 	smoke : function(){
+		// 		console.log("abc");
+		// 		return this;
+		// 	},
+		// 	drink : function(){
+		// 		console.log("bcd");
+		// 		return this;
+		// 	},
+		// 	perm : function(){
+		// 		console.log("qwe");
+		// 		return this;
+		// 	}
+		// }
+		// console.log(deng.smoke().drink().perm());
+
+
+		var deng = {
+			wife1 : {name:"xiaoliu"},
+			wife2 : {name:"xiaozhang"},
+			wife3 : {name:"xiaowang"},
+			wife4 : {name:"xiaosi"},
+			sayWife : function(num){
+				return this["wife" + num];
+			}
+		}
+		console.log(deng.sayWife(1));
+
+
+
+
+	</script>
+</body>
+</html>

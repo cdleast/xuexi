@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>一个简单的异步请求示例</title>
+    <meta charset="UTF-8">
+
+    <script type="text/javascript">
+    var xmlHttpObject;
+
+    // 1. 创建对象实例并初始化对象
+    function createXMLHttpRequest() {
+        if (window.ActiveXObject) {
+            xmlHttpObject = new ActiveXObject("Microsoft.XMLHTTP");
+        } else if (window.XMLHttpRequest) {
+            xmlHttpObject = new XMLHttpRequest();
+        }
+    }
+
+    function startRequest() {
+        createXMLHttpRequest();
+        xmlHttpObject.onreadystatechange = handleStateChange;
+        xmlHttpObject.open("GET", "./simpleResponse.txt", true);
+        xmlHttpObject.send(null);
+    }
+
+    // 4. 处理服务器返回的信息
+    function handleStateChange() {
+        if (xmlHttpObject.readyState == 4) {
+            if (xmlHttpObject.status == 200) {
+                alert("服务器响应为:" + xmlHttpObject.responseText);
+            }
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <form action="#">
+        <input type="button" value="发送异步请求" onClick="startRequest();" />
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>audio标签的使用</title>
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        $(function () {
+            // 把jq对象转换成js对象
+            var audio = $('#audio').get(0);
+            $('#play').click(function () {
+                // 判断audio的状态为暂停paused
+                if (audio.paused) {
+                    audio.play();
+                    $('#play').val('暂停');
+                } else {
+                    audio.pause();
+                    $('#play').val('播放');
+                }
+            })
+
+            // 当元素的currentTime(播放时间)发生改变时会触发该事件
+            $('#audio').on('timeupdate', function () {
+                // 播放时间-总时间
+                // console.log(this.currentTime + '/' + this.duration);
+
+                // 缓冲时间
+                var tRanges = this.buffered;
+                var endTime = tRanges.end(tRanges.length - 1);
+                // console.log(endTime + '/' + this.duration);
+            })
+
+            // 当一首歌播放完成,自动触发该事件
+            $('#audio').on('ended', function (){
+                console.log('end');
+            })
+            
+        })
+    </script>
+</head>
+
+<body>
+    <!-- controls - 如果设置了该属性，浏览器将提供一个包含声音，播放进度，播放暂停的控制面板，让用户可以控制音频的播放 -->
+    <audio id="audio" src="http://music.163.com/song/media/outer/url?id=483671599.mp3" controls></audio>
+    <br>
+    <input type="button" value="播放" id="play">
+    <!-- <input type="button" value="暂停" id="pause"> -->
+</body>
+
+</html>

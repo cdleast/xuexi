@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数据双向绑定</title>
+    <script src="./vue.min.js"></script>
+</head>
+<body>
+    <div id="container">
+        <input type="text" v-model="message">
+        <h3>{{message}}</h3>
+        <p>{{message}}</p>
+        <hr>
+
+        单价：<input type="text" v-model="prc">
+        数量：<input type="text" v-model="num">
+        <br>
+        总价：<span>{{prc*num}}</span>
+    </div>    
+    <script>
+        // 实例化对象
+        new Vue({
+            // 选择容器
+            el:'#container',
+            // 数据
+            data:{
+                message:'hello',
+                prc:4.8,
+                num:2
+            }
+        })
+    </script>
+</body>
+</html>

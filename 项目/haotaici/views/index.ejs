@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>好台词-前台首页</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <!-- 管理员的页面的样式-->
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+    <!-- 导航开始 -->
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                        aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">好台词</a>
+                    <a class="navbar-brand" href="/admin">网站后台</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <% for(var i =0;i<items.length;i++){ %>
+                        <li>
+                            <a href="">
+                                <%= items[i].name %>
+                            </a>
+                        </li>
+                        <% } %>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+    </div>
+    <!-- 导航结束 -->
+    <!-- 轮播图 -->
+    <div class="container" id="play">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="/images/1.jpg" alt="...">
+                    <div class="carousel-caption">
+                        第一张图片
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="/images/2.jpg" alt="...">
+                    <div class="carousel-caption">
+                        第二张图片
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="/images/3.jpg" alt="...">
+                    <div class="carousel-caption">
+                        第三张图片
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="/images/4.jpg" alt="...">
+                    <div class="carousel-caption">
+                        第四张图片
+                    </div>
+                </div>
+            </div>
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <!-- 轮播图 end -->
+    <div class="container">
+        <div class="row">
+            <!-- 遍历所有的栏目 -->
+            <% for(var i = 0;i<items.length;i++) { %>
+            <div class="col-md-4">
+                <div class="list-group">
+                    <a href="#" class="list-group-item active">
+                        <%= items[i].name %>
+                    </a>
+                    <!-- 遍历栏目文章 -->
+                    <% for(var i = 0;i<items[i].articles.length;i++) { %>
+                    <a href="" class="list-group-item">
+                        <%= items[i].articles[i].title %>
+                    </a>
+                    <% } %>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+    <!-- 友情链接 -->
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">友情链接</div>
+            <div class="panel-body">
+                <a href="">百度</a>
+                <a href="">百度</a>
+                <a href="">百度</a>
+                <a href="">百度</a>
+                <a href="">百度</a>
+                <a href="">百度</a>
+            </div>
+        </div>
+    </div>
+    <!-- 友情链接 end -->
+    <!-- Javascript -->
+    <script src="/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

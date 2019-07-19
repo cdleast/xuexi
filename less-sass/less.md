@@ -1,0 +1,152 @@
+# less 预处理 css
+
+### less基础语法-注释
+我是注释		用这个符号注释的 不和编译到css里面
+`/* */` 	我也是注释 
+
+### 变量
+```
+@width:960px;
+.box{
+	width:@width;
+}
+```
+
+### 嵌套
+```
+.top{
+	width: 100%;
+	height: 50px;
+	background: #333;
+	ul{
+		width: 960px;
+		height: 50px;
+		margin: 0 auto;
+		li{
+			float: left;
+			width: 20%;
+			a{
+				color: #fff;
+				display: block;
+				padding: 0 20px;
+				line-height: 50px;
+				text-align: center;
+				&:hover{
+					/* &表示自己 */
+					color: red;
+					background: yellow;
+				}
+			}
+		}
+	}
+}
+```
+
+### 运算
+```
+/* 运算 */
+@boxWidth:200px;
+.box1{
+	width: @boxWidth;
+	height: 50px;
+	background: red;
+}
+.box2{
+	/* 让box2的宽度永远是box1的两倍 */
+	width: @boxWidth*2;
+	height: 50px;
+	background: green;
+}
+```
+
+### 混合
+```
+/* 混合 */
+.title1{
+	width: 100%;
+	height: 50px;
+	border: 1px solid green;
+	background: pink;
+}
+.title2{
+	color: red;
+	/* 让 .title2 使用 .title1 的样式*/
+	.title1;
+}
+```
+
+### 带参数的混合
+```
+.borderStyle(@borderWidth:1px,@borderColor:#333){
+	/* 冒号后面的属性是默认的属性 */
+	border-radius: 10px;
+	border: @borderWidth solid @borderColor;
+}
+.div1{
+	width: 100%;
+	height:100px;
+	.borderStyle(10px,red);
+}
+.div2{
+	width: 100%;
+	height:100px;
+	.borderStyle(5px,green);
+}
+.div3{
+	width: 100%;
+	height:100px;
+	/* 使用默认值 */
+	.borderStyle();
+	/* 如果只想改一个，前面的也要写上 */
+	.borderStyle(1px,red);
+}
+```
+
+### 匹配
+```
+/* 公用的样式 @_ 表示有 btn 的都加载，可以带参数 */
+.btn(@_@color){
+	border: 1px solid red;
+	border-radius: 10px;
+	background: #333;
+	color: #fff;
+	display: inline-block;
+}
+.btn(xs,@color){
+	padding: 3px 10px;
+	font-size: 18px;
+	color: @color;
+}
+.btn(md,@color){
+	padding: 5px 18px;
+	font-size: 22px;
+	color: @color;
+}
+.btn(max,@color){
+	padding: 10px 20px;
+	font-size: 28px;
+	color: @color;
+}
+.mybtn1{
+	.btn(xs,red);
+}
+.mybtn2{
+	.btn(md,green);
+}
+.mybtn3{
+	.btn(max,yellow);
+}
+.box3{
+	/* 避免编译 */
+	width: ~'200px + 200px';
+	height: 50px;
+	background: red;
+}
+```
+
+
+
+
+
+
+
